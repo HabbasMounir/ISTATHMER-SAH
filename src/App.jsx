@@ -4,6 +4,11 @@ import { FaChartLine, FaBook, FaTools, FaChevronDown,FaBars, FaGlobe, FaUsers, F
 import { useEffect, useRef, useState } from 'react';
 import { Navbar } from "./components/navBar";
 import HeroSection from "./components/hero";
+import {FeaturesSectionCreative } from "./components/features";
+import ArticleSection from "./components/articles";
+import TestimonialsSection from "./components/testimonials";
+import FAQSection from "./components/faq";
+import { Footer } from "./components/footer";
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
 //   return (
@@ -41,99 +46,10 @@ import HeroSection from "./components/hero";
 
 
 
-function FeaturesSection() {
-  const features = [
-    {
-      icon: <FaBook className="text-blue-600 text-5xl mx-auto mb-4" />,
-      title: "Financial Education",
-      description: "Access articles and courses on investment and money management."
-    },
-    {
-      icon: <FaTools className="text-blue-600 text-5xl mx-auto mb-4" />,
-      title: "Interactive Tools",
-      description: "Use investment calculators, portfolio trackers, and risk assessment tools."
-    },
-    {
-      icon: <FaChartLine className="text-blue-600 text-5xl mx-auto mb-4" />,
-      title: "Market Insights",
-      description: "Stay updated on financial trends and investment opportunities."
-    }
-  ];
 
-  return (
-    <section className="py-16 px-8 grid md:grid-cols-3 gap-8">
-      {features.map((feature, index) => (
-        <Card key={index} className="shadow-lg hover:shadow-xl transition duration-300">
-          <CardContent className="text-center p-6">
-            {feature.icon}
-            <h3 className="text-xl font-semibold">{feature.title}</h3>
-            <p className="text-gray-600">{feature.description}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </section>
-  );
-}
 
-function TestimonialsSection() {
-  const testimonials = [
-    "This platform changed my financial life!",
-    "I learned how to invest wisely thanks to this website."
-  ];
 
-  return (
-    <section className="py-16 bg-gray-200 text-center">
-      <h2 className="text-3xl font-bold mb-6">What Our Users Say</h2>
-      <div className="grid md:grid-cols-2 gap-8 px-8">
-        {testimonials.map((testimonial, index) => (
-          <Card key={index} className="shadow-lg p-6">
-            <CardContent className="text-gray-600">"{testimonial}"</CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-}
 
-function FAQSection() {
-  const faqs = [
-    { 
-      question: "How can I start investing?", 
-      answer: "Start by learning about different investment types and setting financial goals." 
-    },
-    { 
-      question: "Is this platform free?", 
-      answer: "Yes, most of our educational content and tools are free to use." 
-    }
-  ];
-
-  return (
-    <section className="py-16 px-8">
-      <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
-      <div className="max-w-3xl mx-auto">
-        {faqs.map((faq, index) => (
-          <div key={index} className="mb-4 border-b pb-4">
-            <h3 className="text-lg font-semibold cursor-pointer">{faq.question}</h3>
-            <p className="text-gray-600 mt-2">{faq.answer}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-gray-800 text-white text-center py-6">
-      <p>&copy; 2025 ISTATHMER SAH. All rights reserved.</p>
-      <div className="flex justify-center gap-4 mt-2">
-        {["Home", "Articles", "Courses", "Contact"].map((link) => (
-          <a key={link} href="#" className="hover:underline">{link}</a>
-        ))}
-      </div>
-    </footer>
-  );
-}
 
 export default function Home() {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
@@ -151,7 +67,11 @@ export default function Home() {
         setLanguage={setLanguage}
       />
       <HeroSection />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
+      {/* <FeaturesSectionModern /> */}
+      {/* <FeaturesSectionLight /> */}
+      <FeaturesSectionCreative />
+      <ArticleSection />
       <TestimonialsSection />
       <FAQSection />
       <Footer />

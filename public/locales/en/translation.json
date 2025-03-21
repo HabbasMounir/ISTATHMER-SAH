@@ -28,6 +28,41 @@
     "languages": {
       "en": "English",
       "ar": "العربية"
+    },
+  
+    "features": {
+      "title": "Powerful Features for Smart Investing",
+      "education": {
+        "title": "Financial Education",
+        "description": "Access articles and courses on investment and money management."
+      },
+      "tools": {
+        "title": "Interactive Tools",
+        "description": "Use investment calculators, portfolio trackers, and risk assessment tools."
+      },
+      "insights": {
+        "title": "Market Insights",
+        "description": "Stay updated on financial trends and investment opportunities."
+      }
+    },
+    "testimonials":{
+      "title": " Customer Testimonials"
+
+    },"faq": {
+      "title": "Common Questions"
+    },
+    "footer":{
+    
+      "tagline": "Empowering financial futures through innovative solutions",
+      "quick_links": "Quick Links",
+      "tools_resources": "Tools & Resources",
+      "newsletter": "Stay Updated",
+      "newsletter_text": "Subscribe to our newsletter for latest updates",
+      "email_placeholder": "Enter your email",
+      "rights_reserved": "All rights reserved",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact Us"
     }
   }
   
