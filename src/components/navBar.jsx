@@ -1,12 +1,12 @@
-
-
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope } from 'react-icons/fa';
 
-function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage, isLightBackground }) {
+function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, isLightBackground }) {
+  const { t, i18n } = useTranslation();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('Home');
+  const [activeTab, setActiveTab] = useState('home');
   const toolsRef = useRef(null);
   const langRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -34,34 +34,37 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isToolsOpen, isLanguageOpen, isMobileOpen]);
 
-  // Navbar background - white for mobile, dynamic for desktop
+  // Navbar background
   const navBackground = isScrolled 
-    ? ' bg-white ' 
+       ? ' bg-white ' 
     : isLightBackground 
       ? 'bg-white/80  backdrop-blur-md' 
       : 'backdrop-blur-md';
 
   // Menu items data
   const menuItems = [
-    { name: "Home", icon: <FaHome className="text-blue-500" /> },
-    { name: "Articles", icon: <FaBook className="text-purple-500" /> },
-    { name: "Courses", icon: <FaGraduationCap className="text-green-500" />, badge: "New" },
-    { name: "About", icon: <FaInfo className="text-amber-500" /> },
-    { name: "Contact", icon: <FaEnvelope className="text-pink-500" /> }
+    { key: 'home', icon: <FaHome className="text-blue-500" /> },
+    { key: 'articles', icon: <FaBook className="text-purple-500" /> },
+    { key: 'courses', icon: <FaGraduationCap className="text-green-500" />, badge: true },
+    { key: 'about', icon: <FaInfo className="text-amber-500" /> },
+    { key: 'contact', icon: <FaEnvelope className="text-pink-500" /> }
   ];
 
   // Tools dropdown data
   const toolItems = [
-    { name: "Investment Calculator", icon: <FaChartLine className="text-purple-600" />, description: "Plan your financial future" },
-    { name: "Budget Tracker", icon: <FaWallet className="text-green-600" />, description: "Manage your expenses" },
-    { name: "Goal Setting", icon: <FaRocket className="text-blue-600" />, description: "Track your progress" }
+    { key: 'investment', icon: <FaChartLine className="text-purple-600" /> },
+    { key: 'budget', icon: <FaWallet className="text-green-600" /> },
+    { key: 'goal', icon: <FaRocket className="text-blue-600" /> }
   ];
 
-  // Language options
-  const languages = ["English", "Arabic", "French", "German", "Spanish"];
+  // Supported languages
+  const supportedLangs = ['en', 'ar'];
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300   md:${navBackground}`}>
+    <nav 
+      className={`fixed w-full top-0 z-50 transition-all duration-300  md:${navBackground}`}
+      dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+    >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -69,27 +72,27 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
             <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span>
           </div>
           <h1 className={`text-2xl font-bold ${textColor}`}>
-            ISTATHMER SAH
+            {t('navbar.brand')}
           </h1>
         </div>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center space-x-6">
           {menuItems.map((item) => (
-            <li key={item.name} className="relative">
+            <li key={item.key} className="relative">
               <button 
-                onClick={() => setActiveTab(item.name)}
+                onClick={() => setActiveTab(item.key)}
                 className={`flex items-center py-2 px-3 transition-all duration-300 relative group
-                  ${activeTab === item.name ? activeColor : textColor} 
+                  ${activeTab === item.key ? activeColor : textColor} 
                   ${hoverColor}
                   after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px]
                   after:bg-current after:transition-all after:duration-300
-                  ${activeTab === item.name ? 'after:w-full' : 'hover:after:w-full'}`}
+                  ${activeTab === item.key ? 'after:w-full' : 'hover:after:w-full'}`}
               >
-                <span className="relative z-10">{item.name}</span>
+                <span className="relative z-10">{t(`navbar.${item.key}`)}</span>
                 {item.badge && (
-                  <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                    {item.badge}
+                  <span className="mx-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                    {t('navbar.new_badge')}
                   </span>
                 )}
               </button>
@@ -106,22 +109,26 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                 after:bg-current after:transition-all after:duration-300
                 ${isToolsOpen ? 'after:w-full' : 'hover:after:w-full'}`}
             >
-              <span className="relative z-10">Tools</span>
-              <FaChevronDown className={`ml-2 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`}/>
+              <span className="relative z-10">{t('navbar.tools')}</span>
+              <FaChevronDown className={`mx-2 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`}/>
             </button>
             
             {isToolsOpen && (
               <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl p-2 space-y-2">
                 {toolItems.map((tool) => (
                   <a 
-                    key={tool.name} 
+                    key={tool.key} 
                     href="#" 
                     className="flex items-start p-3 rounded-lg group transition-colors duration-300 hover:bg-gray-50"
                   >
                     <div className="text-purple-600">{tool.icon}</div>
                     <div className="ml-3">
-                      <p className="font-medium text-gray-900">{tool.name}</p>
-                      <p className="text-sm text-gray-500">{tool.description}</p>
+                      <p className="font-medium text-gray-900">
+                        {t(`navbar.toolsList.${tool.key}.title`)}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {t(`navbar.toolsList.${tool.key}.description`)}
+                      </p>
                     </div>
                   </a>
                 ))}
@@ -139,24 +146,24 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                 after:bg-current after:transition-all after:duration-300
                 ${isLanguageOpen ? 'after:w-full' : 'hover:after:w-full'}`}
             >
-              <FaGlobe className="mr-2"/>
-              <span>{language}</span>
-              <FaChevronDown className={`ml-2 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`}/>
+              <FaGlobe className="mx-1"/>
+              <span>{t(`languages.${i18n.language}`)}</span>
+              <FaChevronDown className={`mx-2 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`}/>
             </button>
 
             {isLanguageOpen && (
               <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-xl p-2">
-                {languages.map((lang) => (
+                {supportedLangs.map((lang) => (
                   <button
                     key={lang}
                     onClick={() => {
-                      setLanguage(lang);
+                      i18n.changeLanguage(lang);
                       setIsLanguageOpen(false);
                     }}
                     className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-300
-                      ${language === lang ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'}`}
+                      ${i18n.language === lang ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50'}`}
                   >
-                    {lang}
+                    {t(`languages.${lang}`)}
                   </button>
                 ))}
               </div>
@@ -176,15 +183,15 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
           )}
         </button>
 
-        {/* Mobile Menu with Blurred Backdrop */}
+        {/* Mobile Menu */}
         {isMobileOpen && (
           <div 
             ref={mobileMenuRef}
-            className="md:hidden fixed inset-0  bg-black/20 backdrop-blur-sm z-40"
+            className="md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
             onClick={() => setIsMobileOpen(false)}
           >
             <div 
-              className="absolute right-0 top-0 h-full w-80  bg-white shadow-xl transform transition-transform duration-300"
+              className={`absolute ${i18n.language === 'ar' ? 'left-0' : 'right-0'} top-0 h-full w-80 bg-white shadow-xl`}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile Header */}
@@ -193,7 +200,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                   <div className="w-8 h-8 bg-blue-900 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-xl">IS</span>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">ISTATHMER SAH</h2>
+                  <h2 className="text-xl font-bold text-gray-900">{t('navbar.brand')}</h2>
                 </div>
                 <button 
                   onClick={() => setIsMobileOpen(false)}
@@ -209,22 +216,22 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                 <div className="space-y-1">
                   {menuItems.map((item) => (
                     <button
-                      key={item.name}
+                      key={item.key}
                       onClick={() => {
-                        setActiveTab(item.name);
+                        setActiveTab(item.key);
                         setIsMobileOpen(false);
                       }}
                       className={`w-full flex items-center p-3 rounded-lg text-left ${
-                        activeTab === item.name 
+                        activeTab === item.key 
                           ? 'bg-blue-50 text-blue-600' 
                           : 'text-gray-700 hover:bg-gray-50'
                       } transition-colors duration-200`}
                     >
-                      <span className="mr-3">{item.icon}</span>
-                      <span className="flex-1">{item.name}</span>
+                      <span className="mx-2">{item.icon}</span>
+                      <span className="flex-1">{t(`navbar.${item.key}`)}</span>
                       {item.badge && (
-                        <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                          {item.badge}
+                        <span className="mx-1 px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                          {t('navbar.new_badge')}
                         </span>
                       )}
                     </button>
@@ -233,18 +240,22 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
 
                 {/* Tools Section */}
                 <div className="mt-6 pt-6 border-t border-gray-100">
-                  <h3 className="text-sm font-semibold text-gray-500 mb-3">Tools</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 mb-3">{t('navbar.tools_title')}</h3>
                   <div className="space-y-2">
                     {toolItems.map((tool) => (
                       <a
-                        key={tool.name}
+                        key={tool.key}
                         href="#"
                         className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                       >
                         {tool.icon}
-                        <div className="ml-3">
-                          <p className="text-gray-900 font-medium">{tool.name}</p>
-                          <p className="text-sm text-gray-500">{tool.description}</p>
+                        <div className="mx-3">
+                          <p className="text-gray-900 font-medium">
+                            {t(`navbar.toolsList.${tool.key}.title`)}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {t(`navbar.toolsList.${tool.key}.description`)}
+                          </p>
                         </div>
                       </a>
                     ))}
@@ -253,22 +264,22 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
 
                 {/* Language Selector */}
                 <div className="mt-6 pt-6 border-t border-gray-100">
-                  <h3 className="text-sm font-semibold text-gray-500 mb-3">Language</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 mb-3">{t('navbar.language_title')}</h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {languages.map((lang) => (
+                    {supportedLangs.map((lang) => (
                       <button
                         key={lang}
                         onClick={() => {
-                          setLanguage(lang);
+                          i18n.changeLanguage(lang);
                           setIsMobileOpen(false);
                         }}
                         className={`p-2 rounded-lg text-sm ${
-                          language === lang 
+                          i18n.language === lang 
                             ? 'bg-blue-600 text-white' 
                             : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                         } transition-colors duration-200`}
                       >
-                        {lang}
+                        {t(`languages.${lang}`)}
                       </button>
                     ))}
                   </div>

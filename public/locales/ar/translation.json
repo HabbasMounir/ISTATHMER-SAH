@@ -1,0 +1,33 @@
+
+{
+  "navbar": {
+    "brand": "استثمر صح",
+    "home": "الرئيسية",
+    "articles": "المقالات",
+    "courses": "الدورات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "tools": "الأدوات",
+    "new_badge": "جديد",
+    "tools_title": "الأدوات",
+    "language_title": "اللغة",
+    "toolsList": {
+      "investment": {
+        "title": "حاسبة الاستثمار",
+        "description": "خطط لمستقبلك المالي"
+      },
+      "budget": {
+        "title": "تتبع الميزانية",
+        "description": "إدارة مصاريفك"
+      },
+      "goal": {
+        "title": "تحديد الأهداف",
+        "description": "تابع تقدمك"
+      }
+    }
+  },
+  "languages": {
+    "en": "الإنجليزية",
+    "ar": "العربية"
+  }
+}

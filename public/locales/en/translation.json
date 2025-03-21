@@ -1,0 +1,33 @@
+{
+    "navbar": {
+      "brand": "ISTATHMER SAH",
+      "home": "Home",
+      "articles": "Articles",
+      "courses": "Courses",
+      "about": "About",
+      "contact": "Contact",
+      "tools": "Tools",
+      "new_badge": "New",
+      "tools_title": "Tools",
+      "language_title": "Language",
+      "toolsList": {
+        "investment": {
+          "title": "Investment Calculator",
+          "description": "Plan your financial future"
+        },
+        "budget": {
+          "title": "Budget Tracker",
+          "description": "Manage your expenses"
+        },
+        "goal": {
+          "title": "Goal Setting",
+          "description": "Track your progress"
+        }
+      }
+    },
+    "languages": {
+      "en": "English",
+      "ar": "العربية"
+    }
+  }
+  
