@@ -114,15 +114,18 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
             </button>
             
             {isToolsOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl p-2 space-y-2">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl p-2 space-y-2"
+              style={{ transform:  'translateX(-15%)'}}>
+
+              
                 {toolItems.map((tool) => (
                   <a 
                     key={tool.key} 
                     href="#" 
                     className="flex items-start p-3 rounded-lg group transition-colors duration-300 hover:bg-gray-50"
                   >
-                    <div className="text-purple-600">{tool.icon}</div>
-                    <div className="ml-3">
+                    <div className="text-purple-600 my-auto">{tool.icon}</div>
+                    <div className="mx-3">
                       <p className="font-medium text-gray-900">
                         {t(`navbar.toolsList.${tool.key}.title`)}
                       </p>
@@ -152,7 +155,10 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
             </button>
 
             {isLanguageOpen && (
-              <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-xl p-2">
+              <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-xl p-2"
+                style={{ transform: i18n.language === 'ar' ? 'translateX(15%)' : '' }}>
+
+              
                 {supportedLangs.map((lang) => (
                   <button
                     key={lang}
