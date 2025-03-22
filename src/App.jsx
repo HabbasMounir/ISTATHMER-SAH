@@ -1,14 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { FaChartLine, FaBook, FaTools, FaChevronDown,FaBars, FaGlobe, FaUsers, FaQuestionCircle,FaTimes } from "react-icons/fa";
-import { useEffect, useRef, useState } from 'react';
-import { Navbar } from "./components/navBar";
-import HeroSection from "./components/hero";
-import {FeaturesSectionCreative } from "./components/features";
-import ArticleSection from "./components/articles";
-import TestimonialsSection from "./components/testimonials";
-import FAQSection from "./components/faq";
-import { Footer } from "./components/footer";
+import { Route, Routes } from "react-router-dom";
+import Layout from "@/layout/layout";
+import Home from "@/pages/home";
+// import  Loading_home, { Loading }  from "./loading_pages/Lhome";
+import ArticlesPage from "./pages/articles";
+import { Suspense } from "react";
+import ArticleAdminPanel from "./pages/articleadmin";
+import NotFoundPage from "./pages/err404";
+
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
 //   return (
@@ -51,30 +49,24 @@ import { Footer } from "./components/footer";
 
 
 
-export default function Home() {
-  const [isToolsOpen, setIsToolsOpen] = useState(false);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [language, setLanguage] = useState("EN");
+export default function App() {
+ 
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar
-        isToolsOpen={isToolsOpen}
-        setIsToolsOpen={setIsToolsOpen}
-        isLanguageOpen={isLanguageOpen}
-        setIsLanguageOpen={setIsLanguageOpen}
-        language={language}
-        setLanguage={setLanguage}
-      />
-      <HeroSection />
-      {/* <FeaturesSection /> */}
-      {/* <FeaturesSectionModern /> */}
-      {/* <FeaturesSectionLight /> */}
-      <FeaturesSectionCreative />
-      <ArticleSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={  <Suspense fallback={<Home.loading />}><Home /></Suspense>} />
+          <Route path="/home" element={  <Suspense fallback={<Home.loading />}><Home /></Suspense>} />
+          {/* <Route path="/loading" element={} /> */}
+          <Route path="/articles" element={<Suspense fallback={<ArticlesPage.loading />}><ArticlesPage /></Suspense>} />
+          <Route path="/articlesadmin" element={<ArticleAdminPanel />} />
+          <Route path="*" element={<NotFoundPage />} />
+          {/* <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} /> */}
+        </Route>
+      </Routes>
     </div>
   );
 }

@@ -63,6 +63,48 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "contact": "Contact Us"
+    },
+    "header": {
+      "title": "Financial Wisdom & Insights",
+      "subtitle": "Explore our collection of articles to help you make smarter financial decisions"
+    },
+    "search": {
+      "placeholder": "Search financial strategies, market trends, expert advice...",
+      "results": "Search Results for \"{{term}}\"",
+      "count": "Found {{count}} articles matching your search",
+      "noResults": "No articles found",
+      "tryAgain": "Try adjusting your search or filter criteria"
+    },
+    "categories": {
+      "all": "All Articles",
+      "investing": "Investing",
+      "saving": "Saving",
+      "retirement": "Retirement",
+      "realestate": "Real Estate",
+      "stocks": "Stocks"
+    },
+    "featured": {
+      "title": "Featured Insights",
+      "subtitle": "Carefully selected articles to boost your financial knowledge"
+    },
+    "latest": {
+      "title": "Latest Insights",
+      "subtitle": "Explore our most recent financial guidance and strategies"
+    },
+    "newsletter": {
+      "title": "Get Financial Wisdom Delivered",
+      "subtitle": "Join over 25,000 subscribers who receive our expert insights, tips, and strategies for financial success"
+    },
+    "article_text":{
+      "readArticle":"Read article",
+      "featured":"Featured",
+      "minRead":"min read",
+      "allArticlesView":"View all articles",
+      "articles":"Articles about"
+    },"newsletter_text": {
+      "subscriberNow": "Subscriber now",
+      "respectRrivacy": "We respect your privacy. Unsubscribe at any time.",
+      "email_placeholder": "Your email address"
     }
   }
   

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, isLightBackground }) {
   const { t, i18n } = useTranslation();
@@ -10,6 +11,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
   const toolsRef = useRef(null);
   const langRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  let location = useLocation();
 
   // Text color and hover logic
   const textColor = isScrolled || isLightBackground ? 'text-gray-900' : 'text-white';
@@ -80,22 +82,24 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
         <ul className="hidden md:flex items-center space-x-6">
           {menuItems.map((item) => (
             <li key={item.key} className="relative">
-              <button 
+              <Link 
                 onClick={() => setActiveTab(item.key)}
+                to={item.key=='home'?'/':`/${item.key}`}
                 className={`flex items-center py-2 px-3 transition-all duration-300 relative group
-                  ${activeTab === item.key ? activeColor : textColor} 
+                  ${location.pathname === `/${item.key}` ? activeColor : textColor} 
                   ${hoverColor}
                   after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px]
                   after:bg-current after:transition-all after:duration-300
-                  ${activeTab === item.key ? 'after:w-full' : 'hover:after:w-full'}`}
+                  ${location.pathname === `/${item.key}`? 'after:w-full' : 'hover:after:w-full'}`}
               >
+                
                 <span className="relative z-10">{t(`navbar.${item.key}`)}</span>
                 {item.badge && (
                   <span className="mx-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
                     {t('navbar.new_badge')}
                   </span>
                 )}
-              </button>
+              </Link>
             </li>
           ))}
 
@@ -221,12 +225,13 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                 {/* Navigation Items */}
                 <div className="space-y-1">
                   {menuItems.map((item) => (
-                    <button
+                    <Link
                       key={item.key}
                       onClick={() => {
                         setActiveTab(item.key);
                         setIsMobileOpen(false);
                       }}
+                        to={`/${item.key}`}
                       className={`w-full flex items-center p-3 rounded-lg text-left ${
                         activeTab === item.key 
                           ? 'bg-blue-50 text-blue-600' 
@@ -239,8 +244,9 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                         <span className="mx-1 px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">
                           {t('navbar.new_badge')}
                         </span>
+                        
                       )}
-                    </button>
+                    </Link>
                   ))}
                 </div>
 
@@ -299,4 +305,23 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
   );
 }
 
-export { Navbar };
+export { Navbar,NavBarbg };
+
+function NavBarbg({isLightBackground}){
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [language, setLanguage] = useState("EN");
+  return(
+<Navbar
+          isToolsOpen={isToolsOpen}
+          setIsToolsOpen={setIsToolsOpen}
+          isLanguageOpen={isLanguageOpen}
+          setIsLanguageOpen={setIsLanguageOpen}
+          language={language}
+          setLanguage={setLanguage}
+          isLightBackground={isLightBackground}
+        />
+  )
+
+
+}
