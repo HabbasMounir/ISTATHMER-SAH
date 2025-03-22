@@ -118,7 +118,7 @@ export const articles = Array.from({ length: 100 }, (_, index) => {
       tags,
       date: generateDate(id),
       readTime: 5 + Math.floor(Math.random() * 11), // 5-15 minutes
-      featured: Math.random() < 0.15 // 15% chance of being featured
+      featured: Math.random() < 0.02 // 15% chance of being featured
     };
   });
   
