@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaCalendarAlt, FaClock, FaArrowLeft, FaBookmark, FaShare, FaArrowRight, FaPrint, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { articles } from '@/data.js';
 import { NavBarbg } from '../components/navBar';
@@ -228,6 +228,7 @@ function ArticlePage() {
             {/* Sidebar */}
             <aside className="lg:w-1/3">
               {/* Author Card */}
+              <Link to={'/author'}>
               <div className="bg-white rounded-xl shadow-md overflow-hidden mb-6">
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-4">{t('article_text.about_author')}</h3>
@@ -249,6 +250,7 @@ function ArticlePage() {
                   </p>
                 </div>
               </div>
+              </Link>
               
               {/* Related Articles */}
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -279,9 +281,13 @@ function ArticlePage() {
                     ))}
                   </div>
                   
-                  <button className="w-full mt-6 text-center py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
-                    {t('article_text.view_more_articles')}
-                  </button>
+               
+                  <Link to={'/articles'} >
+                   <div className="m-auto w-full mt-6 text-center py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                   {t('article_text.view_more_articles')}
+                   </div>
+                    
+                  </Link>
                 </div>
               </div>
               
