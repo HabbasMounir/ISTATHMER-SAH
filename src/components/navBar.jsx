@@ -40,7 +40,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
   const navBackground = isScrolled 
        ? ' bg-white ' 
     : isLightBackground 
-      ? 'bg-white/80  backdrop-blur-md' 
+      ? 'bg-white/80  ' 
       : 'backdrop-blur-md';
 
   // Menu items data
