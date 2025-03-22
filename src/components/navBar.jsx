@@ -90,9 +90,8 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                   ${hoverColor}
                   after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px]
                   after:bg-current after:transition-all after:duration-300
-                  ${location.pathname === `/${item.key}`? 'after:w-full' : 'hover:after:w-full'}`}
+                  ${(location.pathname === `/${item.key}`||(location.pathname === `/`&&item.key==='home'))? 'after:w-full' : 'hover:after:w-full'}`}
               >
-                
                 <span className="relative z-10">{t(`navbar.${item.key}`)}</span>
                 {item.badge && (
                   <span className="mx-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">

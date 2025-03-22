@@ -67,7 +67,36 @@ function ArticlesPage() {
     i18n.changeLanguage(lng);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12; // Adjust based on your needs
+  
+  // Calculate total pages
+  const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
+  
+  // Handle page change
+  const handlePageChange = (newPage) => {
+    setCurrentPage(Math.max(1, Math.min(newPage, totalPages)));
+  };
+  
+  // Get paginated articles
+  // const paginatedArticles = filteredArticles.slice(
+  //   (currentPage - 1) * itemsPerPage,
+  //   currentPage * itemsPerPage
+  // );
+
+  // const itemsPerPage = 12; // Adjust based on your needs
+  // const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
+  const paginatedArticles = filteredArticles.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  
+  // 3. Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, searchTerm]);
   return (
+
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
             <NavBarbg isLightBackground={false} />
 
@@ -283,7 +312,7 @@ function ArticlesPage() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            {filteredArticles.map((article) => (
+            {paginatedArticles.map((article) => (
               <div key={article.id} className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-all duration-300 flex flex-col h-full group border border-gray-100">
                 <div className="h-48 overflow-hidden relative">
                   <img 
@@ -338,27 +367,58 @@ function ArticlesPage() {
         )}
         
         {/* Pagination */}
-        {filteredArticles.length > 0 && (
-          <div className="flex justify-center mt-12">
-            <div className="inline-flex rounded-xl overflow-hidden shadow">
-              <button className="px-4 py-2 bg-white text-gray-700 border-r border-gray-200 hover:bg-gray-50 transition-colors">
-                Previous
-              </button>
-              <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                1
-              </button>
-              <button className="px-4 py-2 bg-white text-gray-700 border-r border-gray-200 hover:bg-gray-50 transition-colors">
-                2
-              </button>
-              <button className="px-4 py-2 bg-white text-gray-700 border-r border-gray-200 hover:bg-gray-50 transition-colors">
-                3
-              </button>
-              <button className="px-4 py-2 bg-white text-gray-700 hover:bg-gray-50 transition-colors">
-                Next
-              </button>
-            </div>
-          </div>
-        )}
+       
+
+{filteredArticles.length > 0 && (
+  <div className="flex justify-center mt-12">
+    <nav className="flex gap-1">
+      <button
+        className="px-4 py-2 bg-white text-gray-600 rounded-lg hover:bg-blue-50 transition-colors 
+                   border border-gray-200 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={currentPage === 1}
+        onClick={() => handlePageChange(currentPage - 1)}
+      >
+        <span className="sr-only">Previous</span>
+        <FaChevronRight className={`transform ${i18n.language === 'ar' ? 'rotate-180' : 'rotate-180'}`} />
+      </button>
+
+      {Array.from({ length: totalPages }, (_, index) => {
+        const page = index + 1;
+        const isCurrent = page === currentPage;
+        const showPage = page === 1 || page === totalPages || Math.abs(currentPage - page) <= 2;
+
+        return showPage ? (
+          <button
+            key={page}
+            className={`px-4 py-2 rounded-lg transition-all ${
+              isCurrent 
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
+                : 'bg-white text-gray-600 hover:bg-blue-50 border border-gray-200 hover:border-blue-300'
+            }`}
+            onClick={() => handlePageChange(page)}
+            aria-current={isCurrent ? "page" : undefined}
+          >
+            {page}
+          </button>
+        ) : (
+          <span key={`ellipsis-${page}`} className="px-4 py-2 text-gray-400">
+            ...
+          </span>
+        );
+      })}
+
+      <button
+        className="px-4 py-2 bg-white text-gray-600 rounded-lg hover:bg-blue-50 transition-colors 
+                   border border-gray-200 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={currentPage === totalPages}
+        onClick={() => handlePageChange(currentPage + 1)}
+      >
+        <span className="sr-only">Next</span>
+        <FaChevronRight className={i18n.language === 'ar' ? 'transform rotate-180' : ''} />
+      </button>
+    </nav>
+  </div>
+)}
       </div>
 
       {/* Newsletter Section */}
