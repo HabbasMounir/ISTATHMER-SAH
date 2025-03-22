@@ -76,8 +76,12 @@ function ArticlesPage() {
   // Handle page change
   const handlePageChange = (newPage) => {
     setCurrentPage(Math.max(1, Math.min(newPage, totalPages)));
+    const scrollContainer = document.getElementById('last');
+    if (scrollContainer) {
+      scrollContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
-  
+ 
   // Get paginated articles
   // const paginatedArticles = filteredArticles.slice(
   //   (currentPage - 1) * itemsPerPage,
@@ -275,7 +279,8 @@ function ArticlesPage() {
 
       {/* All Articles Grid */}
       <div className="container mx-auto px-4 py-12">
-        <h2 className="text-center text-3xl font-bold mb-2 text-gray-900">
+        <h2 id='last'
+        className="text-center text-3xl font-bold mb-2 text-gray-900">
           {searchTerm 
             ? ` ${t("search.results",{ term: searchTerm })} ` 
             : activeCategory !== 'all' 
@@ -310,7 +315,7 @@ function ArticlesPage() {
             </button>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div   className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {paginatedArticles.map((article) => (
               <div key={article.id} className="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-all duration-300 flex flex-col h-full group border border-gray-100">
@@ -369,9 +374,9 @@ function ArticlesPage() {
         {/* Pagination */}
        
 
-{filteredArticles.length > 0 && (
-  <div className="flex justify-center mt-12">
-    <nav className="flex gap-1">
+ {filteredArticles.length > 0 && (
+  <div className="flex flex-wrap justify-center mt-12">
+    <nav className="flex flex-wrap gap-2">
       <button
         className="px-4 py-2 bg-white text-gray-600 rounded-lg hover:bg-blue-50 transition-colors 
                    border border-gray-200 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -418,7 +423,9 @@ function ArticlesPage() {
       </button>
     </nav>
   </div>
-)}
+)} 
+
+
       </div>
 
       {/* Newsletter Section */}

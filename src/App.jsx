@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "@/layout/layout";
 import Home from "@/pages/home";
 // import  Loading_home, { Loading }  from "./loading_pages/Lhome";
 import ArticlesPage from "./pages/articles";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import ArticleAdminPanel from "./pages/articleadmin";
 import NotFoundPage from "./pages/err404";
 
@@ -50,8 +50,14 @@ import NotFoundPage from "./pages/err404";
 
 
 export default function App() {
- 
+  let location = useLocation();
 
+useEffect(()=>{
+
+    document.querySelector('html').scrollIntoView({ behavior: "smooth", block: "start" });
+    
+  
+},[location])
   return (
     <div className="min-h-screen bg-gray-100">
       <Routes>

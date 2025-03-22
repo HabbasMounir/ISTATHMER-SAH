@@ -18,7 +18,7 @@ function NotFoundPage() {
             {/* Decorative Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6">
               <div className="flex items-center justify-center space-x-3">
-                <FaCompass className="text-white text-3xl animate-bounce" />
+                {/* <FaCompass className="text-white text-3xl animate-bounce" /> */}
                 <h1 className="text-white text-2xl font-bold">{t('notFound.header')}</h1>
               </div>
             </div>
@@ -27,9 +27,9 @@ function NotFoundPage() {
             <div className="px-8 py-12 sm:p-12">
               <div className="text-center">
                 {/* Error Icon */}
-                <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100">
+                {/* <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100">
                   <FaExclamationTriangle className="h-10 w-10 text-red-600" />
-                </div>
+                </div> */}
 
                 {/* Error Details */}
                 <h2 className="mt-6 text-8xl font-extrabold text-gray-900">404</h2>

@@ -111,3 +111,7 @@
 .animate-progress {
   animation: progress 2s ease-in-out infinite;
 }
+
+#last{
+  scroll-margin-top: 80px;
+}
