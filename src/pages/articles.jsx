@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaSearch, FaCalendarAlt, FaClock, FaChevronRight, FaBookmark, FaShare, FaChevronLeft } from 'react-icons/fa';
 import {articles} from '@/data.js' 
 import { NavBarbg } from '../components/navBar';
+import { Link } from 'react-router-dom';
 function ArticlesPage() {
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
@@ -251,7 +252,7 @@ function ArticlesPage() {
                   </p>
                   
                   <div className="flex justify-between items-center">
-                    <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-lg font-medium group-hover:shadow-md transition-all flex items-center">
+                    <Link to={`/articles/${article.id}`}className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-lg font-medium group-hover:shadow-md transition-all flex items-center">
                        {t('article_text.readArticle')}
                       
           {i18n.language!=='ar'?
@@ -259,7 +260,7 @@ function ArticlesPage() {
           :
           <FaChevronLeft className="mr-2 transition-transform group-hover:translate-x-[-3px]" />
           }
-                    </button>
+                    </Link>
                     
                     <div className="flex space-x-3">
                       <button className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors">
@@ -352,7 +353,7 @@ function ArticlesPage() {
                       <FaCalendarAlt className="mx-2" />
                       {formatDate(article.date)}
                     </span>
-                    <button className="text-blue-600 font-medium flex items-center group">
+                    <Link to={`/articles/${article.id}`} className="text-blue-600 font-medium flex items-center group">
                       {/* Read More */}
                       {/* <FaChevronRight className="ml-2 transition-transform group-hover:translate-x-1" /> */}
                       {t('article_text.readArticle')}
@@ -363,7 +364,7 @@ function ArticlesPage() {
                       <FaChevronLeft className="mr-2 transition-transform group-hover:translate-x-[-3px]" />
                       }
                     
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

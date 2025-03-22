@@ -166,7 +166,9 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                   <button
                     key={lang}
                     onClick={() => {
-                      i18n.changeLanguage(lang);
+                      i18n.changeLanguage(lang).then(() => {
+                        localStorage.setItem('selectedLanguage', lang); 
+                      });                         
                       setIsLanguageOpen(false);
                     }}
                     className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-300
@@ -281,7 +283,9 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                       <button
                         key={lang}
                         onClick={() => {
-                          i18n.changeLanguage(lang);
+                          i18n.changeLanguage(lang).then(() => {
+                            localStorage.setItem('selectedLanguage', lang); 
+                          });   
                           setIsMobileOpen(false);
                         }}
                         className={`p-2 rounded-lg text-sm ${

@@ -6,6 +6,8 @@ import ArticlesPage from "./pages/articles";
 import { Suspense, useEffect } from "react";
 import ArticleAdminPanel from "./pages/articleadmin";
 import NotFoundPage from "./pages/err404";
+import ArticlePage from "./pages/article";
+import AuthorPage from "./pages/author";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -65,7 +67,12 @@ useEffect(()=>{
           <Route index element={  <Suspense fallback={<Home.loading />}><Home /></Suspense>} />
           <Route path="/home" element={  <Suspense fallback={<Home.loading />}><Home /></Suspense>} />
           {/* <Route path="/loading" element={} /> */}
+          <Route path="/article" element={<Suspense fallback={<ArticlesPage.loading />}><ArticlePage /></Suspense>} />
           <Route path="/articles" element={<Suspense fallback={<ArticlesPage.loading />}><ArticlesPage /></Suspense>} />
+          <Route path="/articles/:id" element={<ArticlePage />} />
+
+          <Route path="/author" element={<AuthorPage />} />
+          
           <Route path="/articlesadmin" element={<ArticleAdminPanel />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
