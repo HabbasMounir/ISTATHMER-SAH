@@ -8,6 +8,10 @@ import ArticleAdminPanel from "./pages/articleadmin";
 import NotFoundPage from "./pages/err404";
 import ArticlePage from "./pages/article";
 import AuthorPage from "./pages/author";
+import BMCTool from "./tools/bmc3";
+import BMCTool2 from "./tools/bmc";
+import FinancialCalculator from "./tools/vanc";
+import FinancialCalculator1 from "./tools/cas";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -74,6 +78,10 @@ useEffect(()=>{
           <Route path="/author" element={<AuthorPage />} />
           
           <Route path="/articlesadmin" element={<ArticleAdminPanel />} />
+          <Route path="/tools" element={<BMCTool />} />
+          <Route path="/toolsold" element={<BMCTool2 />} />
+          <Route path="/cas" element={<FinancialCalculator />} />
+          <Route path="/van" element={<FinancialCalculator1 />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

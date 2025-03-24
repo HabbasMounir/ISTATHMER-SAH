@@ -430,7 +430,7 @@ function AuthorPage() {
                   {t('author_resume.work_experience', 'Work Experience')}
                 </h3>
                 
-                <div className="relative border-l-2 border-blue-200 pl-8 space-y-8">
+                <div className="relative border-l-2 border-blue-200 pl-6 space-y-8">
                   {author.experience.map((exp, index) => (
                     <div key={index} className="relative">
                       <div className="absolute -left-10 p-1 bg-white">
@@ -460,7 +460,7 @@ function AuthorPage() {
                   {t('author_resume.education', 'Education')}
                 </h3>
                 
-                <div className="relative border-l-2 border-blue-200 pl-8 space-y-8">
+                <div className="relative border-l-2 border-blue-200 pl-6 space-y-8">
                   {author.education.map((edu, index) => (
                     <div key={index} className="relative">
                       <div className="absolute -left-10 p-1 bg-white">

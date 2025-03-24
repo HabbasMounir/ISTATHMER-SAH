@@ -114,3 +114,35 @@
 #last{
   scroll-margin-top: 80px;
 }
+
+input:focus {
+  outline: none;
+}
+
+.emoji-picker-react {
+  --epr-emoji-size: 24px;
+  --epr-category-label-height: 35px;
+  --epr-bg-color: #ffffff;
+  --epr-text-color: #1a1a1a;
+  --epr-hover-bg-color: #f1f1f1;
+  --epr-active-skin-tone-color: #3b82f6;
+}
+
+.emoji-picker-react input.epr-search {
+  border-radius: 8px;
+  padding: 10px;
+}
+.emoji-picker-react {
+  z-index: 9999 !important;
+}
+
+.emoji-picker-container {
+  position: relative;
+  z-index: 99999 !important;
+}
+
+.epr-main {
+  position: relative !important;
+  z-index: 99999 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15) !important;
+}
