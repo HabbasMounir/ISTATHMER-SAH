@@ -10,8 +10,9 @@ import ArticlePage from "./pages/article";
 import AuthorPage from "./pages/author";
 import BMCTool from "./tools/bmc3";
 import BMCTool2 from "./tools/bmc";
-import FinancialCalculator from "./tools/vanc";
-import FinancialCalculator1 from "./tools/cas";
+// import FinancialCalculator from "./tools/vanc";
+import FinancialCalculator from "./tools/cas";
+import FinancialLiteracyPage from "./pages/awareness";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -80,8 +81,9 @@ useEffect(()=>{
           <Route path="/articlesadmin" element={<ArticleAdminPanel />} />
           <Route path="/tools" element={<BMCTool />} />
           <Route path="/toolsold" element={<BMCTool2 />} />
-          <Route path="/cas" element={<FinancialCalculator />} />
-          <Route path="/van" element={<FinancialCalculator1 />} />
+          {/* <Route path="/cas" element={<FinancialCalculator />} /> */}
+          <Route path="/investmentcalculator" element={<FinancialCalculator />} />
+          <Route path="/awareness" element={<FinancialLiteracyPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

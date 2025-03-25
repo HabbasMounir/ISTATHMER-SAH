@@ -5,6 +5,17 @@ import { NavBarbg } from '../components/navBar';
 // Data structure for investment fields
 const investmentFields = [
   { 
+    id: 'real_estate1', 
+    title: 'test', 
+    icon: <FaBuilding className="text-3xl text-blue-600" />,
+    description: 'استثمار في العقارات السكنية والتجارية',
+    projects: [
+      { id: 'residential', name: 'مشروع ttttt', minCost: 5000000 },
+      { id: 'commercial', name: 'مشروع تجاري', minCost: 8000000 },
+      { id: 'mixed_use', name: 'مشروع متعدد الاستخدامات', minCost: 12000000 },
+    ] 
+  },
+  { 
     id: 'real_estate', 
     title: 'العقارات', 
     icon: <FaBuilding className="text-3xl text-blue-600" />,
@@ -50,6 +61,14 @@ const regionsData = {
     ]
   
   },
+  'سطيف العاصمة': {
+    costModifier: 1.5,
+    locations: [
+      { id: 'hydra', name: 'سطيف', modifier: 1.8 },
+      { id: 'el_biar', name: 'العلمة', modifier: 1.6 },
+    ]
+  
+  },
   
   'وهران': {
     costModifier: 1.2,
@@ -72,7 +91,7 @@ const regionsData = {
 // Common project costs categories
 const commonCosts = [
 //   { id: 'land', name: 'تكلفة الأرض', isRequired: true },
-//   { id: 'permits', name: 'تراخيص وتصاريح', isRequired: true },
+  { id: 'permits', name: 'تراخيص وتصاريح', isRequired: true },
   { id: 'utilities', name: 'مرافق (ماء، كهرباء، غاز)', isRequired: true },
 //   { id: 'marketing', name: 'تسويق وإعلان', isRequired: true },
   { id: 'operations', name: 'تكاليف التشغيل', isRequired: true },
@@ -229,9 +248,7 @@ const InvestmentCalculator = () => {
                 height: `${Math.abs(cf) / Math.max(...vanResults.cashflows.map(Math.abs)) * 80}%`
               }}
               title={`السنة ${idx}: ${formatNumber(cf)} دج`}
-            >
-                {/* {Math.abs(cf) / Math.max(...vanResults.cashflows.map(Math.abs)) * 80} */}
-            </div>
+           />
           ))}
         </div>
       </div>
@@ -534,7 +551,7 @@ const InvestmentCalculator = () => {
               <div className="bg-white p-6 rounded-xl shadow-md">
                 <h3 className="text-xl font-semibold mb-4">تكاليف خاصة بالمشروع</h3>
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                  {specificCosts[selectedField.id].map(cost => (
+                  {specificCosts[selectedField.id]?.map(cost => (
                     <div key={cost.id} className="space-y-2">
                       <label className="block text-gray-700 font-medium">
                         {cost.name} {cost.isRequired && <span className="text-red-500">*</span>}
