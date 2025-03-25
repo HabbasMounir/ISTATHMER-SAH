@@ -13,6 +13,7 @@ import BMCTool2 from "./tools/bmc";
 // import FinancialCalculator from "./tools/vanc";
 import FinancialCalculator from "./tools/cas";
 import FinancialLiteracyPage from "./pages/awareness";
+import Feedback from "./pages/contact";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -77,6 +78,7 @@ useEffect(()=>{
           <Route path="/articles/:id" element={<ArticlePage />} />
 
           <Route path="/author" element={<AuthorPage />} />
+          <Route path="/contact" element={<Feedback />} />
           
           <Route path="/articlesadmin" element={<ArticleAdminPanel />} />
           <Route path="/tools" element={<BMCTool />} />

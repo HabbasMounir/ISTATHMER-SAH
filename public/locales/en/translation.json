@@ -107,6 +107,30 @@
       "subscriberNow": "Subscriber now",
       "respectRrivacy": "We respect your privacy. Unsubscribe at any time.",
       "email_placeholder": "Your email address"
+    },
+    
+    "feedback": {
+      "bug": "Bug Report",
+      "feature": "Feature Request",
+      "praise": "Praise",
+      "general": "General Feedback",
+      "title": "We Value Your Feedback",
+      "subtitle": "Let us know what you think!",
+      "categoryTitle": "Select Feedback Category",
+      "detailsTitle": "Provide Details",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "Please describe your {{type}} in detail...",
+      "back": "Back",
+      "continue": "Continue",
+      "reviewTitle": "Review Your Feedback",
+      "categoryLabel": "Category",
+      "submit": "Submit Feedback",
+      "successTitle": "Feedback Submitted",
+      "successText": "Thank you for your valuable feedback.",
+      "funFact": "Did you know? Your input helps us improve!",
+      "assistantText": "Hi, I'm your assistant. How can I help?",
+      "dismissAssistant": "Dismiss Assistant"
     }
+    
   }
   

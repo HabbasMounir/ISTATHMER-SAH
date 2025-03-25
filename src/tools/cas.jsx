@@ -61,7 +61,7 @@ const regionsData = {
     ]
   
   },
-  'سطيف العاصمة': {
+  'سطيف ': {
     costModifier: 1.5,
     locations: [
       { id: 'hydra', name: 'سطيف', modifier: 1.8 },

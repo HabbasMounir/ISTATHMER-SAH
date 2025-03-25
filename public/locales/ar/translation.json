@@ -107,6 +107,28 @@
        "articles":"مقالات عن"
 
 
+    },
+    "feedback": {
+      "bug": "تبليغ عن خلل",
+      "feature": "طلب ميزة",
+      "praise": "مدح",
+      "general": "ملاحظات عامة",
+      "title": "نحن نقدر ملاحظاتك",
+      "subtitle": "أخبرنا برأيك!",
+      "categoryTitle": "اختر فئة الملاحظات",
+      "detailsTitle": "قدم التفاصيل",
+      "messageLabel": "رسالتك",
+      "messagePlaceholder": "يرجى وصف {{type}} بالتفصيل...",
+      "back": "عودة",
+      "continue": "متابعة",
+      "reviewTitle": "راجع ملاحظاتك",
+      "categoryLabel": "الفئة",
+      "submit": "إرسال الملاحظات",
+      "successTitle": "تم إرسال الملاحظات",
+      "successText": "شكراً لملاحظاتك القيمة.",
+      "funFact": "هل تعلم؟ ملاحظاتك تساعدنا على التحسن!",
+      "assistantText": "مرحباً، أنا مساعدك. كيف يمكنني المساعدة؟",
+      "dismissAssistant": "إخفاء المساعد"
     }
     
   
