@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FaExclamationTriangle, FaHome, FaArrowLeft, FaCompass } from 'react-icons/fa';
+import { FaExclamationTriangle, FaHome, FaArrowLeft, FaCompass, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Navbar, NavBarbg } from '../components/navBar';
 
@@ -32,24 +32,28 @@ function NotFoundPage() {
                 </div> */}
 
                 {/* Error Details */}
-                <h2 className="mt-6 text-8xl font-extrabold text-gray-900">404</h2>
-                <p className="mt-4 text-xl text-gray-600">
+                <h2 className="mt-6 text-8xl font-extrabold text-center text-gray-900">404</h2>
+                <p className="mt-4 text-xl text-gray-600 text-center">
                   {t('notFound.message')}
                 </p>
 
                 {/* Action Buttons */}
-                <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <div className="mt-8 flex   flex-col sm:flex-row justify-center gap-4">
                   <button
                     onClick={() => window.history.back()}
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:to-blue-700 transition-all duration-300"
+                    className=" text-center inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:to-blue-700 transition-all duration-300"
                   >
-                    <FaArrowLeft className="mr-2" />
+{i18n.language!=='ar'?
+                                           <FaChevronLeft className="mr-2 transition-transform group-hover:translate-x-1" />
+                      :
+                      <FaChevronRight className="ml-2 transition-transform group-hover:translate-x-[-3px]" />
+                      }
                     {t('notFound.goBack')}
                   </button>
                   
                   <Link
                     to="/"
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:to-purple-700 transition-all duration-300"
+                    className="inline-flex text-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-gradient-to-r from-purple-500 to-purple-600 hover:to-purple-700 transition-all duration-300"
                   >
                     <FaHome className="mr-2" />
                     {t('notFound.dashboard')}
