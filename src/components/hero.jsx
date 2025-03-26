@@ -2,8 +2,10 @@
 
 import Illu from '@/assets/jsvgx/illu'; 
 import { Button } from './ui/button';
+import { useTranslation } from 'react-i18next';
 
 function HeroSection() {
+  const { t,i18n } = useTranslation();
   return (
     <header className="relative overflow-hidden px-10 py-40 md:py-10 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
       {/* Floating Elements */}
@@ -32,19 +34,18 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+      <div dir={i18n.dir()} className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Text Content */}
-        <div className="md:w-1/2 text-center md:text-left">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Empowering You to<br className="hidden md:block"/> Invest Right
+        <div className="md:w-1/2 flex flex-col  md:block">
+          <h2 dangerouslySetInnerHTML={{ __html: t('hero.title') }} className={`text-center  ${i18n.dir()=='ltr'?'md:text-left':'md:text-right'} text-3xl md:text-5xl font-bold mb-4 leading-tight`}>
           </h2>
-          <p className="text-base md:text-lg mb-6 max-w-2xl mx-auto md:mx-0 opacity-90">
-            Learn how to manage your finances and make smart investment decisions.
-          </p>
+          <p className={`text-base text-center ${i18n.dir()=='ltr'?'md:text-left':'md:text-right'} md:text-lg mb-6 max-w-2xl mx-auto md:mx-0 opacity-90`}>
+          {t('hero.description')}
+                    </p>
           <Button 
-            className="bg-white text-blue-600 font-bold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            className={`bg-white text-center ${i18n.dir()=='ltr'?'md:text-left':'md:text-right'} text-blue-600 font-bold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-lg`}
           >
-            Start Learning Today
+           {t('hero.cta')}
           </Button>
         </div>
 

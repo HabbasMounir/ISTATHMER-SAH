@@ -17,7 +17,8 @@ import {
   FaUserTie,
   FaArrowRight
 } from 'react-icons/fa';
-import { articles } from '@/data.js';
+import {articles as arArticles} from '../data/ar.js'
+import {articles as enArticles} from '../data/en.js'
 import { NavBarbg } from '../components/navBar';
 
 function AuthorPage() {
@@ -28,7 +29,11 @@ function AuthorPage() {
   const [authorArticles, setAuthorArticles] = useState([]);
   const [activeTab, setActiveTab] = useState('about');
   const [loading, setLoading] = useState(true);
+  const [articles,setArticles]=useState( i18n.language === 'ar'?arArticles:enArticles)
+  useEffect(()=>{
+    setArticles( i18n.language === 'ar'?arArticles:enArticles)
 
+  },[i18n.language])
   // Sample author data - in a real app, this would be fetched from an API
   const authorData = {
     id: 'mounirHabbas',

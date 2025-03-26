@@ -31,7 +31,11 @@
       "en": "English",
       "ar": "العربية"
     },
-  
+    "hero": {
+    "title": "Ignite your investment journey today",
+    "description": "Learn how to manage your finances and make smart investment decisions.",
+    "cta": "Start Learning Today"
+  },
     "features": {
       "title": "Powerful Features for Smart Investing",
       "education": {
@@ -77,14 +81,6 @@
       "noResults": "No articles found",
       "tryAgain": "Try adjusting your search or filter criteria"
     },
-    "categories": {
-      "all": "All Articles",
-      "investing": "Investing",
-      "saving": "Saving",
-      "retirement": "Retirement",
-      "realestate": "Real Estate",
-      "stocks": "Stocks"
-    },
     "featured": {
       "title": "Featured Insights",
       "subtitle": "Carefully selected articles to boost your financial knowledge"
@@ -96,13 +92,24 @@
     "newsletter": {
       "title": "Get Financial Wisdom Delivered",
       "subtitle": "Join over 25,000 subscribers who receive our expert insights, tips, and strategies for financial success"
+      ,"sidebar_title": "Stay Informed",
+      "sidebar_subtitle": "Subscribe to our newsletter for the latest financial insights and market updates."
+ 
     },
     "article_text":{
       "readArticle":"Read article",
       "featured":"Featured",
       "minRead":"min read",
       "allArticlesView":"View all articles",
-      "articles":"Articles about"
+      "articles":"Articles about",
+      "back_to_articles": "Back to Articles",
+      "share": "Share",
+      "about_author": "About the Author",
+      "financial_analyst": "Financial Analyst",
+      "author_bio": "John is a certified financial analyst with over 10 years of experience in market trends analysis and investment strategies.",
+      "related_articles": "Related Articles",
+      "view_more_articles": "View More Articles"
+    
     },"newsletter_text": {
       "subscriberNow": "Subscriber now",
       "respectRrivacy": "We respect your privacy. Unsubscribe at any time.",
@@ -130,7 +137,108 @@
       "funFact": "Did you know? Your input helps us improve!",
       "assistantText": "Hi, I'm your assistant. How can I help?",
       "dismissAssistant": "Dismiss Assistant"
-    }
+    },
+    "article_not_found": {
+      "title": "Article Not Found",
+      "message": "The article you're looking for doesn't exist."
+    },
     
+    "categories": {
+      "all": "All",
+      "investing": "Investing",
+      "saving": "Saving",
+      "retirement": "Retirement",
+      "realestate": "Real Estate",
+      "stocks": "Stocks"
+    }, 
+    "financialLiteracy": {
+      "heroTitle": "Financial Literacy for Citizens",
+      "heroText": "Before embarking on an investment journey, build your financial fortress! Imagine savings as seeds you plant, and consumption management as fertile soil that nourishes them. When your financial foundation is solid, you'll be able to invest your money with confidence and achieve returns that ensure a bright and prosperous future. Don't let the opportunity pass you by, start building your financial future today, and invest wisely to reap the fruits of success",
+      "sections": {
+          "investment": {
+              "title": "What is Investment?",
+              "definition": "Investment is not just a financial decision, but a leap towards a bright future, a journey that transforms you from a spectator to a wealth creator. Imagine building a palace of dreams, brick by brick, with each brick representing a smart investment.",
+              "whyTitle": "Why Should You Invest?",
+              "reasons": [
+                  "Achieve financial independence",
+                  "Develop the national economy", 
+                  "Realize dreams"
+              ],
+              "tipsTitle": "Investment Tips",
+              "tips": [
+                  "Start with small amounts",
+                  "Diversify your investment portfolio", 
+                  "Consult financial experts"
+              ]
+          },
+          "saving": {
+              "title": "What is Saving?",
+              "definition": "Saving is setting aside a portion of your money today to achieve your future goals",
+              "stepsTitle": "First Steps Towards a Secure Financial Future",
+              "steps": [
+                  "Create a financial map",
+                  "Define your destination", 
+                  "Make saving a habit"
+              ],
+              "howTitle": "How to Save Correctly?",
+              "tips": [
+                  "Start with a small amount",
+                  "Be patient", 
+                  "Use saving tools"
+              ]
+          },
+          "consumption": {
+              "title": "What is Consumption?",
+              "definition": "Consumption is the use of goods and services to meet needs and desires. It is an essential element of economic life.",
+              "relationTitle": "Relationship Between Consumption and Investment",
+              "relationText": "A close and interconnected relationship that forms the basis of the economy at both individual and national levels"
+          }
+      },
+      "cards": {
+  "investment": {
+    "title": "Investment: The Gateway to Wealth Building",
+    "text": "Investment isn't just about saving money; it's the art of growing it. Imagine building a palace of opportunities, where every investment decision is a brick in the edifice of your wealth.",
+    "tips": [
+      "Start with small amounts and invest regularly",
+      "Diversify your investment portfolio to minimize risks",
+      "Consult certified financial experts",
+      "Monitor your investments' performance periodically"
+    ]
+  },
+  "saving": {
+    "title": "Saving: The Foundation of Financial Growth",
+    "text": "Just as a tree needs strong roots, your financial future requires a solid savings foundation. Regular saving is the fuel that drives the wheel of growth.",
+    "tips": [
+      "Allocate 20% of your income to savings first",
+      "Use savings tools with viable returns",
+      "Set tangible and measurable goals",
+      "Leverage technology to track savings"
+    ]
+  },
+  "consumption": {
+    "title": "Conscious Consumption: The Art of Resource Management",
+    "text": "Smart consumption is a delicate balance between needs and wants. Like a wise farmer who prudently distributes water between crops.",
+    "tips": [
+      "Differentiate between essentials and luxuries",
+      "Use pre-planned shopping lists",
+      "Compare prices before purchasing",
+      "Invest in long-lasting quality items"
+    ]
+  }
+},
+      "incomeSection": {
+          "title": "What is Income?",
+          "definition": "Income is the amount of money earned by an individual or entity over a specific period of time. It represents the resources available for consumption, saving, or investment."
+        },
+      "financialSections":
+      {
+        "investment":"investment",
+      "saving":"saving",
+      "consumption":"consumption"
+    },
+      "goldenTips": "Golden Tips",
+      "closingTitle": "Don't Hesitate to Begin Your Financial Journey",
+      "closingText": "Don't be afraid to take risks, as every success requires some risk. Look for investment opportunities that suit you and consult experts. Start small, invest wisely, and watch your investments grow."
+  }
   }
   

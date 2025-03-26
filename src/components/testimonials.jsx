@@ -5,10 +5,10 @@ const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselContainerRef = useRef(null);
   const intervalRef = useRef(null);
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
 
-  const slides = [
+  const slidese = [
     {
       img: "https://i.pravatar.cc/100?img=1",
       iconBg: "bg-blue-400",
@@ -49,14 +49,54 @@ const TestimonialsSection = () => {
       roleColor: "text-indigo-500"
     }
   ];
-
+  const slidesa = [
+    {
+      img: "https://i.pravatar.cc/100?img=1",
+      iconBg: "bg-blue-400",
+      icon: (
+        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      ),
+      text: "هذه المنصة غيرت كفاءة سير العمل لدينا تمامًا!",
+      name: "سارة جونسون",
+      role: "المديرة التنفيذية @TechNova",
+      roleColor: "text-sky-500"
+    },
+    {
+      img: "https://i.pravatar.cc/100?img=2",
+      iconBg: "bg-sky-400",
+      icon: (
+        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      ),
+      text: "أفضل استثمار قمنا به في بنيتنا التكنولوجية!",
+      name: "مايكل تشين",
+      role: "المدير التقني @FutureTech",
+      roleColor: "text-blue-500"
+    },
+    {
+      img: "https://i.pravatar.cc/100?img=3",
+      iconBg: "bg-indigo-400",
+      icon: (
+        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+      ),
+      text: "غيرت مقاييس تفاعل العملاء لدينا بين عشية وضحاها!",
+      name: "إيما ويلسون",
+      role: "مديرة التسويق @DigitalHub",
+      roleColor: "text-indigo-500"
+    }
+  ];
   const goToSlide = (index) => {
     setCurrentIndex(index);
     resetAutoScroll();
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
+    setCurrentIndex((prev) => (prev + 1) % (i18n.language=='ar'?slidesa:slidese).length);
   };
 
   const startAutoScroll = () => {
@@ -103,7 +143,7 @@ const TestimonialsSection = () => {
             onMouseEnter={pauseAutoScroll}
             onMouseLeave={startAutoScroll}
           >
-            {slides.map((slide, index) => (
+            {(i18n.language=='ar'?slidesa:slidese).map((slide, index) => (
               <div key={index} className="carousel-slide p-4">
                 <div className="bg-blue-50 rounded-2xl p-8 shadow-lg shadow-blue-100/50 border border-blue-100 transform transition hover:scale-[1.015]">
                   <div className="relative mb-6">
@@ -127,7 +167,7 @@ const TestimonialsSection = () => {
           </div>
 
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {slides.map((_, index) => (
+            {(i18n.language=='ar'?slidesa:slidese).map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}

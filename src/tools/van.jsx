@@ -5,17 +5,6 @@ import { NavBarbg } from '../components/navBar';
 // Data structure for investment fields
 const investmentFields = [
   { 
-    id: 'real_estate1', 
-    title: 'test', 
-    icon: <FaBuilding className="text-3xl text-blue-600" />,
-    description: 'استثمار في العقارات السكنية والتجارية',
-    projects: [
-      { id: 'residential', name: 'مشروع ttttt', minCost: 5000000 },
-      { id: 'commercial', name: 'مشروع تجاري', minCost: 8000000 },
-      { id: 'mixed_use', name: 'مشروع متعدد الاستخدامات', minCost: 12000000 },
-    ] 
-  },
-  { 
     id: 'real_estate', 
     title: 'العقارات', 
     icon: <FaBuilding className="text-3xl text-blue-600" />,

@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaCalendarAlt, FaClock, FaArrowLeft, FaBookmark, FaShare, FaArrowRight, FaPrint, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { articles } from '@/data.js';
+import {articles as arArticles} from '../data/ar.js'
+import {articles as enArticles} from '../data/en.js'
 import { NavBarbg } from '../components/navBar';
+import Markdown from 'react-markdown';
 
 function ArticlePage() {
   const { t, i18n } = useTranslation();
@@ -12,7 +14,11 @@ function ArticlePage() {
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [articles,setArticles]=useState( i18n.language === 'ar'?arArticles:enArticles)
+  useEffect(()=>{
+    setArticles( i18n.language === 'ar'?arArticles:enArticles)
 
+  },[i18n.language])
   useEffect(() => {
     // Simulate loading data
     setLoading(true);
@@ -35,8 +41,8 @@ function ArticlePage() {
     
     // Scroll to top when article changes
     window.scrollTo(0, 0);
-  }, [id]);
-
+  }, [id,articles]);
+useEffect(()=>{console.log(article)},[])
   const formatDate = (dateString) => {
     const options = { 
       year: 'numeric', 
@@ -97,9 +103,10 @@ function ArticlePage() {
           <div className="mb-8 flex items-center">
             <button 
               onClick={goBack}
-              className={`text-blue-600 flex items-center hover:underline ${i18n.language === 'ar' ? 'flex-row-reverse' : ''}`}
+              className={`text-blue-600 flex items-center hover:underline `}
             >
-              {i18n.language === 'ar' ? <FaArrowRight className="mx-2" /> : <FaArrowLeft className="mx-2" />}
+                            {i18n.language === 'ar' ? <FaArrowRight className="mx-2" /> : <FaArrowLeft className="mx-2" />}
+
               {t('article_text.back_to_articles')}
             </button>
           </div>
@@ -149,9 +156,15 @@ function ArticlePage() {
                 
                 {/* Article Content */}
                 <div className="p-6 sm:p-8">
+                  
                   <div className="prose prose-lg max-w-none">
+                  <Markdown >
+                  {article.content}       
+                   </Markdown>
+                  
+
                     {/* This is placeholder content. In a real app, you would render the article's HTML content here */}
-                    <p>
+                    {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.
                     </p>
                     <h2>Understanding the Markets</h2>
@@ -178,7 +191,7 @@ function ArticlePage() {
                     <h2>Looking Ahead</h2>
                     <p>
                       Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 
@@ -233,14 +246,14 @@ function ArticlePage() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-4">{t('article_text.about_author')}</h3>
                   <div className="flex items-center">
-                    <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden">
                       <img 
                         src="https://randomuser.me/api/portraits/men/32.jpg" 
                         alt="Author" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div>
+                    <div className=' mx-4'>
                       <h4 className="font-medium text-gray-900">John Doe</h4>
                       <p className="text-gray-600 text-sm">{t('article_text.financial_analyst')}</p>
                     </div>
@@ -260,20 +273,20 @@ function ArticlePage() {
                     {relatedArticles.map((related) => (
                       <div key={related.id} className="group">
                         <div className="flex items-start">
-                          <div className="w-20 h-20 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                          <div className="w-20 h-20 rounded-lg overflow-hidden  flex-shrink-0">
                             <img 
                               src={related.image} 
                               alt={related.title} 
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           </div>
-                          <div>
+                          <div className='mx-3'>
                             <h4 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                               {related.title}
                             </h4>
                             <div className="flex items-center mt-1 text-sm text-gray-500">
-                              <FaCalendarAlt className="mr-1" />
-                              <span>{formatDate(related.date)}</span>
+                              <FaCalendarAlt  />
+                              <span className="mx-1"> {formatDate(related.date)}</span>
                             </div>
                           </div>
                         </div>

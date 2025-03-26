@@ -11,7 +11,7 @@ import AuthorPage from "./pages/author";
 import BMCTool from "./tools/bmc3";
 import BMCTool2 from "./tools/bmc";
 // import FinancialCalculator from "./tools/vanc";
-import FinancialCalculator from "./tools/cas";
+import FinancialCalculator from "./tools/van";
 import FinancialLiteracyPage from "./pages/awareness";
 import Feedback from "./pages/contact";
 

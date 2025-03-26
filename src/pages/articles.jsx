@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSearch, FaCalendarAlt, FaClock, FaChevronRight, FaBookmark, FaShare, FaChevronLeft } from 'react-icons/fa';
-import {articles} from '@/data.js' 
+// import {articles} from '@/data/en.js' 
+import {articles as arArticles} from '../data/ar.js'
+import {articles as enArticles} from '../data/en.js'
 import { NavBarbg } from '../components/navBar';
 import { Link } from 'react-router-dom';
 function ArticlesPage() {
@@ -10,7 +12,11 @@ function ArticlesPage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
-  
+  const [articles,setArticles]=useState( i18n.language === 'ar'?arArticles:enArticles)
+  useEffect(()=>{
+    setArticles( i18n.language === 'ar'?arArticles:enArticles)
+
+  },[i18n.language])
   // Categories for the filter
   const categories = [
     { id: 'all', name: 'categories.all' },
@@ -47,11 +53,6 @@ function ArticlesPage() {
   // Get featured articles
   const featuredArticles = articles.filter(article => article.featured);
 
-  // Format date for display
-//   const formatDate = (dateString) => {
-//     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-//     return new Date(dateString).toLocaleDateString(i18n.language, options);
-//   };
 
   const formatDate = (dateString) => {
     const options = { 

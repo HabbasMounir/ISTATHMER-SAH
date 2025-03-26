@@ -20,19 +20,19 @@ function FinancialLiteracyPage() {
   const financialSections = [
     {
       id: 'investment',
-      title: 'الاستثمار',
+      title: t('financialLiteracy.financialSections.investment'),
       icon: <FaChartLine />,
       color: 'from-blue-600 to-indigo-600',
     },
     {
       id: 'saving',
-      title: 'الادخار',
+      title: t('financialLiteracy.financialSections.saving'),
       icon: <FaMoneyBill />,
       color: 'from-green-600 to-emerald-600',
     },
     {
       id: 'consumption',
-      title: 'الاستهلاك',
+      title: t('financialLiteracy.financialSections.consumption'),
       icon: <FaBalanceScale />,
       color: 'from-purple-600 to-fuchsia-600',
     }
@@ -52,11 +52,11 @@ function FinancialLiteracyPage() {
       <p className="text-gray-600 leading-relaxed mb-4">{text}</p>
       <div className="">
         <ul className="list-disc space-y-4 ">
-          {tips.map((tip, index) => (
+          {tips?.map((tip, index) => (
             <li key={index} className="text-gray-700 flex items-center">
              
-              <span className={`w-3 h-3 ${bg} rounded-full ml-3`}></span>
-              {tip}
+              <span className={`w-3 h-3 ${bg} rounded-full `}></span>
+              <span  className='mx-3'> {tip}</span>
             </li>
           ))}
         </ul>
@@ -79,42 +79,49 @@ function FinancialLiteracyPage() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
             <div className="p-8 ">
               <h1 className="text-4xl font-bold text-blue-900 mb-4">
-                التوعية المالية للمواطنين
-              </h1>
+              {t("financialLiteracy.heroTitle")}        
+                    </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-              قبل أن تنطلق في رحلة الاستثمار، ابنِ حصنك المالي! تخيل الادخار كبذور تزرعها، وإدارة الاستهلاك كتربة خصبة تغذيها. عندما تكون قاعدتك المالية راسخة، ستتمكن من استثمار أموالك بثقة، وتحقيق عوائد تضمن لك مستقبلاً مشرقاً ومزدهراً. لا تدع الفرصة تفوتك، ابدأ اليوم في بناء مستقبلك المالي، واستثمر بحكمة لتجني ثمار النجاح             </p>
+              {t("financialLiteracy.heroText")}
+                          </p>
             </div>
           </div>
-
+      {/* Income Section */}
+      <div className="bg-white rounded-2xl shadow-xl p-8  mb-12">
+            <div className="flex items-center mb-6">
+              <FaCalculator className="text-teal-600 text-4xl " />
+              <h2 className="text-3xl font-bold text-teal-900 mx-4">
+                {t('financialLiteracy.incomeSection.title')}
+                </h2>
+            </div>
+            <p className="text-gray-700 text-xl">
+            {t('financialLiteracy.incomeSection.definition')}
+            </p>
+          </div>
+          
           {/* Investment Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <div className="flex items-center mb-4">
-                <FaChartLine className="text-blue-600 text-4xl ml-4" />
-                <h2 className="text-2xl font-bold text-blue-900">ما هو الاستثمار؟</h2>
+                <FaChartLine className="text-blue-600 text-4xl " />
+                <h2 className="text-2xl font-bold text-blue-900 mx-4">
+                {t('financialLiteracy.sections.investment.title')}
+                </h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                الاستثمار: ليس مجرد قرار مالي، بل هو قفزة نحو مستقبل مشرق، رحلة تحولك من متفرج إلى صانع للثروة. تخيل أنك تبني قصرًا من الأحلام، لبنة تلو الأخرى، وكل لبنة تمثل استثمارًا ذكيًا.
+              {t('financialLiteracy.sections.investment.definition')}
               </p>
             </div>
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <div className="flex items-center mb-4">
-                <FaCoins className="text-green-600 text-4xl ml-4" />
-                <h2 className="text-2xl font-bold text-green-900">لماذا يجب أن تستثمر؟</h2>
+                <FaCoins className="text-green-600 text-4xl " />
+                <h2 className="text-2xl font-bold text-green-900 mx-4">
+                {t('financialLiteracy.sections.investment.whyTitle')}
+                  </h2>
               </div>
+
               <ul className="space-y-3 text-gray-700">
-                <li className="flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full ml-3"></span>
-                  تحقيق الاستقلال المالي
-                </li>
-                <li className="flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full ml-3"></span>
-                  تنمية الاقتصاد الوطني
-                </li>
-                <li className="flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full ml-3"></span>
-                  تحقيق الأحلام
-                </li>
+              {t('financialLiteracy.sections.investment.reasons', { returnObjects: true })?.map((a)=><li key={a} className="flex items-center"><span className="w-3 h-3 bg-green-500 rounded-full "></span><span  className='mx-3'> {a}</span></li>)}
               </ul>
             </div>
           </div>
@@ -122,29 +129,36 @@ function FinancialLiteracyPage() {
           {/* Savings Section */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
             <div className="flex items-center mb-6">
-              <FaMoneyBill  className="text-purple-600 text-4xl ml-4" />
-              <h2 className="text-3xl font-bold text-purple-900">ما هو الادخار؟</h2>
+              <FaMoneyBill  className="text-purple-600 text-4xl " />
+              <h2 className="text-3xl font-bold text-purple-900 mx-4">
+                
+                {t('financialLiteracy.sections.saving.title')}
+
+                </h2>
             </div>
             <p className="text-gray-700 text-xl mb-6">
-              الادخار هو أن تضع جانبًا جزءًا من مالك اليوم لتحقق أهدافك في المستقبل
+              {t('financialLiteracy.sections.saving.definition')}
+
             </p>
             
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-semibold text-purple-800 mb-4">خطواتك الأولى نحو مستقبل مالي آمن</h3>
+                <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                  
+                  {t('financialLiteracy.sections.saving.stepsTitle')}
+
+                </h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li>• ضع خريطة مالية</li>
-                  <li>• حدد وجهتك</li>
-                  <li>• اجعل الادخار عادة</li>
-                  <li>• راقب رحلتك</li>
+                {t('financialLiteracy.sections.saving.steps', { returnObjects: true })?.map((a)=><li key={a} className="flex items-center"><span className="w-3 h-3 bg-purple-500 rounded-full "></span> <span  className='mx-3'> {a}</span></li>)}
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-purple-800 mb-4">كيف تدخر صح؟</h3>
+                <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                {t('financialLiteracy.sections.saving.howTitle')}
+                  </h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li>• ابدأ بمبلغ صغير</li>
-                  <li>• كن صبورًا</li>
-                  <li>• استخدم أدوات الادخار</li>
+                {t('financialLiteracy.sections.saving.tips', { returnObjects: true })?.map((a)=><li key={a} className="flex items-center"><span className="w-3 h-3 bg-purple-500 rounded-full "></span><span  className='mx-3'> {a}</span></li>)}
+
                 </ul>
               </div>
             </div>
@@ -154,32 +168,32 @@ function FinancialLiteracyPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <div className="flex items-center mb-4">
-                <FaShoppingCart className="text-red-600 text-4xl ml-4" />
-                <h2 className="text-2xl font-bold text-red-900">ما هو الاستهلاك؟</h2>
+                <FaShoppingCart className="text-red-600 text-4xl " />
+                <h2 className="text-2xl mx-4 font-bold text-red-900">
+                  
+                  {t('financialLiteracy.sections.consumption.title')}
+                  </h2>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4">
-                الاستهلاك هو استخدام السلع والخدمات لتلبية الاحتياجات والرغبات. إنه عنصر أساسي في الحياة الاقتصادية.
+              {t('financialLiteracy.sections.consumption.definition')}
               </p>
-              {/* <h3 className="text-xl font-semibold text-red-800 mb-3">كيف تستهلك صح؟</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• اشترِ فقط ما تحتاجه</li>
-                <li>• اختر المنتجات المستدامة</li>
-                <li>• قلل من النفايات</li>
-                <li>• ادعم الشركات المسؤولة</li>
-                <li>• كن واعيًا بتأثيرك</li>
-              </ul> */}
+         
             </div>
             <div className="bg-white rounded-2xl shadow-xl p-6">
               <div className="flex items-center mb-4">
-                <FaChartPie className="text-orange-600 text-4xl ml-4" />
-                <h2 className="text-2xl font-bold text-orange-900">العلاقة بين الاستهلاك والاستثمار والادخار</h2>
+                <FaChartPie  className="text-orange-600 text-4xl " />
+                <h2 className="text-2xl mx-4 font-bold text-orange-900">
+                  {t('financialLiteracy.sections.consumption.relationTitle')}
+                  </h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                هي علاقة وثيقة ومترابطة، وتشكل هذه العناصر الثلاثة أساسًا للاقتصاد على المستويين الفردي والوطني
+              {t('financialLiteracy.sections.consumption.relationText')}
               </p>
             </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 py-4">نصائح ذهبية</h2>
+          <h2 className="text-2xl font-bold text-gray-800 py-4">
+            {t('financialLiteracy.goldenTips')}
+            </h2>
 
           <div className="grid grid-cols-3 gap-4 mb-8">
             
@@ -203,14 +217,9 @@ function FinancialLiteracyPage() {
         {activeSection === 'investment' && (
           <FinancialCard
             icon={<FaChartLine className="text-3xl" />}
-            title="الاستثمار: بوابة بناء الثروة"
-            text="الاستثمار ليس مجرد ادخار الأموال، بل هو فن تنميتها. تخيل أنك تبني قصرًا من الفرص، كل قرار استثماري هو لبنة في صرح ثروتك."
-            tips={[
-              'ابدأ بمبالغ صغيرة واستثمر بانتظام',
-              'نوع محفظتك الاستثمارية لتقليل المخاطر',
-              'استشر خبراء ماليين معتمدين',
-              'تابع أداء استثماراتك دوريًا'
-            ]}
+            title={t('financialLiteracy.cards.investment.title')}
+            text={t('financialLiteracy.cards.investment.text')}
+            tips={t('financialLiteracy.cards.investment.tips', { returnObjects: true })}
             textC={'text-blue-600 '}
             bg={'bg-blue-600'}
           />
@@ -220,14 +229,10 @@ function FinancialLiteracyPage() {
         {activeSection === 'saving' && (
           <FinancialCard
             icon={<FaMoneyBill className="text-3xl" />}
-            title="الادخار: أساس البناء المالي"
-            text="كما تحتاج الشجرة إلى جذور قوية، يحتاج مستقبلك المالي إلى أساس ادخاري متين. الادخار المنتظم هو الوقود الذي يدفع عجلة النمو."
-            tips={[
-              'خصص 20% من دخلك للادخار أولاً بأول',
-              'استخدم أدوات ادخار ذات عوائد مجدية',
-              'ضع أهدافًا ملموسة وقابلة للقياس',
-              'استفد من التكنولوجيا في متابعة المدخرات'
-            ]}
+            title={t('financialLiteracy.cards.saving.title')}
+            text={t('financialLiteracy.cards.saving.text')}
+            tips={t('financialLiteracy.cards.saving.tips', { returnObjects: true })}
+
             textC={' text-emerald-600 '}
             bg={'bg-emerald-600 '}
 
@@ -238,14 +243,9 @@ function FinancialLiteracyPage() {
         {activeSection === 'consumption' && (
           <FinancialCard
             icon={<FaBalanceScale className="text-3xl" />}
-            title="الاستهلاك الواعي: فن إدارة الموارد"
-            text="الاستهلاك الرشيد هو موازنة دقيقة بين الحاجات والرغبات. كالمزارع الحكيم الذي يوزع الماء بين المحاصيل بحكمة."
-            tips={[
-              'ميز بين الحاجات الأساسية والكماليات',
-              'استخدم قوائم تسوق مدروسة مسبقًا',
-              'قارن الأسعار قبل الشراء',
-              'استثمر في جودة تدوم طويلاً'
-            ]}
+            title={t('financialLiteracy.cards.consumption.title')}
+            text={t('financialLiteracy.cards.consumption.text')}
+            tips={t('financialLiteracy.cards.consumption.tips', { returnObjects: true })}
             textC={'text-purple-600'}
             bg={'bg-purple-600 '}
 
@@ -254,28 +254,19 @@ function FinancialLiteracyPage() {
 
 
 
-          {/* Income Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <div className="flex items-center mb-6">
-              <FaCalculator className="text-teal-600 text-4xl ml-4" />
-              <h2 className="text-3xl font-bold text-teal-900">ما هو الدخل؟</h2>
-            </div>
-            <p className="text-gray-700 text-xl">
-              الدخل هو المبلغ المالي الذي يحصل عليه الفرد أو الكيان خلال فترة زمنية محددة. إنه يمثل الموارد المتاحة للاستهلاك أو الادخار أو الاستثمار.
-            </p>
-          </div>
+    
 
 
 
 
           {/* Closing Message */}
-          <div className="text-center mt-12 bg-blue-100 rounded-2xl p-8">
+          <div className="mt-12 bg-blue-100 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-blue-900 mb-4">
-              لا تتردد في بدء رحلتك المالية
+            {t('financialLiteracy.closingTitle')}
             </h3>
-            <p className="text-gray-700 text-xl">
-              لا تخف من المخاطرة، فكل نجاح يتطلب بعض المخاطرة. ابحث عن الفرص الاستثمارية المناسبة لك، واستشر الخبراء. ابدأ بمبلغ صغير، واستثمر بذكاء، وراقب نمو استثماراتك.
-            </p>
+            <p className=" text-gray-700 text-xl">
+            {t('financialLiteracy.closingText')}
+                        </p>
             
           </div>
         </div>

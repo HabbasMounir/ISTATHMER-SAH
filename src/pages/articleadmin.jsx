@@ -5,7 +5,7 @@ import {
   FaEye, FaChevronLeft, FaCalendarAlt, FaTags,
   FaSearch, FaClock
 } from 'react-icons/fa';
-import { articles as initialArticles } from '@/data.js';
+import { articles as initialArticles } from '@/data/en.js';
 
 function ArticleAdminPanel() {
   const { t, i18n } = useTranslation();

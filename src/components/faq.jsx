@@ -99,7 +99,7 @@ function FAQSection() {
 //   const isRTL = i18n.dir() === 'rtl';
 useEffect(()=>{setisRTL(i18n.dir() === 'rtl')},[i18n.dir()])
 //   const faqs = t('faq.items', { returnObjects: true });
-  const faqs = [
+  const faqse = [
           { 
             question: "Getting started with investments", 
             answer: "Begin with our guided setup process and personalized recommendations based on your goals.",
@@ -118,6 +118,28 @@ useEffect(()=>{setisRTL(i18n.dir() === 'rtl')},[i18n.dir()])
           { 
             question: "Support availability", 
             answer: "24/7 live chat support with average response time under 2 minutes.",
+            emoji: "💬"
+          }
+        ];
+        const faqsa = [
+          { 
+            question: "البدء في الاستثمارات", 
+            answer: "ابدأ مع عملية الإعداد الموجهة لدينا وتوصيات شخصية بناءً على أهدافك.",
+            emoji: "🚀"
+          },
+          { 
+            question: "إجراءات أمان المنصة", 
+            answer: "تشفير بمستوى البنوك، التحقق بخطوتين، وتدقيقات منتظمة من طرف ثالث لضمان أعلى درجات الأمان.",
+            emoji: "🔒"
+          },
+          { 
+            question: "تحديثات الدورات والشهادات", 
+            answer: "تحديثات محتوى أسبوعية مع شهادات إتمام معتمدة من المؤسسات المالية.",
+            emoji: "🎓"
+          },
+          { 
+            question: "توافر الدعم", 
+            answer: "دعم دردشة مباشر على مدار الساعة طوال أيام الأسبوع مع وقت استجابة أقل من دقيقتين.",
             emoji: "💬"
           }
         ];
@@ -141,7 +163,7 @@ useEffect(()=>{setisRTL(i18n.dir() === 'rtl')},[i18n.dir()])
 
         {/* FAQ Items */}
         <div className="space-y-2">
-          {faqs?.map((faq, index) => (
+          {(i18n.language=='ar'?faqsa:faqse)?.map((faq, index) => (
             <div 
               key={index}
               className={`group relative border-b border-blue-100 transition-all duration-300 hover:border-blue-200 ${
