@@ -146,3 +146,97 @@ input:focus {
   z-index: 99999 !important;
   box-shadow: 0 4px 24px rgba(0,0,0,0.15) !important;
 }
+*{
+  -webkit-user-drag:none;
+}
+::selection {
+  background: rgba(59, 131, 246, 0.158); /* Light blue background */
+  color: #1a365d; /* Dark blue text */
+}
+button, a, .select-none {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Prevent text selection on interactive elements */
+button, a, .select-none {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Custom text selection style */
+
+
+/* Smooth transitions for navbar elements */
+.nav-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dropdown shadow and animation */
+.nav-dropdown {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  animation: dropdownEnter 0.2s ease-out;
+}
+
+@keyframes dropdownEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Focus states */
+.nav-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Hover effects */
+.nav-item-hover:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Active state scaling */
+.nav-item-active:active {
+  transform: scale(0.98);
+}
+
+/* Image optimization */
+.nav-logo-img {
+  pointer-events: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Text readability */
+.nav-text {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile menu sliding animation */
+.mobile-menu-slide {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RTL support for mobile menu */
+[dir="rtl"] .mobile-menu-slide {
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .mobile-menu-slide.open {
+  transform: translateX(0);
+}

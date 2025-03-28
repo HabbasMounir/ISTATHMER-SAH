@@ -357,9 +357,12 @@ function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">IS</span>
-              </div>
+            <div
+           className={`w-11 h-11 p-[2px] bg-white rounded-lg flex items-center justify-center`}
+           >
+            {/* <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span> */}
+            <img   src="public\logo.svg" alt="" />
+          </div>
               <h2 className="text-xl font-bold text-white">{t('navbar.brand')}</h2>
             </div>
             <p className="text-sm text-gray-400">
