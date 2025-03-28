@@ -71,8 +71,11 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className={`w-8 h-8 ${isLightBackground ? 'bg-blue-900' : 'bg-white'} rounded-lg flex items-center justify-center`}>
-            <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span>
+          <div
+           className={`w-11 h-11 p-[2px] ${isLightBackground ? '' : 'bg-white'} rounded-lg flex items-center justify-center`}
+           >
+            {/* <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span> */}
+            <img   src="public\logo.svg" alt="" />
           </div>
           <h1 className={`text-2xl font-bold ${textColor}`}>
             {t('navbar.brand')}

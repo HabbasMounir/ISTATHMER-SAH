@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaCalculator, FaLocationArrow, FaMoneyBillWave, FaBuilding, FaChartLine, FaMapMarkedAlt, FaWallet } from 'react-icons/fa';
 import { NavBarbg } from '../components/navBar';
+import { useTranslation } from 'react-i18next';
 
 // Data structure for investment fields
-const investmentFields = [
+const arinvestmentFields = [
   { 
     id: 'real_estate', 
     title: 'العقارات', 
@@ -38,9 +39,43 @@ const investmentFields = [
     ]
   },
 ];
-
+const eninvestmentFields = [
+  { 
+    id: 'real_estate', 
+    title: 'Real Estate', 
+    icon: <FaBuilding className="text-3xl text-blue-600" />,
+    description: 'Investment in residential and commercial real estate',
+    projects: [
+      { id: 'residential', name: 'Residential Project', minCost: 5000000 },
+      { id: 'commercial', name: 'Commercial Project', minCost: 8000000 },
+      { id: 'mixed_use', name: 'Mixed-Use Project', minCost: 12000000 },
+    ] 
+  },
+  { 
+    id: 'commerce', 
+    title: 'Commerce', 
+    icon: <FaMoneyBillWave className="text-3xl text-green-600" />,
+    description: 'Investment in retail and wholesale trade',
+    projects: [
+      { id: 'retail', name: 'Retail Store', minCost: 2000000 },
+      { id: 'wholesale', name: 'Wholesale Business', minCost: 4000000 },
+      { id: 'e_commerce', name: 'E-Commerce', minCost: 1000000 },
+    ]
+  },
+  { 
+    id: 'services', 
+    title: 'Services', 
+    icon: <FaChartLine className="text-3xl text-purple-600" />,
+    description: 'Investment in various service sectors',
+    projects: [
+      { id: 'restaurant', name: 'Restaurant', minCost: 3000000 },
+      { id: 'cafe', name: 'Cafe', minCost: 1500000 },
+      { id: 'salon', name: 'Beauty Salon', minCost: 1000000 },
+    ]
+  },
+];
 // Data for regions and their cost modifiers
-const regionsData = {
+const arregionsData = {
   'الجزائر العاصمة': {
     costModifier: 1.5,
     locations: [
@@ -76,9 +111,41 @@ const regionsData = {
     ]
   },
 };
-
+const enregionsData = {
+  'Algiers': {
+    costModifier: 1.5,
+    locations: [
+      { id: 'hydra', name: 'Hydra', modifier: 1.8 },
+      { id: 'el_biar', name: 'El Biar', modifier: 1.6 },
+      { id: 'bab_el_oued', name: 'Bab El Oued', modifier: 1.3 },
+    ]
+  },
+  'Setif': {
+    costModifier: 1.5,
+    locations: [
+      { id: 'setif', name: 'Setif', modifier: 1.8 },
+      { id: 'el_eulma', name: 'El Eulma', modifier: 1.6 },
+    ]
+  },
+  'Oran': {
+    costModifier: 1.2,
+    locations: [
+      { id: 'ain_turk', name: 'Ain Turk', modifier: 1.3 },
+      { id: 'center', name: 'City Center', modifier: 1.4 },
+      { id: 'es_senia', name: 'Es Senia', modifier: 1.1 },
+    ]
+  },
+  'Constantine': {
+    costModifier: 1.1,
+    locations: [
+      { id: 'sidi_mabrouk', name: 'Sidi Mabrouk', modifier: 1.2 },
+      { id: 'zouaghi', name: 'Zouaghi', modifier: 1.1 },
+      { id: 'downtown', name: 'Downtown', modifier: 1.3 },
+    ]
+  },
+};
 // Common project costs categories
-const commonCosts = [
+const arcommonCosts = [
 //   { id: 'land', name: 'تكلفة الأرض', isRequired: true },
   { id: 'permits', name: 'تراخيص وتصاريح', isRequired: true },
   { id: 'utilities', name: 'مرافق (ماء، كهرباء، غاز)', isRequired: true },
@@ -86,9 +153,14 @@ const commonCosts = [
   { id: 'operations', name: 'تكاليف التشغيل', isRequired: true },
   { id: 'staff', name: 'الموظفين والعمال', isRequired: true },
 ];
-
+const encommonCosts = [
+  { id: 'permits', name: 'Permits and Licenses', isRequired: true },
+  { id: 'utilities', name: 'Utilities (Water, Electricity, Gas)', isRequired: true },
+  { id: 'operations', name: 'Operating Costs', isRequired: true },
+  { id: 'staff', name: 'Staff and Workers', isRequired: true },
+];
 // Specific costs by project type
-const specificCosts = {
+const arspecificCosts = {
   'real_estate': [
     { id: 'construction', name: 'تكاليف البناء', isRequired: true },
     { id: 'design', name: 'تصميم هندسي', isRequired: true },
@@ -105,10 +177,28 @@ const specificCosts = {
     { id: 'maintenance', name: 'صيانة دورية', isRequired: false },
   ]
 };
-
+const enspecificCosts = {
+  'real_estate': [
+    { id: 'construction', name: 'Construction Costs', isRequired: true },
+    { id: 'design', name: 'Architectural Design', isRequired: true },
+    { id: 'furniture', name: 'Furniture and Equipment', isRequired: false },
+  ],
+  'commerce': [
+    { id: 'inventory', name: 'Inventory', isRequired: true },
+    { id: 'equipment', name: 'Equipment and Supplies', isRequired: true },
+    { id: 'delivery', name: 'Delivery System', isRequired: false },
+  ],
+  'services': [
+    { id: 'equipment', name: 'Equipment and Supplies', isRequired: true },
+    { id: 'training', name: 'Employee Training', isRequired: true },
+    { id: 'maintenance', name: 'Routine Maintenance', isRequired: false },
+  ]
+};
 // Main component
 const InvestmentCalculator = () => {
   // State variables for the multi-step form
+  const { t, i18n } = useTranslation();
+
   const [step, setStep] = useState(1);
   const [selectedField, setSelectedField] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -122,6 +212,7 @@ const InvestmentCalculator = () => {
     interestRate: 5,
     term: 5
   });
+
   const [revenue, setRevenue] = useState({
     initialAmount: 0,
     growthRate: 5
@@ -201,33 +292,33 @@ const InvestmentCalculator = () => {
     num?.toLocaleString('ar-DZ', { maximumFractionDigits: 0 }) || 0;
   const renderVANResults = () => (
     <div className="bg-white p-6 rounded-xl shadow-md">
-      <h3 className="text-2xl font-bold mb-6 text-blue-800">النتائج المالية</h3>
+      <h3 className="text-2xl font-bold mb-6 text-blue-800">{t('van.results.title')} </h3>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="bg-blue-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-600">القيمة الحالية الصافية (VAN)</p>
+          <p className="text-sm text-gray-600">{t('van.results.npv')}</p>
           <p className="text-2xl font-bold text-blue-600">
-            {formatNumber(vanResults.npv)} دج
+            {formatNumber(vanResults.npv)} {t('van.common.currency')}
           </p>
         </div>
         
         <div className="bg-green-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-600">معدل العائد الداخلي (IRR)</p>
+          <p className="text-sm text-gray-600">{t('van.results.irr')}</p>
           <p className="text-2xl font-bold text-green-600">
             {(vanResults.irr * 100).toFixed(1)}%
           </p>
         </div>
         
         <div className="bg-purple-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-600">فترة الاسترداد</p>
+          <p className="text-sm text-gray-600">{t('van.results.payback')}</p>
           <p className="text-2xl font-bold text-purple-600">
-            {vanResults.paybackPeriod?.toFixed(1)} سنوات
+            {vanResults.paybackPeriod?.toFixed(1)} {t('van.common.years')}
           </p>
         </div>
       </div>
 
       <div className="mb-8">
-        <h4 className="text-xl font-semibold mb-4">التدفقات النقدية على مدى 10 سنوات</h4>
+        <h4 className="text-xl font-semibold mb-4">{t('van.results.cashflows')}</h4>
         <div className="flex items-end h-48 gap-2  border-gray-200 pb-4">
           {vanResults.cashflows.map((cf, idx) => (
             <div
@@ -236,7 +327,7 @@ const InvestmentCalculator = () => {
               style={{ 
                 height: `${Math.abs(cf) / Math.max(...vanResults.cashflows.map(Math.abs)) * 80}%`
               }}
-              title={`السنة ${idx}: ${formatNumber(cf)} دج`}
+              title={`${t('van.common.years')} ${idx}: ${formatNumber(cf)} ${t('van.common.currency')}`}
            />
           ))}
         </div>
@@ -246,9 +337,9 @@ const InvestmentCalculator = () => {
         <table className="w-full text-center">
           <thead className="bg-gray-100">
             <tr>
-              <th className="p-3">السنة</th>
-              <th className="p-3">التدفق النقدي</th>
-              <th className="p-3">التراكمي</th>
+              <th className="p-3">{t('van.results.year')}</th>
+              <th className="p-3">{t('van.results.cashflow')} </th>
+              <th className="p-3">{t('van.results.cumulative')}</th>
             </tr>
           </thead>
           <tbody>
@@ -261,10 +352,10 @@ const InvestmentCalculator = () => {
                 <tr key={idx} className="border-b-2 border-indigo-50 pb-4">
                   <td className="p-3">{idx}</td>
                   <td className={`p-3 ${cf >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                    {formatNumber(cf)} دج
+                    {formatNumber(cf)} {t('van.common.currency')}
                   </td>
                   <td className="p-3 font-medium">
-                    {formatNumber(cumulative)} دج
+                    {formatNumber(cumulative)} {t('van.common.currency')}
                   </td>
                 </tr>
               );
@@ -408,9 +499,9 @@ const InvestmentCalculator = () => {
       case 1:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800">اختر مجال الاستثمار</h2>
+            <h2 className="text-2xl font-bold text-gray-800"> {t("van.steps.chooseField")} </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {investmentFields.map(field => (
+              {(i18n.language=='ar'?arinvestmentFields:eninvestmentFields).map(field => (
                 <div
                   key={field.id}
                   onClick={() => handleFieldSelect(field)}
@@ -430,7 +521,7 @@ const InvestmentCalculator = () => {
       case 2:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800">اختر نوع المشروع</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{t("van.steps.chooseProject")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {selectedField?.projects.map(project => (
                 <div
@@ -440,8 +531,10 @@ const InvestmentCalculator = () => {
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
                     <h3 className="text-xl font-bold">{project.name}</h3>
-                    <p className="text-gray-600">الحد الأدنى للاستثمار</p>
-                    <p className="text-blue-600 font-bold">{project.minCost.toLocaleString()} دج</p>
+                    <p className="text-gray-600">
+                      {t('van.fields.minimuminvestment')}
+                      </p>
+                    <p className="text-blue-600 font-bold">{project.minCost.toLocaleString()} {t('van.common.currency')}</p>
                   </div>
                 </div>
               ))}
@@ -452,13 +545,13 @@ const InvestmentCalculator = () => {
       case 3:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800">اختر منطقة المشروع</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{t("van.steps.chooseRegion")} </h2>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-lg font-semibold mb-4">الولاية</h3>
+                <h3 className="text-lg font-semibold mb-4">{t("van.fields.willaya")}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {Object.keys(regionsData).map(region => (
+                  {Object.keys((i18n.language=='ar'?arregionsData:enregionsData)).map(region => (
                     <div
                       key={region}
                       onClick={() => handleRegionSelect(region)}
@@ -479,9 +572,9 @@ const InvestmentCalculator = () => {
               
               {selectedRegion && (
                 <div className="bg-white p-6 rounded-xl shadow-md">
-                  <h3 className="text-lg font-semibold mb-4">المنطقة</h3>
+                  <h3 className="text-lg font-semibold mb-4">{t("van.fields.region")}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {regionsData[selectedRegion]?.locations?.map(location => (
+                  {(i18n.language=='ar'?arregionsData:enregionsData)[selectedRegion]?.locations?.map(location => (
                       <div
                         key={location.id}
                         onClick={() => handleLocationSelect(location)}
@@ -509,12 +602,12 @@ const InvestmentCalculator = () => {
       case 4:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800">تحديد تكاليف المشروع</h2>
+            <h2 className="text-2xl font-bold text-gray-800">  {t("van.steps.costs")}</h2>
             
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold mb-4">التكاليف الأساسية</h3>
+              <h3 className="text-xl font-semibold mb-4">{t('van.fields.basiccosts')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                {commonCosts.map(cost => (
+                {(i18n.language=='ar'?arcommonCosts:encommonCosts).map(cost => (
                   <div key={cost.id} className="space-y-2">
                     <label className="block text-gray-700 font-medium">
                       {cost.name} {cost.isRequired && <span className="text-red-500">*</span>}
@@ -525,7 +618,7 @@ const InvestmentCalculator = () => {
                         value={costs[cost.id] || ''}
                         onChange={(e) => handleCostChange(cost.id, e.target.value)}
                         className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="DA(دج)"
+                        placeholder={`${t('van.common.currency')}`}
                         required={cost.isRequired}
                       />
                       {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -538,9 +631,9 @@ const InvestmentCalculator = () => {
             
             {selectedField && (
               <div className="bg-white p-6 rounded-xl shadow-md">
-                <h3 className="text-xl font-semibold mb-4">تكاليف خاصة بالمشروع</h3>
+                <h3 className="text-xl font-semibold mb-4">{t('van.fields.Project-specificcosts')}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                  {specificCosts[selectedField.id]?.map(cost => (
+                  {(i18n.language=='ar'?arspecificCosts:enspecificCosts)[selectedField.id]?.map(cost => (
                     <div key={cost.id} className="space-y-2">
                       <label className="block text-gray-700 font-medium">
                         {cost.name} {cost.isRequired && <span className="text-red-500">*</span>}
@@ -551,12 +644,10 @@ const InvestmentCalculator = () => {
                           value={costs[cost.id] || ''}
                           onChange={(e) => handleCostChange(cost.id, e.target.value)}
                           className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="DA(دج)"
+                          placeholder={`${t('van.common.currency')}`}
                           required={cost.isRequired}
                         />
-                        {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                          <span className="text-gray-500 sm:text-sm">دج</span>
-                        </div> */}
+                       
                       </div>
                     </div>
                   ))}
@@ -566,13 +657,13 @@ const InvestmentCalculator = () => {
             
             <div className="bg-white p-6 rounded-xl shadow-md">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-semibold">تكاليف إضافية</h3>
+                <h3 className="text-xl font-semibold">{t('van.fields.additionalcosts')}</h3>
                 <button 
                   onClick={handleAddCustomCost}
                   className="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition"
                 >
-                  إضافة تكلفة جديدة +
-                </button>
+{t('van.buttons.addCost')}   
+             </button>
               </div>
               
               {customCosts.length > 0 ? (
@@ -580,44 +671,42 @@ const InvestmentCalculator = () => {
                   {customCosts.map((cost, index) => (
                     <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">اسم التكلفة</label>
+                        <label className="block text-gray-700 font-medium mb-2">{t('van.form.name')}</label>
                         <input
                           type="text"
                           value={cost.name}
                           onChange={(e) => handleCustomCostChange(index, 'name', e.target.value)}
                           className="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="أدخل اسم التكلفة"
+                          placeholder={t('van.form.placeholder.addcostname')}
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">المبلغ</label>
+                        <label className="block text-gray-700 font-medium mb-2">{t('van.form.amount')}</label>
                         <div className="relative rounded-md shadow-sm">
                           <input
                             type="number"
                             value={cost.value}
                             onChange={(e) => handleCustomCostChange(index, 'value', e.target.value)}
                             className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Da(دج)"
+                            placeholder={`${t('van.common.currency')}`}
                           />
-                          {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <span className="text-gray-500 sm:text-sm">دjjjjjjjjjjج</span>
-                          </div> */}
+                     
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-500 text-center py-4">لا توجد تكاليف إضافية. يمكنك إضافة تكاليف خاصة بالمشروع.</p>
+                <p className="text-gray-500 text-center py-4"> {t('van.fields.noadditionalcosts')}</p>
               )}
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold mb-4">الإيرادات المتوقعة</h3>
+              <h3 className="text-xl font-semibold mb-4"> {t('van.fields.expectedrevenues')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">
-                    الإيرادات السنوية المتوقعة (السنة الأولى) <span className="text-red-500">*</span>
+                  {t('van.fields.expectedannualrevenues')}  ({t('van.fields.firstyear')}) <span className="text-red-500">*</span>
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <input
@@ -625,17 +714,15 @@ const InvestmentCalculator = () => {
                       value={revenue.initialAmount || ''}
                       onChange={(e) => handleRevenueChange('initialAmount', e.target.value)}
                       className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="Da(دج)"
+                      placeholder={`${t('van.common.currency')}`}
                       required
                     />
-                    {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <span className="text-gray-500 sm:text-sm">دج</span>
-                    </div> */}
+       
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">
-                    معدل النمو السنوي المتوقع (%)
+                  {t('van.fields.expectedannualgrowth')} (%)
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <input
@@ -658,7 +745,7 @@ const InvestmentCalculator = () => {
                 onClick={() => setStep(5)}
                 className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
-                متابعة
+                {t('van.buttons.next')}
               </button>
             </div>
           </div>
@@ -667,7 +754,7 @@ const InvestmentCalculator = () => {
       case 5:
         return (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800">طريقة التمويل</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{t('van.steps.financing')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
@@ -678,8 +765,10 @@ const InvestmentCalculator = () => {
                   <div className="p-3 bg-green-100 rounded-full">
                     <FaWallet className="text-3xl text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold">تمويل ذاتي</h3>
-                  <p className="text-gray-600">استخدام رأس المال الشخصي لتمويل المشروع بالكامل</p>
+                  <h3 className="text-xl font-bold">{t('van.method.Self-financing')}</h3>
+                  <p className="text-gray-600">
+                  {t('van.method.useSelf-financing')}
+                    </p>
                 </div>
               </div>
               
@@ -691,8 +780,10 @@ const InvestmentCalculator = () => {
                   <div className="p-3 bg-blue-100 rounded-full">
                     <FaMoneyBillWave className="text-3xl text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-bold">قرض بنكي</h3>
-                  <p className="text-gray-600">الحصول على قرض لتمويل المشروع كليًا أو جزئيًا</p>
+                  <h3 className="text-xl font-bold">{t('van.method.bankloan')} </h3>
+                  <p className="text-gray-600">
+                  {t('van.method.usebankloan')}
+                    </p>
                 </div>
               </div>
             </div>
@@ -702,13 +793,13 @@ const InvestmentCalculator = () => {
         case 6:
             return (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-gray-800">تفاصيل القرض</h2>
+                <h2 className="text-2xl font-bold text-gray-800">{t('van.steps.loanDetails')}</h2>
                 
                 <div className="bg-white p-6 rounded-xl shadow-md">
                   <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                     <div className="space-y-2">
                       <label className="block text-gray-700 font-medium">
-                        مبلغ القرض <span className="text-red-500">*</span>
+                      {t('van.form.loanamount')}<span className="text-red-500">*</span>
                       </label>
                       <div className="mt-1 relative rounded-md shadow-sm">
                         <input
@@ -716,18 +807,15 @@ const InvestmentCalculator = () => {
                           value={loanDetails.amount || ''}
                           onChange={(e) => handleLoanDetailChange('amount', e.target.value)}
                           className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="Da(دج)"
+                          placeholder={`${t('van.common.currency')}`}
                           required
                         />
-                        {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                          <span className="text-gray-500 sm:text-sm">دج</span>
-                        </div> */}
                       </div>
                     </div>
                     
                     <div className="space-y-2">
                       <label className="block text-gray-700 font-medium">
-                        معدل الفائدة السنوي (%) <span className="text-red-500">*</span>
+                      {t('van.form.interestRate')} (%) <span className="text-red-500">*</span>
                       </label>
                       <div className="mt-1 relative rounded-md shadow-sm">
                         <input
@@ -746,7 +834,7 @@ const InvestmentCalculator = () => {
                     
                     <div className="space-y-2">
                       <label className="block text-gray-700 font-medium">
-                        مدة القرض (سنوات) <span className="text-red-500">*</span>
+                      {t('van.form.loanTerm')} ({t('van.common.years')}) <span className="text-red-500">*</span>
                       </label>
                       <div className="mt-1 relative rounded-md shadow-sm">
                         <input
@@ -754,7 +842,7 @@ const InvestmentCalculator = () => {
                           value={loanDetails.term || ''}
                           onChange={(e) => handleLoanDetailChange('term', e.target.value)}
                           className="block w-full pr-12 pl-4 py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="سنوات"
+                          placeholder={t('van.common.years')}
                           required
                         />
                         {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -780,15 +868,17 @@ const InvestmentCalculator = () => {
             onClick={goBack}
             className="px-6 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200"
           >
-            <FaArrowLeft className="inline-block ml-2" />
-            رجوع
+            <FaArrowLeft className="inline-block " />
+            
+            <span className="inline-block mx-2">{t("van.buttons.back")}
+              </span>
           </button>
           <button
             onClick={() => window.location.reload()}
             className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
           >
-            بدء حساب جديد
-          </button>
+{t("van.buttons.newCalculation")}  
+        </button>
         </div>
       </div>
     )}}
@@ -798,7 +888,7 @@ const InvestmentCalculator = () => {
         
         <NavBarbg isLightBackground={true} />
 
-        <div className="max-w-7xl mx-auto px-4 pt-16 py-8">
+        <div dir='ltr' className="max-w-7xl mx-auto px-4 pt-16 py-8">
 
           <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
             {/* شريط التقدم */}
@@ -814,12 +904,14 @@ const InvestmentCalculator = () => {
                       : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
                   }`}
                 >
-                  <FaArrowLeft className="inline-block ml-2" />
-                  رجوع
+                   <FaArrowLeft className="inline-block " />
+            
+            <span className="inline-block mx-2">{t("van.buttons.back")}
+              </span>
                 </button>
                 
                 <div className="text-lg font-bold text-gray-600">
-                  الخطوة {step} من 7
+                  {(t('van.steps.progress',{current:step,total:7}))}
                 </div>
               </div>
               
@@ -843,7 +935,7 @@ const InvestmentCalculator = () => {
                   onClick={calculateVAN}
                   className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                 >
-                  احسب VAN
+                 {(t('van.buttons.calculate'))}
                 </button>
               </div>
             )}

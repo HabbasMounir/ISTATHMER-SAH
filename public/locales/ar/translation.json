@@ -230,6 +230,84 @@
       "goldenTips": "نصائح ذهبية",
       "closingTitle": "لا تتردد في بدء رحلتك المالية",
       "closingText": "لا تخف من المخاطرة، فكل نجاح يتطلب بعض المخاطرة. ابحث عن الفرص الاستثمارية المناسبة لك، واستشر الخبراء. ابدأ بمبلغ صغير، واستثمر بذكاء، وراقب نمو استثماراتك."
+    } , "van": {
+      "common": {
+        "currency": "دج",
+        "years": "سنوات",
+        "required": "*"
+      },
+      "steps": {
+        "chooseField": "اختر مجال الاستثمار",
+        "chooseProject": "اختر نوع المشروع",
+        "chooseRegion": "اختر منطقة المشروع",
+        "costs": "تحديد تكاليف المشروع",
+        "financing": "طريقة التمويل",
+        "loanDetails": "تفاصيل القرض",
+        "progress": "الخطوة {{current}} من {{total}}"
+      },
+      "form": {
+        "name": "اسم التكلفة",
+        "amount": "المبلغ",
+        "interestRate": "معدل الفائدةالسنوي",
+        "loanamount": "مبلغ القرض",
+        "loanTerm": "مدة القرض",
+        "revenue": "الإيرادات السنوية",
+        "growthRate": "معدل النمو",
+        "placeholder": {
+          "addcostname": "أدخل اسم التكلفة",
+          "currency": "أدخل المبلغ",
+          "percentage": "أدخل النسبة"
+        }
+        
+      },
+      "results": {
+        "title": "النتائج المالية",
+        "npv": "القيمة الحالية الصافية (VAN)",
+        "irr": "معدل العائد الداخلي (IRR)",
+        "payback": "فترة الاسترداد",
+        "cashflows": "التدفقات النقدية على مدى 10 سنوات",
+        "year": "السنة",
+        "cashflow": "التدفق النقدي",
+        "cumulative": "التراكمي"
+      },
+      "buttons": {
+        "back": "رجوع",
+        "next": "متابعة",
+        "calculate": "احسب VAN",
+        "newCalculation": "بدء حساب جديد",
+        "addCost": "إضافة تكلفة جديدة +"
+      },
+      
+      "fields": {
+
+        "region":"المنطقة  ",
+        "willaya":"الولاية  ",
+        "minimuminvestment":"الحد الأدنى للاستثمار",
+        "basiccosts":"التكاليف الأساسية",
+        "Project-specificcosts":"تكاليف خاصة بالمشروع",
+        "additionalcosts":"تكاليف  اضافية",
+        "noadditionalcosts":"لا توجد تكاليف إضافية. يمكنك إضافة تكاليف خاصة بالمشروع.",
+        "expectedrevenues":"الإيرادات المتوقعة",
+        "expectedannualrevenues":"الإيرادات السنوية المتوقعة ",
+        "expectedannualgrowth":"  معدل النمو السنوي المتوقع ",
+
+        "firstyear":"السنة الاولى",
+        
+        "agriculture": {
+          "title": "الزراعة",
+          "description": "الاستثمار في المشاريع الزراعية"
+        },
+        "industry": {
+          "title": "الصناعة",
+          "description": "مشاريع التصنيع الصناعي"
+        }
+      },
+      "method":{
+        "Self-financing":"تمويل الذاتي",
+        "useSelf-financing":"استخدام رأس المال الشخصي لتمويل المشروع بالكامل",
+        "bankloan":"قرض بنكي" ,
+        "usebankloan":"الحصول على قرض لتمويل المشروع كليًا أو جزئيًا"
+      }
     }
     
     

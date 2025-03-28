@@ -239,6 +239,81 @@
       "goldenTips": "Golden Tips",
       "closingTitle": "Don't Hesitate to Begin Your Financial Journey",
       "closingText": "Don't be afraid to take risks, as every success requires some risk. Look for investment opportunities that suit you and consult experts. Start small, invest wisely, and watch your investments grow."
+  },
+  "van": {
+    "common": {
+      "currency": "DZD",
+      "years": "years",
+      "required": "*"
+    },
+    "steps": {
+      "chooseField": "Choose Investment Field",
+      "chooseProject": "Choose Project Type",
+      "chooseRegion": "Select Project Area",
+      "costs": "Project Costs",
+      "financing": "Financing Method",
+      "loanDetails": "Loan Details",
+      "progress": "Step {{current}} of {{total}}"
+    },
+    "form": {
+      "name": "Cost Name",
+      "amount": "Amount",
+      "interestRate": "Interest Rate",
+      "loanamount": "Loan amount",
+      "loanTerm": "Loan Term",
+      "revenue": "Annual Revenue",
+      "growthRate": "Growth Rate",
+      "placeholder": {
+        "addcostname": "add cost name  ",
+        "currency": "Enter amount",
+        "percentage": "Enter percentage"
+      }
+    },
+    "results": {
+      "title": "Financial Results",
+      "npv": "Net Present Value (NPV)",
+      "irr": "Internal Rate of Return (IRR)",
+      "payback": "Payback Period",
+      "cashflows": "Cash Flows Over 10 Years",
+      "year": "Year",
+      "cashflow": "Cash Flow",
+      "cumulative": "Cumulative"
+    },
+    "buttons": {
+      "back": "Back",
+      "next": "Continue",
+      "calculate": "Calculate VAN",
+      "newCalculation": "New Calculation",
+      "addCost": "Add New Cost +"
+    },
+    "fields": {
+      "region":"region",
+      "willaya":"willaya",
+      "minimuminvestment":"Minimum investment ",
+      "basiccosts":"basics costs",
+      "Project-specificcosts":"Project-specific costs",
+      "additionalcosts":"Additional costs",
+      "noadditionalcosts":"There are no additional costs. You can add project-specific costs.",
+      "expectedrevenues":"Expected revenues ",
+      "expectedannualrevenues":"Expected annual revenues",
+      "expectedannualgrowth":"Expected annual growth rate",
+      "firstyear":"fist year",
+      
+      "agriculture": {
+        "title": "Agriculture",
+        "description": "Investment in agricultural projects"
+      },
+      "industry": {
+        "title": "Industry",
+        "description": "Industrial manufacturing projects"
+      }
+    },
+    "method":{
+        "Self-financing":"Self financing ",
+        "useSelf-financing":"Using personal capital to fully finance the project Self financing",
+        "bankloan":"bank loan" ,
+        "usebankloan":"Obtaining a loan to fully or partially finance the project"
+      }
   }
   }
   
