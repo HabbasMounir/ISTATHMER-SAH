@@ -361,7 +361,7 @@ function Footer() {
            className={`w-11 h-11 p-[2px] bg-white rounded-lg flex items-center justify-center`}
            >
             {/* <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span> */}
-            <img   src="public\logo.svg" alt="" />
+            <img   src="\logo.svg" alt="" />
           </div>
               <h2 className="text-xl font-bold text-white">{t('navbar.brand')}</h2>
             </div>

@@ -75,7 +75,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
            className={`w-11 h-11 p-[2px] pointer-events-none ${isLightBackground ? '' : 'bg-white'} rounded-lg flex items-center justify-center`}
            >
             {/* <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span> */}
-            <img    src="public\logo.svg" alt="" />
+            <img    src="\logo.svg" alt="" />
           </div>
           <h1 className={`text-2xl font-bold ${textColor}`}>
             {t('navbar.brand')}
