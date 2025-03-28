@@ -14,6 +14,7 @@ import BMCTool2 from "./tools/bmc";
 import FinancialCalculator from "./tools/van";
 import FinancialLiteracyPage from "./pages/awareness";
 import Feedback from "./pages/contact";
+import { useTranslation } from "react-i18next";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -59,13 +60,17 @@ import Feedback from "./pages/contact";
 
 export default function App() {
   let location = useLocation();
-
+  const { t, i18n } = useTranslation();
 useEffect(()=>{
 
     document.querySelector('html').scrollIntoView({ behavior: "smooth", block: "start" });
     
   
 },[location])
+useEffect(()=>{
+  console.log(location)
+  document.title=`${location.pathname.split('/')[2]?location.pathname.split('/')[2]:location.pathname.split('/')[1]?t(`navbar.${location.pathname.split('/')[1]}`):i18n.language=='ar'?'استثمر صح':'istathmer sah'  } `
+},[i18n.language ,location])
   return (
     <div className="min-h-screen bg-gray-100">
       <Routes>
