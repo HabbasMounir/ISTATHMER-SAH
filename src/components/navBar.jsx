@@ -69,28 +69,28 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
       className={`fixed w-full top-0 z-50 transition-all duration-300  md:${navBackground}`}
       dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
     >
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="lg:container lg:mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div
-           className={`w-11 h-11 pr-[6px] p-[2px] pointer-events-none ${isLightBackground ? 'bg-blue-900' : 'bg-white'} rounded-lg flex items-center justify-center`}
+           className={`w-9 h-9 md:w-11 md:h-11 pr-[6px]  p-[2px] pointer-events-none ${isLightBackground ? 'bg-blue-900' : 'bg-white'} rounded-lg flex items-center justify-center`}
            >
             {/* <span className={`${isLightBackground ? 'text-white' : 'text-blue-900'} font-bold text-xl`}>IS</span> */}
-            <img    src={`${!isLightBackground ?'\logo.svg':"\wlogo.svg"}`} alt="" />
+            <img  className="w-6 md:w-8"   src={`${!isLightBackground ?'\logo.svg':"\wlogo.svg"}`} alt="" />
           </div>
-          <h1 className={`text-2xl font-bold ${textColor}`}>
+          <h1 className={`text-sm xl:text-2xl font-bold  ${textColor}`}>
             {t('navbar.brand')}
           </h1>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center space-x-6">
+        <ul className="hidden md:flex items-center space-x-3 lg:space-x-6">
           {menuItems.map((item) => (
             <li key={item.key} className="relative">
               <Link 
                 onClick={() => setActiveTab(item.key)}
                 to={item.key=='home'?'/':`/${item.key}`}
-                className={`flex items-center py-2 px-3 transition-all duration-300 relative group
+                className={`flex items-center py-2 px-2 lg:px-3 text-sm lg:text-base  transition-all duration-300 relative group
                   ${location.pathname === `/${item.key}` ? activeColor : textColor} 
                   ${hoverColor}
                   after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px]
@@ -112,7 +112,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-              className={`flex items-center px-3 py-2 relative group transition-all duration-300
+              className={`flex items-center px-2 lg:px-3 py-2 text-sm lg:text-baserelative group transition-all duration-300
                 ${textColor} ${hoverColor}
                 after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px]
                 after:bg-current after:transition-all after:duration-300

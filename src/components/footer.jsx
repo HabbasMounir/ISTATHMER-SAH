@@ -353,7 +353,7 @@ function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -398,7 +398,7 @@ function Footer() {
           </div>
 
           {/* Tools & Resources */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h3 className="text-white font-semibold mb-4 relative before:absolute before:-bottom-1 before:left-0 before:w-8 before:h-0.5 before:bg-blue-500">
               {t('footer.tools_resources')}
             </h3>
@@ -416,7 +416,7 @@ function Footer() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Newsletter */}
           <div className="space-y-4">

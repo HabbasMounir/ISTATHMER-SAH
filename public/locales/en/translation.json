@@ -340,6 +340,9 @@
     "limitationPersonal": "Not tailored to your individual financial situation.",
     "limitationLegal": "Does not serve as legal or formal financial advice.",
     "exportChat": "Export Chat"
+  },
+  "bot":{
+    "text":"Welcome to Financial Advisor AI! I'm here to help you with financial questions, investment advice, and retirement planning. How can I assist you today?"
   }
   }
   
