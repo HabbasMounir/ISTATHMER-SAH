@@ -4,8 +4,8 @@ export const articles = [
       title: 'فهم تقلبات السوق: دليل للمبتدئين',
       excerpt:
         'اكتشف كيف تؤثر تقلبات السوق على استثماراتك واستراتيجيات التعامل مع الفترات العاصفة.',
-      image: 'https://source.unsplash.com/random/500x300?market,finance',
-      // Category remains in English
+        image: 'https://placehold.co/600x400/',
+        // Category remains in English
       category: 'investing',
       // Tags in Arabic
       tags: ['السوق', 'التقلب', 'إدارة المخاطر'],
@@ -35,7 +35,7 @@ export const articles = [
       title: 'التخطيط للتقاعد في الثلاثينيات: ما يجب أن تعرفه',
       excerpt:
         'البداية المبكرة أساس النجاح. تعرّف على الاستراتيجيات الضرورية لبناء مستقبل تقاعدي متين في الثلاثينيات من عمرك.',
-      image: 'https://source.unsplash.com/random/500x300?retirement',
+    image: 'https://placehold.co/600x400/',
       category: 'retirement',
       // Tags in Arabic
       tags: ['التقاعد', 'التخطيط', 'طويل الأمد'],
@@ -60,8 +60,8 @@ export const articles = [
       title: 'صناديق الاستثمار العقاري: استراتيجية لتحقيق الدخل السلبي',
       excerpt:
         'توفر صناديق الاستثمار العقاري وسيلة سهلة للاستثمار في العقارات دون الحاجة لامتلاكها مباشرة.',
-      image: 'https://source.unsplash.com/random/500x300?realestate',
-      category: 'realestate',
+        image: 'https://placehold.co/600x400/',
+        category: 'realestate',
       // Tags in Arabic
       tags: ['صندوق استثماري', 'دخل سلبي', 'عقارات'],
       date: '2025-03-05',
@@ -84,8 +84,8 @@ export const articles = [
       title: 'صندوق الطوارئ: كم ينبغي أن تدخر حقًا؟',
       excerpt:
         'قد لا تكون قاعدة ادخار 3-6 أشهر من النفقات مناسبة للجميع. اكتشف المبلغ الذي يناسب وضعك المالي.',
-      image: 'https://source.unsplash.com/random/500x300?saving,emergency',
-      category: 'saving',
+        image: 'https://placehold.co/600x400/',
+        category: 'saving',
       // Tags in Arabic
       tags: ['صندوق الطوارئ', 'ادخار', 'أمان مالي'],
       date: '2025-02-28',
@@ -109,8 +109,8 @@ export const articles = [
       title: 'صناديق المؤشرات مقابل الصناديق المُدارة بنشاط: المعركة الكبرى',
       excerpt:
         'مقارنة شاملة بين استراتيجيات الاستثمار السلبية والنشطة لمساعدتك على اتخاذ قرارات مالية واعية.',
-      image: 'https://source.unsplash.com/random/500x300?investing,index',
-      category: 'investing',
+        image: 'https://placehold.co/600x400/',
+        category: 'investing',
       // Tags in Arabic
       tags: ['صناديق المؤشرات', 'الإدارة النشطة', 'مقارنة'],
       date: '2025-02-20',
@@ -133,8 +133,8 @@ export const articles = [
       title: 'الأسهم الموزعة للأرباح: بناء الثروة عبر دخل ثابت',
       excerpt:
         'تعلم كيف يمكنك إنشاء محفظة من الأسهم التي توزع أرباحًا دورية لتوليد دخل ثابت بمرور الوقت.',
-      image: 'https://source.unsplash.com/random/500x300?stocks,dividend',
-      category: 'stocks',
+        image: 'https://placehold.co/600x400/',
+        category: 'stocks',
       // Tags in Arabic
       tags: ['الأرباح', 'استثمار بالدخل', 'أسهم'],
       date: '2025-02-15',

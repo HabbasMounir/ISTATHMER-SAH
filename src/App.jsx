@@ -15,6 +15,7 @@ import FinancialCalculator from "./tools/van";
 import FinancialLiteracyPage from "./pages/awareness";
 import Feedback from "./pages/contact";
 import { useTranslation } from "react-i18next";
+import AISupportPage from "./pages/ai";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -91,6 +92,7 @@ useEffect(()=>{
           {/* <Route path="/cas" element={<FinancialCalculator />} /> */}
           <Route path="/investmentcalculator" element={<FinancialCalculator />} />
           <Route path="/awareness" element={<FinancialLiteracyPage />} />
+          <Route path="/chat_bot" element={<AISupportPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

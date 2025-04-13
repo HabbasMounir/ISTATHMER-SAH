@@ -8,6 +8,7 @@
       "courses": "Courses",
       "about": "About",
       "author": "author",
+      "chat_bot": "Financial Advisor",
 
       "contact": "Contact",
       "tools": "Tools",
@@ -316,6 +317,29 @@
         "bankloan":"bank loan" ,
         "usebankloan":"Obtaining a loan to fully or partially finance the project"
       }
+  }
+  ,  "chat": {
+    "newChat": "New Chat",
+    "recentChats": "Recent Chats",
+    "online": "Online",
+    "you": "You",
+    "financialAdvisor": "Financial Advisor",
+    "suggestedTopics": "Suggested Topics",
+    "typeYourMessage": "Type your message...",
+    "disclaimer": "Disclaimer: The financial advice provided is not professional advice; please consult a licensed professional for personalized recommendations.",
+    "aboutAdvisor": "About the Advisor",
+    "advisorDescription": "I am a virtual financial assistant designed to help with your financial questions, investment advice, and retirement planning.",
+    "capabilities": "Capabilities",
+    "capabilityInvesting": "Investment advice",
+    "capabilityRetirement": "Retirement planning",
+    "capabilitySavings": "Savings strategies",
+    "capabilityRealEstate": "Real estate insights",
+    "capabilityTaxes": "Tax optimization tips",
+    "limitations": "Limitations",
+    "limitationDates": "Advice may not reflect the latest market conditions.",
+    "limitationPersonal": "Not tailored to your individual financial situation.",
+    "limitationLegal": "Does not serve as legal or formal financial advice.",
+    "exportChat": "Export Chat"
   }
   }
   

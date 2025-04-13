@@ -4,7 +4,7 @@ export const articles = [
     title: 'Understanding Market Volatility: A Guide for Beginners',
     excerpt:
       'Learn how market fluctuations affect your investments and strategies to navigate through volatile periods.',
-    image: 'https://source.unsplash.com/random/500x300?market,finance',
+    image: 'https://placehold.co/600x400/',
     category: 'investing',
     tags: ['Market', 'Volatility', 'Risk Management'],
     date: '2025-03-15',
@@ -33,8 +33,8 @@ Adapt to market volatility to make informed investment decisions.`
     title: 'Retirement Planning in Your 30s: What You Need to Know',
     excerpt:
       'Starting early is key. Discover essential strategies for building a solid retirement foundation in your thirties.',
-    image: 'https://source.unsplash.com/random/500x300?retirement',
-    category: 'retirement',
+      image: 'https://placehold.co/600x400/',
+      category: 'retirement',
     tags: ['Retirement', 'Planning', 'Long-term'],
     date: '2025-03-10',
     readTime: 6,
@@ -57,7 +57,7 @@ Early retirement planning can have a significant impact on your financial future
     title: 'Real Estate Investment Trusts: A Passive Income Strategy',
     excerpt:
       'REITs offer an accessible way to invest in real estate without directly owning property. Learn the pros and cons.',
-    image: 'https://source.unsplash.com/random/500x300?realestate',
+    image: 'https://placehold.co/600x400/',
     category: 'realestate',
     tags: ['REIT', 'Passive Income', 'Real Estate'],
     date: '2025-03-05',
@@ -80,8 +80,8 @@ REITs can be a valuable part of a diversified portfolio, especially for passive 
     title: 'Emergency Funds: How Much Should You Really Save?',
     excerpt:
       'The conventional wisdom of 3-6 months of expenses might not apply to everyone. Find out what’s right for you.',
-    image: 'https://source.unsplash.com/random/500x300?saving,emergency',
-    category: 'saving',
+      image: 'https://placehold.co/600x400/',
+      category: 'saving',
     tags: ['Emergency Fund', 'Savings', 'Financial Security'],
     date: '2025-02-28',
     readTime: 5,
@@ -104,8 +104,8 @@ Evaluate your situation to decide the right amount for your emergency fund.`
     title: 'Index Funds vs. Actively Managed Funds: The Showdown',
     excerpt:
       'A comprehensive comparison of passive and active investment strategies to help you make informed decisions.',
-    image: 'https://source.unsplash.com/random/500x300?investing,index',
-    category: 'investing',
+      image: 'https://placehold.co/600x400/',
+      category: 'investing',
     tags: ['Index Funds', 'Active Management', 'Comparison'],
     date: '2025-02-20',
     readTime: 9,
@@ -127,8 +127,8 @@ Choose the fund type that best aligns with your investment goals and risk tolera
     title: 'Dividend Stocks: Building Wealth Through Regular Income',
     excerpt:
       'How to create a portfolio of dividend-paying stocks that generates consistent passive income.',
-    image: 'https://source.unsplash.com/random/500x300?stocks,dividend',
-    category: 'stocks',
+      image: 'https://placehold.co/600x400/',
+      category: 'stocks',
     tags: ['Dividends', 'Income Investing', 'Stocks'],
     date: '2025-02-15',
     readTime: 7,

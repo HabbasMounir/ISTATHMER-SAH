@@ -21,6 +21,7 @@
     "framer-motion": "^12.5.0",
     "i18next": "^24.2.3",
     "i18next-http-backend": "^3.0.2",
+    "lucide-react": "^0.486.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-confetti": "^6.4.0",

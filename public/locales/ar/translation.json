@@ -6,6 +6,7 @@
     "awareness": "التوعية",
     "articles": "المقالات",
     "author": "الكاتب",
+    "chat_bot": "نصيحة للاسثتمار",
     "investmentcalculator": "حاسبة الإستثمار",
     "courses": "الدورات",
     "about": "من نحن",
@@ -309,6 +310,29 @@
         "bankloan":"قرض بنكي" ,
         "usebankloan":"الحصول على قرض لتمويل المشروع كليًا أو جزئيًا"
       }
+    }
+    , "chat": {
+      "newChat": "محادثة جديدة",
+      "recentChats": "المحادثات الأخيرة",
+      "online": "متصل",
+      "you": "أنت",
+      "financialAdvisor": "المستشار المالي",
+      "suggestedTopics": "المواضيع المقترحة",
+      "typeYourMessage": "اكتب رسالتك...",
+      "disclaimer": "تنويه: النصائح المالية المقدمة ليست استشارة مهنية؛ يرجى استشارة متخصص معتمد للحصول على توصيات مخصصة.",
+      "aboutAdvisor": "حول المستشار",
+      "advisorDescription": "أنا مساعد مالي افتراضي مصمم لمساعدتك في استفساراتك المالية، ونصائح الاستثمار، وتخطيط التقاعد.",
+      "capabilities": "القدرات",
+      "capabilityInvesting": "نصائح استثمارية",
+      "capabilityRetirement": "تخطيط التقاعد",
+      "capabilitySavings": "استراتيجيات التوفير",
+      "capabilityRealEstate": "رؤى العقارات",
+      "capabilityTaxes": "نصائح تحسين الضرائب",
+      "limitations": "القيود",
+      "limitationDates": "قد لا تعكس النصائح أحدث ظروف السوق.",
+      "limitationPersonal": "غير مُفصلة لحالتك المالية الفردية.",
+      "limitationLegal": "لا تعد استشارة قانونية أو مالية رسمية.",
+      "exportChat": "تصدير المحادثة"
     }
     
     

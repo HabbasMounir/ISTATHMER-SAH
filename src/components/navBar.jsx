@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope, FaUserFriends } from 'react-icons/fa';
+import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope, FaUserFriends, FaBrain } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, isLightBackground }) {
@@ -48,7 +48,8 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
     { key: 'home', icon: <FaHome className="text-blue-500" /> },
     { key: 'awareness', icon: <FaUserFriends  className="text-black-500" /> },
     { key: 'articles', icon: <FaBook className="text-purple-500" /> },
-    { key: 'investmentcalculator', icon: <FaChartLine className="text-green-500" />, badge: true },
+    { key: 'investmentcalculator', icon: <FaChartLine className="text-green-500" /> },
+    { key: 'chat_bot', icon: <FaBrain className="text-green-500" />, badge: true },
     // { key: 'about', icon: <FaInfo className="text-amber-500" /> },
     { key: 'contact', icon: <FaEnvelope className="text-pink-500" /> }
   ];
@@ -199,7 +200,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
                       }}
                         to={`/${item.key}`}
                       className={`w-full flex items-center p-3 rounded-lg text-left ${
-                        activeTab === item.key 
+                        location.pathname === `/${item.key}` 
                           ? 'bg-blue-50 text-blue-600' 
                           : 'text-gray-700 hover:bg-gray-50'
                       } transition-colors duration-200`}

@@ -1,0 +1,388 @@
+import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaPaperPlane, FaMicrophone, FaRobot, FaUser, FaTimesCircle, FaRegLightbulb, FaRegQuestionCircle } from 'react-icons/fa';
+import { NavBarbg } from '../components/navBar';
+
+function ChatPage() {
+  const { t, i18n } = useTranslation();
+  const [messages, setMessages] = useState([
+    { 
+      id: 1, 
+      text: "Hello! I'm your financial assistant. How can I help you today?", 
+      sender: 'ai',
+      timestamp: new Date()
+    }
+  ]);
+  const [inputValue, setInputValue] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [suggestions, setSuggestions] = useState([
+    "How do I start investing?",
+    "What's the difference between stocks and bonds?",
+    "How much should I save for retirement?",
+    "What is a good emergency fund size?",
+    "How do I create a budget?"
+  ]);
+  const [isRecording, setIsRecording] = useState(false);
+  const messagesEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
+  const inputRef = useRef(null);
+
+  // Mock responses based on keywords
+  const mockResponses = {
+    "invest": "Investing is a great way to grow your wealth! To start investing, I recommend first establishing an emergency fund, then considering low-cost index funds as a beginner option. Would you like more specific information about investment options?",
+    "stock": "Stocks represent ownership in a company, while bonds are essentially loans you give to companies or governments. Stocks generally offer higher potential returns but with higher risk, while bonds tend to be more stable but with lower returns.",
+    "retirement": "For retirement savings, a good rule of thumb is to save 15% of your pre-tax income annually. Starting early is key due to compound interest. Consider utilizing tax-advantaged accounts like 401(k)s and IRAs.",
+    "emergency": "A solid emergency fund typically covers 3-6 months of your essential expenses. Keep this money in an easily accessible account like a high-yield savings account rather than investing it.",
+    "budget": "Creating a budget starts with tracking your income and expenses. The 50/30/20 rule is a good framework: 50% for needs, 30% for wants, and 20% for savings and debt repayment. Would you like me to help you set up a simple budget plan?",
+    "hello": "Hello! How can I assist you with your financial questions today?",
+    "thanks": "You're welcome! Is there anything else I can help you with?",
+  };
+
+  const handleSendMessage = () => {
+    if (inputValue.trim() === '') return;
+    
+    // Add user message
+    const userMessage = {
+      id: messages.length + 1,
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
+    };
+    
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
+    setIsTyping(true);
+    
+    // Simulate AI thinking and typing
+    setTimeout(() => {
+      // Generate a response based on keywords or default
+      let responseText = "I'm not quite sure about that. Could you provide more details about your financial question?";
+      
+      // Check for keywords in the message
+      Object.keys(mockResponses).forEach(keyword => {
+        if (inputValue.toLowerCase().includes(keyword)) {
+          responseText = mockResponses[keyword];
+        }
+      });
+      
+      const aiMessage = {
+        id: messages.length + 2,
+        text: responseText,
+        sender: 'ai',
+        timestamp: new Date()
+      };
+      
+      setMessages(prev => [...prev, aiMessage]);
+      setIsTyping(false);
+    }, 1500);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  const handleSuggestion = (suggestion) => {
+    setInputValue(suggestion);
+    // Focus the input after setting the suggestion
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const toggleRecording = () => {
+    setIsRecording(!isRecording);
+    if (!isRecording) {
+      // Mock recording behavior
+      setTimeout(() => {
+        setInputValue("I want to learn about investing");
+        setIsRecording(false);
+      }, 2000);
+    }
+  };
+
+  const clearChat = () => {
+    setMessages([
+      { 
+        id: 1, 
+        text: "Hello! I'm your financial assistant. How can I help you today?", 
+        sender: 'ai',
+        timestamp: new Date()
+      }
+    ]);
+  };
+
+  // Format time to display in chat
+  const formatTime = (date) => {
+    return date.toLocaleTimeString(i18n.language, { 
+      hour: '2-digit', 
+      minute: '2-digit'
+    });
+  };
+
+  // Maintain the chat container at its position when new messages are added
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [messages]);
+
+  // Handle window resize to prevent unwanted scrolling
+  useEffect(() => {
+    const handleResize = () => {
+      if (chatContainerRef.current) {
+        chatContainerRef.current.style.maxHeight = `${window.innerHeight - 300}px`;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
+      <NavBarbg isLightBackground={false} />
+
+      {/* Hero Section */}
+      <header className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="hidden sm:block absolute top-0 left-0 w-72 h-72 bg-blue-800 rounded-full mix-blend-screen opacity-20 animate-blob"></div>
+          <div className="hidden sm:block absolute top-0 right-0 w-96 h-96 bg-blue-800 rounded-full mix-blend-screen opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-800 rounded-full mix-blend-screen opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="relative pt-20 pb-16 px-4">
+          <div className="container mx-auto">
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <h1 className="text-center text-4xl md:text-5xl pt-8 font-bold mb-6 text-white leading-tight">
+                <span className="text-center py-2 m-auto block mt-2 bg-gradient-to-r from-cyan-400 to-blue-300 bg-clip-text text-transparent">
+                  Financial Assistant Chat
+                </span>
+              </h1>
+              <p className="text-center text-xl text-blue-100 max-w-2xl mx-auto">
+                Ask questions about personal finance, investing, budgeting, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Geometric Wave Transition */}
+        <div className="absolute -bottom-1 left-0 w-full">
+          <svg viewBox="0 0 1440 120" className="w-full text-gray-50">
+            <path fill="currentColor" fillOpacity="1" d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+          </svg>
+        </div>
+      </header>
+
+      {/* Chat Interface */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Chat Card */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+            {/* Chat Header */}
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 flex justify-between items-center">
+              <div className="flex items-center">
+                <div className="bg-white/20 p-2 rounded-full mr-3">
+                  <FaRobot className="text-xl" />
+                </div>
+                <div>
+                  <h3 className="font-bold">Financial AI Assistant</h3>
+                  <div className="flex items-center text-xs text-blue-100">
+                    <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                    Online
+                  </div>
+                </div>
+              </div>
+              <div className="flex space-x-2">
+                <button 
+                  onClick={clearChat}
+                  className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                  title="Clear chat"
+                >
+                  <FaTimesCircle />
+                </button>
+                <button className="p-2 hover:bg-white/10 rounded-full transition-colors" title="Help">
+                  <FaRegQuestionCircle />
+                </button>
+              </div>
+            </div>
+            
+            {/* Chat Messages */}
+            <div 
+              ref={chatContainerRef}
+              className="p-4 h-96 overflow-y-auto bg-gray-50 scroll-smooth"
+              style={{ maxHeight: "calc(100vh - 320px)" }}
+            >
+              <div className="space-y-4">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div className={`flex items-start max-w-xs md:max-w-md ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
+                      <div className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center ${
+                        message.sender === 'user' 
+                          ? 'bg-blue-100 text-blue-600 ml-2' 
+                          : 'bg-indigo-100 text-indigo-600 mr-2'
+                      }`}>
+                        {message.sender === 'user' ? <FaUser size={12} /> : <FaRobot size={12} />}
+                      </div>
+                      <div className={`p-3 rounded-lg shadow-sm ${
+                        message.sender === 'user'
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white'
+                          : 'bg-white border border-gray-200'
+                      }`}>
+                        <p className={message.sender === 'user' ? 'text-white' : 'text-gray-700'}>
+                          {message.text}
+                        </p>
+                        <div className={`text-xs mt-1 ${
+                          message.sender === 'user' ? 'text-blue-100' : 'text-gray-400'
+                        }`}>
+                          {formatTime(message.timestamp)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                
+                {isTyping && (
+                  <div className="flex justify-start">
+                    <div className="flex items-start max-w-xs md:max-w-md">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-2">
+                        <FaRobot size={12} />
+                      </div>
+                      <div className="p-3 rounded-lg bg-white border border-gray-200 shadow-sm">
+                        <div className="flex space-x-1">
+                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+            </div>
+            
+            {/* Suggestions */}
+            {messages.length < 3 && (
+              <div className="px-4 py-3 bg-blue-50 border-t border-blue-100">
+                <div className="flex items-center mb-2">
+                  <FaRegLightbulb className="text-blue-500 mr-2" />
+                  <span className="text-sm font-medium text-blue-700">Suggested questions</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {suggestions.map((suggestion, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleSuggestion(suggestion)}
+                      className="px-3 py-1.5 bg-white text-blue-600 text-sm rounded-full border border-blue-200 hover:bg-blue-600 hover:text-white transition-colors"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Input Area */}
+            <div className="p-4 border-t border-gray-200">
+              <div className="flex items-end">
+                <div className="flex-grow relative">
+                  <textarea
+                    ref={inputRef}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Type your message..."
+                    className="w-full px-4 py-3 pr-12 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white border border-transparent focus:border-blue-300 resize-none transition-all"
+                    rows="1"
+                    style={{ minHeight: "48px", maxHeight: "120px" }}
+                  />
+                  <button
+                    onClick={toggleRecording}
+                    className={`absolute right-3 bottom-3 text-gray-500 hover:text-blue-600 transition-colors ${isRecording ? 'text-red-500 animate-pulse' : ''}`}
+                  >
+                    <FaMicrophone />
+                  </button>
+                </div>
+                <button
+                  onClick={handleSendMessage}
+                  disabled={inputValue.trim() === ''}
+                  className={`ml-2 p-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg disabled:opacity-50 transition-all ${
+                    inputValue.trim() !== '' ? 'hover:shadow-md active:scale-95' : ''
+                  }`}
+                >
+                  <FaPaperPlane />
+                </button>
+              </div>
+              <div className="mt-2 text-center text-xs text-gray-500">
+                Our AI provides general financial information, not personalized advice. Consult with a professional for specific guidance.
+              </div>
+            </div>
+          </div>
+          
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">Personalized Insights</h3>
+              <p className="text-gray-600">Get answers tailored to your financial questions and goals.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">Smart Suggestions</h3>
+              <p className="text-gray-600">Discover new topics and learn more about financial concepts.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">24/7 Assistance</h3>
+              <p className="text-gray-600">Get answers to your financial questions anytime, anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Optional: Add CSS for animations */}
+      <style jsx global>{`
+        @keyframes blob {
+          0% { transform: scale(1); }
+          33% { transform: scale(1.1); }
+          66% { transform: scale(0.9); }
+          100% { transform: scale(1); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default ChatPage;
