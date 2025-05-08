@@ -8,7 +8,7 @@
       "courses": "Courses",
       "about": "About",
       "author": "author",
-      "shuramalia": "shura malia",
+      "islamicconsulting": "islamic Financial consulting",
       "chat_bot": "Financial Advisor",
 
       "contact": "Contact",
@@ -344,6 +344,45 @@
   },
   "bot":{
     "text":"Welcome to Financial Advisor AI! I'm here to help you with financial questions, investment advice, and retirement planning. How can I assist you today?"
+  },
+  "ruling": {
+    "back_to_rulings": "Back to Rulings",
+    "description": "Description",
+    "tags": "Tags",
+    "related_topics": "Related Topics",
+    "share": "Share",
+    "book_a_ticket": "Book a Ticket",
+    "islamic_scholar": "Islamic Scholar",
+    "related_rulings": "Related Rulings"
+  },
+  "ruling_not_found": {
+    "title": "Ruling Not Found",
+    "message": "The ruling you're looking for doesn't exist."
+  },
+  "islamic_consulting": {
+    "title": "Sharia Financial Rulings",
+    "subtitle": "Explore Islamic perspectives on modern financial transactions",
+    "ask_question": "Ask a Question",
+    "search_placeholder": "Describe your financial transaction...",
+    "no_results_title": "No results found",
+    "no_results_text": "Feel free to ask a question and we'll respond as soon as possible",
+    "question_form": {
+      "title": "Ask a Sharia Question",
+      "question_title": "Question Title",
+      "title_placeholder": "Enter a brief title for your question",
+      "description": "Question Description",
+      "description_placeholder": "Provide detailed information about your question",
+      "email": "Your Email",
+      "email_placeholder": "Enter your email address",
+      "cancel": "Cancel",
+      "submit": "Submit Question"
+    },
+    "ruling_indicator": {
+      "halal": "Halal",
+      "haram": "Haram",
+      "mokhtalaf": "Mokhtalaf"
+    }
   }
-  }
+}
+  
   

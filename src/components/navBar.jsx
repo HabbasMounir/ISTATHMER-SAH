@@ -47,10 +47,10 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
   const menuItems = [
     { key: 'home', icon: <FaHome className="text-blue-500" /> },
     // { key: 'awareness', icon: <FaUserFriends  className="text-black-500" /> },
-    { key: 'shuramalia', icon: <FaBalanceScale  className="text-black-500" /> },
+    { key: 'islamicconsulting', icon: <FaBalanceScale  className="text-black-500" /> },
     { key: 'articles', icon: <FaBook className="text-purple-500" /> },
     { key: 'investmentcalculator', icon: <FaChartLine className="text-green-500" /> },
-    { key: 'chat_bot', icon: <FaBrain className="text-green-500" />, badge: true },
+    // { key: 'chat_bot', icon: <FaBrain className="text-green-500" />, badge: true },
     // { key: 'about', icon: <FaInfo className="text-amber-500" /> },
     { key: 'contact', icon: <FaEnvelope className="text-pink-500" /> }
   ];
@@ -70,7 +70,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
       className={`fixed w-full top-0 z-50 transition-all duration-300  md:${navBackground}`}
       dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
     >
-      <div className="lg:container lg:mx-auto px-4 py-3 flex justify-between items-center">
+      <div className=" lg:mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div

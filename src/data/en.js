@@ -153,7 +153,7 @@ Investing in dividend stocks can be a key component of a stable financial future
 
 export const transactions = [
   {
-    id: 1,
+    id: 'Cloud-based_Bitcoin_Mining_Contracts',
     title: "Cloud-based Bitcoin Mining Contracts",
     ruling: "Mokhtalaf",
     description: "Scholars debate the permissibility due to energy waste concerns and speculative nature. Some allow if using renewable energy.",

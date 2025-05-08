@@ -14,7 +14,7 @@
     "tools": "الأدوات",
     "new_badge": "جديد",
     "tools_title": "الأدوات",
-    "shuramalia": "شورى مالية",
+    "islamicconsulting": "إستشارة مالية اسلامية",
     "language_title": "اللغة",
     "toolsList": {
       "investment": {
@@ -336,12 +336,43 @@
       "exportChat": "تصدير المحادثة"
     },"bot":{
     "text":"مرحبًا بكم في المستشار المالي! أنا هنا لمساعدتكم في الإجابة على أسئلتكم المالية، تقديم النصائح الاستثمارية، والتخطيط للتقاعد. كيف يمكنني مساعدتكم اليوم؟"
+  },
+  "ruling": {
+    "back_to_rulings": "العودة إلى الأحكام",
+    "description": "الوصف",
+    "tags": "الوسوم",
+    "related_topics": "المواضيع ذات الصلة",
+    "share": "مشاركة",
+    "book_a_ticket": "حجز موعد",
+    "islamic_scholar": "عالم شرعي",
+    "related_rulings": "أحكام ذات صلة"
+  },
+  "ruling_not_found": {
+    "title": "الحكم غير موجود",
+    "message": "الحكم الذي تبحث عنه غير موجود."
+  },
+  "islamic_consulting": {
+    "title": "الأحكام الشرعية المالية",
+    "subtitle": "استكشف وجهات النظر الإسلامية في المعاملات المالية الحديثة",
+    "ask_question": "اطرح سؤالاً",
+    "search_placeholder": "صف معاملتك المالية...",
+    "no_results_title": "لم يتم العثور على نتائج",
+    "no_results_text": "لا تتردد في طرح سؤال وسنرد في أقرب وقت ممكن",
+    "question_form": {
+      "title": "اطرح سؤالاً شرعياً",
+      "question_title": "عنوان السؤال",
+      "title_placeholder": "أدخل عنواناً موجزاً لسؤالك",
+      "description": "وصف السؤال",
+      "description_placeholder": "قدم معلومات مفصلة عن سؤالك",
+      "email": "بريدك الإلكتروني",
+      "email_placeholder": "أدخل عنوان بريدك الإلكتروني",
+      "cancel": "إلغاء",
+      "submit": "إرسال السؤال"
+    },
+    "ruling_indicator": {
+      "halal": "حلال",
+      "haram": "حرام",
+      "mokhtalaf": "مختلف فيه"
+    }
   }
-    
-    
-
-    
-  
-  
-  
 }

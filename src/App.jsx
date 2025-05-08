@@ -16,8 +16,8 @@ import FinancialLiteracyPage from "./pages/awareness";
 import Feedback from "./pages/contact";
 import { useTranslation } from "react-i18next";
 import AISupportPage from "./pages/ai";
-import TransactionsPage from "./pages/ShuraMali";
-import ShuraMaliDetails from "./pages/ShuraMaliDetails";
+import TransactionsPage from "./pages/IslamicConsulting";
+import ShuraMaliDetails from "./pages/IslamicConsultingDetails";
 import ExpertPage from "./pages/expert";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
@@ -96,8 +96,8 @@ useEffect(()=>{
           <Route path="/investmentcalculator" element={<FinancialCalculator />} />
           <Route path="/awareness" element={<FinancialLiteracyPage />} />
           <Route path="/chat_bot" element={<AISupportPage />} />
-          <Route path="/shuramalia" element={<TransactionsPage />} />
-          <Route path="/shuramalia/:id" element={<ShuraMaliDetails />} />
+          <Route path="/islamicconsulting" element={<TransactionsPage />} />
+          <Route path="/islamicconsulting/:id" element={<ShuraMaliDetails />} />
           <Route path="/expert/:expert" element={<ExpertPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />

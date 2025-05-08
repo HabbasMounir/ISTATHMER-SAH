@@ -68,7 +68,7 @@ function ArticleLoadingPage() {
   );
 }
 
-export default function ShuraMaliDetails() {
+export default function IslamicConsulting() {
   const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ export default function ShuraMaliDetails() {
 
   useEffect(() => {
     // Find the ruling that matches the ID
-    const foundRuling = transactions.find(r => r.id === parseInt(id));
+    const foundRuling = transactions.find(r => r.id === id);
     if (foundRuling) {
       setRuling(foundRuling);
       // Find related rulings with the same tags
@@ -101,6 +101,12 @@ export default function ShuraMaliDetails() {
   };
 
   const RulingIndicator = ({ ruling }) => {
+    const rulingTranslations = {
+      Halal: i18n.language === 'ar' ? 'حلال' : 'Halal',
+      Haram: i18n.language === 'ar' ? 'حرام' : 'Haram',
+      Mokhtalaf: i18n.language === 'ar' ? 'مختلف' : 'Mokhtalaf'
+    };
+
     const colors = {
       Halal: 'bg-green-100 text-green-800 border-green-200 ring-green-400',
       Haram: 'bg-red-100 text-red-800 border-red-200 ring-red-400',
@@ -110,7 +116,7 @@ export default function ShuraMaliDetails() {
     return (
       <div className={`${colors[ruling]} px-4 py-1.5 rounded-full border ring-1 ring-opacity-50 flex items-center text-sm font-medium shadow-sm`}>
         <FaBalanceScale className={`${i18n.language === 'ar' ? 'ml-2' : 'mr-2'} text-current`} />
-        {ruling}
+        {rulingTranslations[ruling]}
       </div>
     );
   };
@@ -179,9 +185,9 @@ export default function ShuraMaliDetails() {
                    backdrop-filter backdrop-blur-sm">
                     {/* <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent backdrop-blur-md"></div> */}
                     
-                    <div className="relative px-8 py-16  backdrop-blur-sm items-center">
+                    <div className="relative px-4 py-8 md:px-8 md:py-16  backdrop-blur-sm items-center">
                       <div className="space-y-8">
-                          <h1 className="text-5xl font-extrabold text-white leading-tight backdrop-blur-none">
+                          <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight backdrop-blur-none">
                             {ruling.title}
                           </h1>
                         
@@ -296,7 +302,7 @@ export default function ShuraMaliDetails() {
               <div className="bg-white rounded-xl shadow-md overflow-hidden mb-6">
               <Link to={`/expert/${ruling.author}`}>
               <div className="p-6" >  
-                                <h3 className="text-xl font-bold mb-4">{t('ruling.book_a_ticket ')}</h3>
+                                <h3 className="text-xl font-bold mb-4">{t('ruling.book_a_ticket')}</h3>
                   <div className="flex items-center">
                       <FaUserCircle className="w-12 h-12 text-gray-400" />
                     <div className="mx-4">
@@ -318,7 +324,7 @@ export default function ShuraMaliDetails() {
                       <div 
                         key={related.id} 
                         className="group cursor-pointer hover:bg-gray-50 rounded-lg p-4 transition-all border border-gray-100 hover:border-blue-200"
-                        onClick={() => navigate(`/shuramalia/${related.id}`)}
+                        onClick={() => navigate(`/islamicconsulting/${related.id}`)}
                       >
                         <div className="flex flex-col gap-2">
                           <h4 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
