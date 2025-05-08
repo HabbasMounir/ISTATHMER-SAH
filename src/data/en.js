@@ -147,3 +147,209 @@ Dividend stocks provide a steady income stream for long-term wealth building.
 Investing in dividend stocks can be a key component of a stable financial future.`
   }
 ];
+
+
+
+
+export const transactions = [
+  {
+    id: 1,
+    title: "Cloud-based Bitcoin Mining Contracts",
+    ruling: "Mokhtalaf",
+    description: "Scholars debate the permissibility due to energy waste concerns and speculative nature. Some allow if using renewable energy.",
+    author: "International Islamic Fiqh Academy",
+    related: ["NFT Trading", "Crypto Staking", "Blockchain Zakat"],
+    tags: ["crypto", "technology", "energy"],
+    date: "2024-03-15"
+  },
+  {
+    id: 2,
+    title: "Islamic Home Financing (Musharakah Mutanaqisah)",
+    ruling: "Halal",
+    description: "Co-ownership model where bank and customer gradually transfer ownership, approved by majority of scholars.",
+    author: "Bank Negara Malaysia Sharia Council",
+    related: ["Diminishing Partnership", "Mortgage Alternatives"],
+    tags: ["housing", "banking", "fiqh"],
+    date: "2024-02-28"
+  },
+  {
+    id: 3,
+    title: "Forex Trading with Leverage",
+    ruling: "Haram",
+    description: "Prohibited due to excessive uncertainty (gharar) and interest-based margin trading.",
+    author: "Al-Azhar Fatwa Committee",
+    related: ["Day Trading", "CFD Contracts"],
+    tags: ["forex", "trading", "riba"],
+    date: "2024-01-10"
+  },
+  {
+    id: 4,
+    title: "Crowdfunding for Small Businesses",
+    ruling: "Halal",
+    description: "Permissible when structured as profit-sharing (Mudarabah) without interest.",
+    author: "Accounting and Auditing Organization for Islamic Financial Institutions",
+    related: ["Peer-to-Peer Lending", "Startup Investments"],
+    tags: ["fintech", "investment", "crowdfunding"],
+    date: "2023-12-05"
+  },
+  {
+    id: 5,
+    title: "Gold-Backed Cryptocurrencies",
+    ruling: "Mokhtalaf",
+    description: "Disputed - Some scholars accept if fully backed, others reject due to volatility.",
+    author: "Dubai Islamic Economy Development Centre",
+    related: ["Stablecoins", "Digital Gold"],
+    tags: ["crypto", "precious-metals", "currency"],
+    date: "2024-03-01"
+  },
+  {
+    id: 6,
+    title: "Takaful (Islamic Insurance)",
+    ruling: "Halal",
+    description: "Permitted cooperative risk-sharing model without interest or uncertainty.",
+    author: "Islamic Financial Services Board",
+    related: ["Health Insurance", "Car Insurance Alternatives"],
+    tags: ["insurance", "cooperative"],
+    date: "2023-11-20"
+  },
+  {
+    id: 7,
+    title: "Short Selling Stocks",
+    ruling: "Haram",
+    description: "Prohibited due to selling what one doesn't own (bay' al-ma'dum).",
+    author: "OIC Fiqh Academy",
+    related: ["Margin Trading", "Derivatives"],
+    tags: ["stocks", "trading", "fiqh"],
+    date: "2024-02-15"
+  },
+  {
+    id: 8,
+    title: "Islamic Bonds (Sukuk)",
+    ruling: "Halal",
+    description: "Asset-backed securities compliant with profit-sharing principles.",
+    author: "Islamic Development Bank",
+    related: ["Fixed Income Alternatives", "Sovereign Sukuk"],
+    tags: ["bonds", "investment", "fiqh"],
+    date: "2023-10-01"
+  },
+  {
+    id: 9,
+    title: "Peer-to-Peer Car Rental Platforms",
+    ruling: "Mokhtalaf",
+    description: "Debated due to liability concerns - Permitted with proper insurance.",
+    author: "Indonesian Ulema Council",
+    related: ["Car Sharing", "Asset Rental"],
+    tags: ["transportation", "sharing-economy"],
+    date: "2024-03-10"
+  },
+  {
+    id: 10,
+    title: "Cryptocurrency Staking Rewards",
+    ruling: "Haram",
+    description: "Considered interest (riba) by majority of scholars due to fixed returns.",
+    author: "Saudi Arabian Monetary Authority",
+    related: ["Crypto Lending", "DeFi Protocols"],
+    tags: ["crypto", "staking", "riba"],
+    date: "2023-09-15"
+  },
+  {
+    id: 11,
+    title: "Islamic Will Writing Services",
+    ruling: "Halal",
+    description: "Encouraged for proper wealth distribution according to Faraid laws.",
+    author: "Muslim Lawyers Association",
+    related: ["Inheritance Laws", "Estate Planning"],
+    tags: ["legal", "inheritance"],
+    date: "2024-01-25"
+  },
+  {
+    id: 12,
+    title: "Halal Stock Screening Services",
+    ruling: "Halal",
+    description: "Approved method for identifying Sharia-compliant public companies.",
+    author: "Dow Jones Islamic Market",
+    related: ["ESG Investing", "Ethical Screening"],
+    tags: ["stocks", "screening", "investment"],
+    date: "2023-12-12"
+  },
+  {
+    id: 13,
+    title: "Buy Now Pay Later (BNPL) Services",
+    ruling: "Mokhtalaf",
+    description: "Controversial - Some consider permissible if no late fees, others prohibit.",
+    author: "European Council for Fatwa and Research",
+    related: ["Consumer Credit", "Installment Plans"],
+    tags: ["fintech", "credit", "ecommerce"],
+    date: "2024-02-20"
+  },
+  {
+    id: 14,
+    title: "Islamic REITs (Real Estate Investment Trusts)",
+    ruling: "Halal",
+    description: "Permitted when following guidelines on permissible assets and income sources.",
+    author: "Securities Commission Malaysia",
+    related: ["Property Funds", "Rental Income"],
+    tags: ["real-estate", "investment", "reits"],
+    date: "2023-11-01"
+  },
+  {
+    id: 15,
+    title: "Crypto Mining Using Excess Solar Energy",
+    ruling: "Mokhtalaf",
+    description: "Emerging debate - Some scholars allow if using renewable surplus energy.",
+    author: "International Renewable Energy Agency",
+    related: ["Green Mining", "Sustainable Crypto"],
+    tags: ["crypto", "energy", "environment"],
+    date: "2024-03-05"
+  },
+  {
+    id: 16,
+    title: "Islamic Microfinance Programs",
+    ruling: "Halal",
+    description: "Encouraged model using Qard Hasan (benevolent loans) and profit-sharing.",
+    author: "Grameen-Jameel Initiative",
+    related: ["Small Business Loans", "Community Finance"],
+    tags: ["banking", "microfinance", "charity"],
+    date: "2023-10-15"
+  },
+  {
+    id: 17,
+    title: "Fractional Real Estate Ownership",
+    ruling: "Mokhtalaf",
+    description: "Debated - Permissible with clear ownership rights and management structure.",
+    author: "Emirates Islamic Bank",
+    related: ["Property Crowdfunding", "Real Estate Shares"],
+    tags: ["real-estate", "investment", "crowdfunding"],
+    date: "2024-01-05"
+  },
+  {
+    id: 18,
+    title: "Halal Robo-Advisors",
+    ruling: "Halal",
+    description: "Approved automated investment platforms using Sharia-compliant algorithms.",
+    author: "Wahed Invest",
+    related: ["Automated Portfolios", "AI-based Investing"],
+    tags: ["technology", "investment", "fintech"],
+    date: "2023-12-25"
+  },
+  {
+    id: 19,
+    title: "Islamic Gold Leasing",
+    ruling: "Haram",
+    description: "Prohibited due to riba al-fadl in gold-for-gold transactions.",
+    author: "World Gold Council",
+    related: ["Commodity Murabaha", "Gold Savings"],
+    tags: ["gold", "leasing", "riba"],
+    date: "2024-02-10"
+  },
+  {
+    id: 20,
+    title: "Digital Islamic Wallets",
+    ruling: "Halal",
+    description: "Permitted financial technology for Zakat calculation and halal transactions.",
+    author: "Qatar Financial Centre",
+    related: ["Digital Banking", "Zakat Calculators"],
+    tags: ["fintech", "banking", "apps"],
+    date: "2024-03-01"
+  }
+];
