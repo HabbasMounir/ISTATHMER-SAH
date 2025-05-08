@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope, FaUserFriends, FaBrain } from 'react-icons/fa';
+import { FaChevronDown, FaGlobe, FaBars, FaTimes, FaRocket, FaChartLine, FaWallet, FaHome, FaBook, FaGraduationCap, FaInfo, FaEnvelope, FaUserFriends, FaBrain, FaBalanceScale } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, isLightBackground }) {
@@ -46,7 +46,8 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
   // Menu items data
   const menuItems = [
     { key: 'home', icon: <FaHome className="text-blue-500" /> },
-    { key: 'awareness', icon: <FaUserFriends  className="text-black-500" /> },
+    // { key: 'awareness', icon: <FaUserFriends  className="text-black-500" /> },
+    { key: 'shuramalia', icon: <FaBalanceScale  className="text-black-500" /> },
     { key: 'articles', icon: <FaBook className="text-purple-500" /> },
     { key: 'investmentcalculator', icon: <FaChartLine className="text-green-500" /> },
     { key: 'chat_bot', icon: <FaBrain className="text-green-500" />, badge: true },
