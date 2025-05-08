@@ -187,7 +187,7 @@ const fuseOptions = {
             </div>
           </div> */}
 
-<div className="max-w-4xl flex flex-col md:flex-row gap-2 mx-auto px-4">
+<div className="max-w-4xl flex flex-col md:flex-row gap-2 mx-auto ">
     <button
         onClick={() => setShowQuestionForm(true)}
         className="w-full md:w-1/5 px-4 py-2 md:px-6 md:py-3 
