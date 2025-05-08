@@ -8,10 +8,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(), react()     
    ],
-   build: {
-     rollupOptions: {
-       external: ['fuse.js']
-     }},
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),  
