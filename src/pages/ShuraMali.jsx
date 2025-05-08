@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaSearch, FaUserCircle, FaBalanceScale, FaTimes, FaFilter, FaInfoCircle, FaPlus } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Fuse from 'fuse.js';
+
 import { NavBarbg } from '../components/navBar';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
