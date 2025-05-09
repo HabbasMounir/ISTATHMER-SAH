@@ -19,6 +19,7 @@ import AISupportPage from "./pages/ai";
 import TransactionsPage from "./pages/IslamicConsulting";
 import ShuraMaliDetails from "./pages/IslamicConsultingDetails";
 import ExpertPage from "./pages/expert";
+import ExpertsPage from "./pages/expertsPage";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -60,6 +61,25 @@ import ExpertPage from "./pages/expert";
 
 
 
+export function convertSpacesAndUnderscores(str) {
+  let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') {
+      result += '_';
+    } else if (str[i] === '_') {
+      result += ' ';
+    } else {
+      result += str[i];
+    }
+  }
+  
+  return result;
+}
+String.prototype.convertSpacesAndUnderscores = function() {
+  return convertSpacesAndUnderscores(this);
+};
+
 
 
 export default function App() {
@@ -73,7 +93,7 @@ useEffect(()=>{
 },[location])
 useEffect(()=>{
   console.log(location)
-  document.title=`${location.pathname.split('/')[2]?location.pathname.split('/')[2]:location.pathname.split('/')[1]?t(`navbar.${location.pathname.split('/')[1]}`):i18n.language=='ar'?'استثمر صح':'istathmer sah'  } `
+  document.title=`${location.pathname.split('/')[2]?location.pathname.split('/')[2].convertSpacesAndUnderscores():location.pathname.split('/')[1]?t(`navbar.${location.pathname.split('/')[1]}`):i18n.language=='ar'?'استثمر صح':'istathmer sah'  } `
 },[i18n.language ,location])
   return (
     <div className="min-h-screen bg-gray-100">
@@ -98,6 +118,7 @@ useEffect(()=>{
           <Route path="/chat_bot" element={<AISupportPage />} />
           <Route path="/islamicconsulting" element={<TransactionsPage />} />
           <Route path="/islamicconsulting/:id" element={<ShuraMaliDetails />} />
+          <Route path="/experts" element={<ExpertsPage />} />
           <Route path="/expert/:expert" element={<ExpertPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />

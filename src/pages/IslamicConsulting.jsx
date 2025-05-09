@@ -27,6 +27,26 @@ import { transactions } from '../data/en';
 //   );
 // };
 
+export function convertSpacesAndUnderscores(str) {
+  let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') {
+      result += '_';
+    } else if (str[i] === '_') {
+      result += ' ';
+    } else {
+      result += str[i];
+    }
+  }
+  
+  return result;
+}
+String.prototype.convertSpacesAndUnderscores = function() {
+  return convertSpacesAndUnderscores(this);
+};
+
+
 const RulingIndicator = ({ ruling }) => {
   const { t, i18n } = useTranslation();
   const rulingTranslations = {
@@ -277,7 +297,7 @@ const fuseOptions = {
                    border border-gray-100 transition-all
                     duration-300 group
                     "
-                  onClick={() => navigate(`/islamicconsulting/${item.id}`)}
+                  onClick={() => navigate(`/islamicconsulting/${item.title.convertSpacesAndUnderscores()}`)}
                 >
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">

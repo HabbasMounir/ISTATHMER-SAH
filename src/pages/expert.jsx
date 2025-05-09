@@ -114,7 +114,7 @@ function ExpertPage() {
     
     setAuthorArticles(authorArticlesList);
     
-    setTimeout(() => setLoading(false), 800); // Simulate network delay
+    setTimeout(() => setLoading(false), 200); // Simulate network delay
     
     // Scroll to top when page loads
     window.scrollTo(0, 0);

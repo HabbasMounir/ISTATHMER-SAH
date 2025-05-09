@@ -50,6 +50,7 @@ function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen
     { key: 'islamicconsulting', icon: <FaBalanceScale  className="text-black-500" /> },
     { key: 'articles', icon: <FaBook className="text-purple-500" /> },
     { key: 'investmentcalculator', icon: <FaChartLine className="text-green-500" /> },
+    { key: 'experts', icon: <FaBrain className="text-green-500" />, badge: true },
     // { key: 'chat_bot', icon: <FaBrain className="text-green-500" />, badge: true },
     // { key: 'about', icon: <FaInfo className="text-amber-500" /> },
     { key: 'contact', icon: <FaEnvelope className="text-pink-500" /> }

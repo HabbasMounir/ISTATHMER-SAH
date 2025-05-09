@@ -6,7 +6,24 @@ import { FaArrowLeft, FaUserCircle, FaBalanceScale, FaBookmark, FaShare, FaPrint
 import { NavBarbg } from '../components/navBar';
 import Markdown from 'react-markdown';
 import { transactions } from '../data/en';
-
+export function convertSpacesAndUnderscores(str) {
+  let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') {
+      result += '_';
+    } else if (str[i] === '_') {
+      result += ' ';
+    } else {
+      result += str[i];
+    }
+  }
+  
+  return result;
+}
+String.prototype.convertSpacesAndUnderscores = function() {
+  return convertSpacesAndUnderscores(this);
+};
 function ArticleLoadingPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -78,7 +95,7 @@ export default function IslamicConsulting() {
 
   useEffect(() => {
     // Find the ruling that matches the ID
-    const foundRuling = transactions.find(r => r.id === id);
+    const foundRuling = transactions.find(r => r.title.convertSpacesAndUnderscores() === id);
     if (foundRuling) {
       setRuling(foundRuling);
       // Find related rulings with the same tags

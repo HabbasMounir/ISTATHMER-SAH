@@ -153,7 +153,7 @@ Investing in dividend stocks can be a key component of a stable financial future
 
 export const transactions = [
   {
-    id: 'Cloud-based_Bitcoin_Mining_Contracts',
+    id: 'Cloud_based_Bitcoin_Mining_Contracts',
     title: "Cloud-based Bitcoin Mining Contracts",
     ruling: "Mokhtalaf",
     description: "Scholars debate the permissibility due to energy waste concerns and speculative nature. Some allow if using renewable energy.",
@@ -163,8 +163,9 @@ export const transactions = [
     date: "2024-03-15"
   },
   {
-    id: 2,
+    id: 'Islamic_Home_Financing_Musharakah_Mutanaqisah',
     title: "Islamic Home Financing (Musharakah Mutanaqisah)",
+    
     ruling: "Halal",
     description: "Co-ownership model where bank and customer gradually transfer ownership, approved by majority of scholars.",
     author: "Bank Negara Malaysia Sharia Council",
@@ -173,7 +174,7 @@ export const transactions = [
     date: "2024-02-28"
   },
   {
-    id: 3,
+    id: 'Forex_Trading_with_Leverage',
     title: "Forex Trading with Leverage",
     ruling: "Haram",
     description: "Prohibited due to excessive uncertainty (gharar) and interest-based margin trading.",
@@ -183,7 +184,7 @@ export const transactions = [
     date: "2024-01-10"
   },
   {
-    id: 4,
+    id: 'Crowdfunding_for_Small_Businesses',
     title: "Crowdfunding for Small Businesses",
     ruling: "Halal",
     description: "Permissible when structured as profit-sharing (Mudarabah) without interest.",
@@ -193,7 +194,7 @@ export const transactions = [
     date: "2023-12-05"
   },
   {
-    id: 5,
+    id: 'Gold_Backed_Cryptocurrencies',
     title: "Gold-Backed Cryptocurrencies",
     ruling: "Mokhtalaf",
     description: "Disputed - Some scholars accept if fully backed, others reject due to volatility.",
@@ -203,7 +204,7 @@ export const transactions = [
     date: "2024-03-01"
   },
   {
-    id: 6,
+    id: 'Takaful_Islamic_Insurance',
     title: "Takaful (Islamic Insurance)",
     ruling: "Halal",
     description: "Permitted cooperative risk-sharing model without interest or uncertainty.",
@@ -213,7 +214,7 @@ export const transactions = [
     date: "2023-11-20"
   },
   {
-    id: 7,
+    id: 'Short_Selling_Stocks',
     title: "Short Selling Stocks",
     ruling: "Haram",
     description: "Prohibited due to selling what one doesn't own (bay' al-ma'dum).",
@@ -223,7 +224,7 @@ export const transactions = [
     date: "2024-02-15"
   },
   {
-    id: 8,
+    id: 'Islamic_Bonds_Sukuk',
     title: "Islamic Bonds (Sukuk)",
     ruling: "Halal",
     description: "Asset-backed securities compliant with profit-sharing principles.",
@@ -233,7 +234,7 @@ export const transactions = [
     date: "2023-10-01"
   },
   {
-    id: 9,
+    id: 'Peer_to_Peer_Car_Rental_Platforms',
     title: "Peer-to-Peer Car Rental Platforms",
     ruling: "Mokhtalaf",
     description: "Debated due to liability concerns - Permitted with proper insurance.",
@@ -243,7 +244,7 @@ export const transactions = [
     date: "2024-03-10"
   },
   {
-    id: 10,
+    id: 'Cryptocurrency_Staking_Rewards',
     title: "Cryptocurrency Staking Rewards",
     ruling: "Haram",
     description: "Considered interest (riba) by majority of scholars due to fixed returns.",
@@ -253,7 +254,7 @@ export const transactions = [
     date: "2023-09-15"
   },
   {
-    id: 11,
+    id: 'Islamic_Will_Writing_Services',
     title: "Islamic Will Writing Services",
     ruling: "Halal",
     description: "Encouraged for proper wealth distribution according to Faraid laws.",
@@ -263,7 +264,7 @@ export const transactions = [
     date: "2024-01-25"
   },
   {
-    id: 12,
+    id: 'Halal_Stock_Screening_Services',
     title: "Halal Stock Screening Services",
     ruling: "Halal",
     description: "Approved method for identifying Sharia-compliant public companies.",
@@ -273,7 +274,7 @@ export const transactions = [
     date: "2023-12-12"
   },
   {
-    id: 13,
+    id: 'Buy_Now_Pay_Later_BNPL_Services',
     title: "Buy Now Pay Later (BNPL) Services",
     ruling: "Mokhtalaf",
     description: "Controversial - Some consider permissible if no late fees, others prohibit.",
@@ -283,7 +284,7 @@ export const transactions = [
     date: "2024-02-20"
   },
   {
-    id: 14,
+    id: 'Islamic_REITs_Real_Estate_Investment_Trusts',
     title: "Islamic REITs (Real Estate Investment Trusts)",
     ruling: "Halal",
     description: "Permitted when following guidelines on permissible assets and income sources.",
@@ -293,7 +294,7 @@ export const transactions = [
     date: "2023-11-01"
   },
   {
-    id: 15,
+    id: 'Crypto_Mining_Using_Excess_Solar_Energy',
     title: "Crypto Mining Using Excess Solar Energy",
     ruling: "Mokhtalaf",
     description: "Emerging debate - Some scholars allow if using renewable surplus energy.",
@@ -303,7 +304,7 @@ export const transactions = [
     date: "2024-03-05"
   },
   {
-    id: 16,
+    id: 'Islamic_Microfinance_Programs',
     title: "Islamic Microfinance Programs",
     ruling: "Halal",
     description: "Encouraged model using Qard Hasan (benevolent loans) and profit-sharing.",
@@ -313,7 +314,7 @@ export const transactions = [
     date: "2023-10-15"
   },
   {
-    id: 17,
+    id: 'Fractional_Real_Estate_Ownership',
     title: "Fractional Real Estate Ownership",
     ruling: "Mokhtalaf",
     description: "Debated - Permissible with clear ownership rights and management structure.",
@@ -323,7 +324,7 @@ export const transactions = [
     date: "2024-01-05"
   },
   {
-    id: 18,
+    id: 'Halal_Robo_Advisors',
     title: "Halal Robo-Advisors",
     ruling: "Halal",
     description: "Approved automated investment platforms using Sharia-compliant algorithms.",
@@ -333,7 +334,7 @@ export const transactions = [
     date: "2023-12-25"
   },
   {
-    id: 19,
+    id: 'Islamic_Gold_Leasing',
     title: "Islamic Gold Leasing",
     ruling: "Haram",
     description: "Prohibited due to riba al-fadl in gold-for-gold transactions.",
@@ -343,7 +344,7 @@ export const transactions = [
     date: "2024-02-10"
   },
   {
-    id: 20,
+    id: 'Digital_Islamic_Wallets',
     title: "Digital Islamic Wallets",
     ruling: "Halal",
     description: "Permitted financial technology for Zakat calculation and halal transactions.",
