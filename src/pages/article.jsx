@@ -58,6 +58,7 @@ useEffect(()=>{console.log(article)},[])
     const categories = [
       { id: 'all', name: 'categories.all' },
       { id: 'investing', name: 'categories.investing' },
+      { id: 'islamic', name: 'categories.islamic' },
       { id: 'saving', name: 'categories.saving' },
       { id: 'retirement', name: 'categories.retirement' },
       { id: 'realestate', name: 'categories.realestate' },
@@ -155,7 +156,7 @@ useEffect(()=>{console.log(article)},[])
                 </div>
                 
                 {/* Article Content */}
-                <div className="p-6 sm:p-8">
+                <div className="px-6 sm:px-8 py-4">
                   
                   <div className="prose prose-lg max-w-none">
                   <Markdown >
