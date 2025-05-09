@@ -21,6 +21,7 @@ function ArticlesPage() {
   const categories = [
     { id: 'all', name: 'categories.all' },
     { id: 'investing', name: 'categories.investing' },
+    { id: 'islamic', name: 'categories.islamic' },
     { id: 'saving', name: 'categories.saving' },
     { id: 'retirement', name: 'categories.retirement' },
     { id: 'realestate', name: 'categories.realestate' },

@@ -22,9 +22,417 @@ import {articles as arArticles} from '../data/ar.js'
 import {articles as enArticles} from '../data/en.js'
 import { NavBarbg } from '../components/navBar';
 
+
+
+
+
+const expertsData = {
+  en: [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      specialty: "accounting",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      rating: 4.9,
+      reviews: 124,
+      location: "New York, NY",
+      experience: "12 years",
+      bio: "Certified Financial Analyst with expertise in tax planning and corporate finance. Specializes in helping small businesses optimize their financial strategies.",
+      availability: "Available for consultation",
+      languages: ["English", "Spanish"],
+      education: "MBA Finance, Columbia University",
+      featured: true,
+      tags: ["taxes", "small business", "financial planning", "corporate"]
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      specialty: "investing",
+      image: "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 98,
+      location: "San Francisco, CA",
+      experience: "15 years",
+      bio: "Former hedge fund manager with extensive knowledge in market analysis and portfolio diversification. Helps clients build resilient investment portfolios.",
+      availability: "Limited availability",
+      languages: ["English", "Mandarin"],
+      education: "Ph.D. Economics, Stanford University",
+      featured: true,
+      tags: ["stocks", "portfolio management", "market analysis", "wealth building"]
+    },
+    {
+      id: 3,
+      name: "Jessica Williams",
+      specialty: "realestate",
+      image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 76,
+      location: "Chicago, IL",
+      experience: "10 years",
+      bio: "Real estate investment specialist focused on commercial properties and REITs. Expert in analyzing market trends and identifying high-potential properties.",
+      availability: "Available for consultation",
+      languages: ["English"],
+      education: "BS in Real Estate, University of Illinois",
+      featured: false,
+      tags: ["commercial real estate", "REITs", "property investment", "real estate market"]
+    },
+    {
+      id: 4,
+      name: "Robert Garcia",
+      specialty: "law",
+      image: "https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.9,
+      reviews: 143,
+      location: "Los Angeles, CA",
+      experience: "20 years",
+      bio: "Corporate attorney specializing in financial regulations and compliance. Extensive experience working with financial institutions and fintech startups.",
+      availability: "By appointment only",
+      languages: ["English", "Spanish"],
+      education: "JD, UCLA School of Law",
+      featured: false,
+      tags: ["financial regulations", "corporate law", "compliance", "fintech"]
+    },
+    {
+      id: 5,
+      name: "Olivia Martinez",
+      specialty: "retirement",
+      image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.6,
+      reviews: 89,
+      location: "Miami, FL",
+      experience: "8 years",
+      bio: "Retirement planning specialist focused on creating sustainable withdrawal strategies and maximizing social security benefits for retirees.",
+      availability: "Available for consultation",
+      languages: ["English", "Portuguese"],
+      education: "MS Financial Planning, University of Miami",
+      featured: false,
+      tags: ["retirement planning", "social security", "retirement income", "401k"]
+    },
+    {
+      id: 6,
+      name: "David Kim",
+      specialty: "stocks",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 112,
+      location: "Seattle, WA",
+      experience: "14 years",
+      bio: "Stock market analyst with expertise in technical analysis and trend identification. Former analyst at a major investment bank.",
+      availability: "Limited availability",
+      languages: ["English", "Korean"],
+      education: "MBA Finance, University of Washington",
+      featured: true,
+      tags: ["technical analysis", "stock market", "day trading", "investment strategies"]
+    },
+    {
+      id: 7,
+      name: "Laura Thompson",
+      specialty: "saving",
+      image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 65,
+      location: "Boston, MA",
+      experience: "7 years",
+      bio: "Personal finance coach specializing in budget optimization and debt reduction strategies. Helps families build emergency funds and improve financial security.",
+      availability: "Available for consultation",
+      languages: ["English"],
+      education: "BS Finance, Boston University",
+      featured: false,
+      tags: ["budgeting", "emergency funds", "debt reduction", "personal finance"]
+    },
+    {
+      id: 8,
+      name: "James Wilson",
+      specialty: "accounting",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 104,
+      location: "Dallas, TX",
+      experience: "16 years",
+      bio: "CPA with expertise in tax planning and business accounting. Specializes in helping entrepreneurs optimize their tax strategies and business structures.",
+      availability: "By appointment only",
+      languages: ["English"],
+      education: "MS Accounting, University of Texas",
+      featured: false,
+      tags: ["tax planning", "business accounting", "CPA", "tax optimization"]
+    },
+    {
+      id: 9,
+      name: "Emily Davis",
+      specialty: "law",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.9,
+      reviews: 87,
+      location: "Washington, DC",
+      experience: "12 years",
+      bio: "Estate planning attorney specializing in wealth transfer and asset protection. Helps clients create comprehensive estate plans to protect their financial legacy.",
+      availability: "Available for consultation",
+      languages: ["English", "French"],
+      education: "JD, Georgetown Law",
+      featured: false,
+      tags: ["estate planning", "wills", "trusts", "asset protection"]
+    },
+    {
+      id: 10,
+      name: "Daniel Taylor",
+      specialty: "investing",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.6,
+      reviews: 91,
+      location: "Denver, CO",
+      experience: "9 years",
+      bio: "Investment advisor specializing in sustainable and ESG investing. Helps clients align their investments with their values while achieving financial goals.",
+      availability: "Limited availability",
+      languages: ["English"],
+      education: "MBA Sustainable Business, University of Colorado",
+      featured: false,
+      tags: ["ESG investing", "sustainable finance", "impact investing", "socially responsible"]
+    },
+    {
+      id: 11,
+      name: "Sophia Lee",
+      specialty: "retirement",
+      image: "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 79,
+      location: "Portland, OR",
+      experience: "11 years",
+      bio: "Retirement income specialist focusing on creating reliable income streams during retirement. Expert in annuities and pension optimization.",
+      availability: "Available for consultation",
+      languages: ["English", "Japanese"],
+      education: "MS Financial Planning, Portland State University",
+      featured: false,
+      tags: ["retirement income", "annuities", "pension planning", "retirement strategies"]
+    },
+    {
+      id: 12,
+      name: "Thomas Anderson",
+      specialty: "realestate",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 118,
+      location: "Austin, TX",
+      experience: "13 years",
+      bio: "Residential real estate investment expert specializing in rental properties and house flipping strategies. Former real estate developer with extensive market knowledge.",
+      availability: "By appointment only",
+      languages: ["English"],
+      education: "BS in Real Estate, University of Texas",
+      featured: false,
+      tags: ["residential real estate", "rental properties", "house flipping", "real estate investment"]
+    }
+  ],
+  ar: [
+    {
+      id: 1,
+      name: "سارة جونسون",
+      specialty: "accounting",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      rating: 4.9,
+      reviews: 124,
+      location: "نيويورك",
+      experience: "12 سنة",
+      bio: "محللة مالية معتمدة متخصصة في التخطيط الضريبي والتمويل المؤسسي. متخصصة في مساعدة الشركات الصغيرة على تحسين استراتيجياتها المالية.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية", "الإسبانية"],
+      education: "ماجستير إدارة الأعمال في التمويل، جامعة كولومبيا",
+      featured: true,
+      tags: ["الضرائب", "الشركات الصغيرة", "التخطيط المالي", "الشركات"]
+    },
+    {
+      id: 2,
+      name: "مايكل تشن",
+      specialty: "investing",
+      image: "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 98,
+      location: "سان فرانسيسكو",
+      experience: "15 سنة",
+      bio: "مدير صندوق تحوط سابق يتمتع بمعرفة واسعة في تحليل السوق وتنويع المحافظ. يساعد العملاء في بناء محافظ استثمارية مرنة.",
+      availability: "توفر محدود",
+      languages: ["الإنجليزية", "الماندرين"],
+      education: "دكتوراه في الاقتصاد، جامعة ستانفورد",
+      featured: true,
+      tags: ["الأسهم", "إدارة المحافظ", "تحليل السوق", "بناء الثروة"]
+    },
+    {
+      id: 3,
+      name: "جيسيكا ويليامز",
+      specialty: "realestate",
+      image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 76,
+      location: "شيكاغو",
+      experience: "10 سنوات",
+      bio: "متخصصة في الاستثمار العقاري تركز على العقارات التجارية وصناديق الاستثمار العقاري. خبيرة في تحليل اتجاهات السوق وتحديد العقارات ذات الإمكانات العالية.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية"],
+      education: "بكالوريوس في العقارات، جامعة إلينوي",
+      featured: false,
+      tags: ["العقارات التجارية", "صناديق الاستثمار العقاري", "الاستثمار العقاري", "سوق العقارات"]
+    },
+    {
+      id: 4,
+      name: "روبرت غارسيا",
+      specialty: "law",
+      image: "https://images.unsplash.com/photo-1542190891-2093d38760f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.9,
+      reviews: 143,
+      location: "لوس أنجلوس",
+      experience: "20 سنة",
+      bio: "محامي شركات متخصص في اللوائح المالية والامتثال. خبرة واسعة في العمل مع المؤسسات المالية والشركات الناشئة في مجال التكنولوجيا المالية.",
+      availability: "بالموعد فقط",
+      languages: ["الإنجليزية", "الإسبانية"],
+      education: "دكتوراه في القانون، كلية الحقوق بجامعة كاليفورنيا",
+      featured: false,
+      tags: ["اللوائح المالية", "قانون الشركات", "الامتثال", "التكنولوجيا المالية"]
+    },
+    {
+      id: 5,
+      name: "أوليفيا مارتينيز",
+      specialty: "retirement",
+      image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.6,
+      reviews: 89,
+      location: "ميامي",
+      experience: "8 سنوات",
+      bio: "متخصصة في تخطيط التقاعد تركز على إنشاء استراتيجيات سحب مستدامة وتعظيم مزايا الضمان الاجتماعي للمتقاعدين.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية", "البرتغالية"],
+      education: "ماجستير في التخطيط المالي، جامعة ميامي",
+      featured: false,
+      tags: ["تخطيط التقاعد", "الضمان الاجتماعي", "دخل التقاعد", "401k"]
+    },
+    {
+      id: 6,
+      name: "ديفيد كيم",
+      specialty: "stocks",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 112,
+      location: "سياتل",
+      experience: "14 سنة",
+      bio: "محلل سوق الأسهم متخصص في التحليل الفني وتحديد الاتجاهات. محلل سابق في بنك استثماري كبير.",
+      availability: "توفر محدود",
+      languages: ["الإنجليزية", "الكورية"],
+      education: "ماجستير إدارة الأعمال في التمويل، جامعة واشنطن",
+      featured: true,
+      tags: ["التحليل الفني", "سوق الأسهم", "التداول اليومي", "استراتيجيات الاستثمار"]
+    },
+    {
+      id: 7,
+      name: "لورا طومسون",
+      specialty: "saving",
+      image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 65,
+      location: "بوسطن",
+      experience: "7 سنوات",
+      bio: "مدربة مالية شخصية متخصصة في تحسين الميزانية واستراتيجيات تقليل الديون. تساعد العائلات في بناء صناديق الطوارئ وتحسين الأمن المالي.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية"],
+      education: "بكالوريوس في المالية، جامعة بوسطن",
+      featured: false,
+      tags: ["إعداد الميزانية", "صناديق الطوارئ", "تقليل الديون", "المالية الشخصية"]
+    },
+    {
+      id: 8,
+      name: "جيمس ويلسون",
+      specialty: "accounting",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 104,
+      location: "دالاس",
+      experience: "16 سنة",
+      bio: "محاسب قانوني معتمد متخصص في التخطيط الضريبي ومحاسبة الأعمال. متخصص في مساعدة رواد الأعمال على تحسين استراتيجياتهم الضريبية وهياكل أعمالهم.",
+      availability: "بالموعد فقط",
+      languages: ["الإنجليزية"],
+      education: "ماجستير في المحاسبة، جامعة تكساس",
+      featured: false,
+      tags: ["التخطيط الضريبي", "محاسبة الأعمال", "محاسب قانوني معتمد", "تحسين الضرائب"]
+    },
+    {
+      id: 9,
+      name: "إيميلي ديفيس",
+      specialty: "law",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.9,
+      reviews: 87,
+      location: "واشنطن العاصمة",
+      experience: "12 سنة",
+      bio: "محامية تخطيط العقارات متخصصة في نقل الثروات وحماية الأصول. تساعد العملاء على إنشاء خطط شاملة للعقارات لحماية إرثهم المالي.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية", "الفرنسية"],
+      education: "دكتوراه في القانون، كلية الحقوق بجامعة جورجتاون",
+      featured: false,
+      tags: ["تخطيط العقارات", "الوصايا", "الصناديق الاستئمانية", "حماية الأصول"]
+    },
+    {
+      id: 10,
+      name: "دانيال تايلور",
+      specialty: "investing",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.6,
+      reviews: 91,
+      location: "دنفر",
+      experience: "9 سنوات",
+      bio: "مستشار استثماري متخصص في الاستثمار المستدام والمسؤول اجتماعيًا. يساعد العملاء على مواءمة استثماراتهم مع قيمهم مع تحقيق الأهداف المالية.",
+      availability: "توفر محدود",
+      languages: ["الإنجليزية"],
+      education: "ماجستير إدارة الأعمال في الأعمال المستدامة، جامعة كولورادو",
+      featured: false,
+      tags: ["استثمار ESG", "التمويل المستدام", "استثمار الأثر", "استثمار مسؤول اجتماعيًا"]
+    },
+    {
+      id: 11,
+      name: "صوفيا لي",
+      specialty: "retirement",
+      image: "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.8,
+      reviews: 79,
+      location: "بورتلاند",
+      experience: "11 سنة",
+      bio: "متخصصة في دخل التقاعد تركز على إنشاء تدفقات دخل موثوقة خلال التقاعد. خبيرة في الأقساط السنوية وتحسين المعاشات التقاعدية.",
+      availability: "متاحة للاستشارة",
+      languages: ["الإنجليزية", "اليابانية"],
+      education: "ماجستير في التخطيط المالي، جامعة ولاية بورتلاند",
+      featured: false,
+      tags: ["دخل التقاعد", "الأقساط السنوية", "تخطيط المعاشات التقاعدية", "استراتيجيات التقاعد"]
+    },
+    {
+      id: 12,
+      name: "توماس أندرسون",
+      specialty: "realestate",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      rating: 4.7,
+      reviews: 118,
+      location: "أوستن",
+      experience: "13 سنة",
+      bio: "خبير في الاستثمار العقاري السكني متخصص في العقارات المؤجرة واستراتيجيات تجديد المنازل. مطور عقاري سابق يتمتع بمعرفة واسعة بالسوق.",
+      availability: "بالموعد فقط",
+      languages: ["الإنجليزية"],
+      education: "بكالوريوس في العقارات، جامعة تكساس",
+      featured: false,
+      tags: ["العقارات السكنية", "العقارات المؤجرة", "تجديد المنازل", "الاستثمار العقاري"]
+    }
+  ]
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function ExpertPage() {
   const { t, i18n } = useTranslation();
-  const { authorId } = useParams();
+  const { expertId } = useParams();
   const navigate = useNavigate();
   const [author, setAuthor] = useState(null);
   const [authorArticles, setAuthorArticles] = useState([]);
@@ -101,11 +509,90 @@ function ExpertPage() {
   useEffect(() => {
     // Simulate loading data
     setLoading(true);
-    
+    setAuthor(authorData);
     // In a real app, you would fetch the author data based on authorId
     // For this example, we'll use the sample data
-    setAuthor(authorData);
-    
+    const foundExpert = expertsData.en.find(r => `${r.id}` === `${expertId}`);
+    if (foundExpert) {
+      console.log(expertsData);
+      console.log(foundExpert);
+
+      setAuthor({
+        id: foundExpert.id,
+        name: foundExpert.name,
+        // title: 'Senior Financial Analyst & Investment Advisor',
+        title: foundExpert.specialty,
+        avatarLarge: foundExpert.image,
+        coverImage:foundExpert.image,
+        location: foundExpert.location,
+        bio: foundExpert.bio,
+        expertise: ['Retirement Planning', 'Wealth Management', 'Sustainable Investing', 'Market Analysis', 'Financial Education'],
+        education: [
+          {
+            degree: 'MBA in Finance',
+            institution: 'Harvard Business School',
+            year: '2008 - 2010'
+          },
+          {
+            degree: 'B.S. in Economics',
+            institution: 'University of Pennsylvania',
+            year: '2004 - 2008'
+          }
+        ],
+        experience: [
+          {
+            position: 'Senior Financial Analyst',
+            company: 'Global Investments Inc.',
+            period: '2018 - Present',
+            description: 'Lead market analysis team and develop investment strategies for high-net-worth clients.'
+          },
+          {
+            position: 'Investment Advisor',
+            company: 'Wealth Partners LLC',
+            period: '2012 - 2018',
+            description: 'Managed diverse portfolios and provided personalized investment advice to clients.'
+          },
+          {
+            position: 'Financial Analyst',
+            company: 'Capital Markets Group',
+            period: '2010 - 2012',
+            description: 'Conducted research and analysis on market trends and investment opportunities.'
+          }
+        ],
+        certifications: [
+          'Certified Financial Planner (CFP)',
+          'Chartered Financial Analyst (CFA)',
+          'Certified Investment Management Analyst (CIMA)'
+        ],
+        socialLinks: {
+          twitter: 'https://twitter.com/johndoe',
+          linkedin: 'https://linkedin.com/in/johndoe',
+          github: 'https://github.com/johndoe',
+          medium: 'https://medium.com/@johndoe',
+          email: 'mailto:john.doe@example.com'
+        }
+      });
+
+    }
+
+    // {
+    //   id: 3,
+    //   name: "Jessica Williams",
+    //   specialty: "realestate",
+    //   image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    //   rating: 4.8,
+    //   reviews: 76,
+    //   location: "Chicago, IL",
+    //   experience: "10 years",
+    //   bio: "Real estate investment specialist focused on commercial properties and REITs. Expert in analyzing market trends and identifying high-potential properties.",
+    //   availability: "Available for consultation",
+    //   languages: ["English"],
+    //   education: "BS in Real Estate, University of Illinois",
+    //   featured: false,
+    //   tags: ["commercial real estate", "REITs", "property investment", "real estate market"]
+    // },
+
+
     // Filter articles by this author
     // In a real app, you would have an author field in your articles
     const authorArticlesList = articles
@@ -114,11 +601,11 @@ function ExpertPage() {
     
     setAuthorArticles(authorArticlesList);
     
-    setTimeout(() => setLoading(false), 200); // Simulate network delay
+    setTimeout(() => setLoading(false), 100); // Simulate network delay
     
     // Scroll to top when page loads
     window.scrollTo(0, 0);
-  }, [authorId]);
+  }, [expertId]);
 
   const formatDate = (dateString) => {
     const options = { 

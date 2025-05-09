@@ -119,7 +119,7 @@ useEffect(()=>{
           <Route path="/islamicconsulting" element={<TransactionsPage />} />
           <Route path="/islamicconsulting/:id" element={<ShuraMaliDetails />} />
           <Route path="/experts" element={<ExpertsPage />} />
-          <Route path="/expert/:expert" element={<ExpertPage />} />
+          <Route path="/expert/:expertId" element={<ExpertPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

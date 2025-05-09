@@ -8,7 +8,7 @@
       "courses": "Courses",
       "about": "About",
       "author": "author",
-      "islamicconsulting": "islamic Financial consulting",
+      "islamicconsulting": "islamic Financial ",
       "experts": "experts",
       "chat_bot": "Financial Advisor",
 
@@ -151,6 +151,7 @@
     "categories": {
       "all": "All",
       "investing": "Investing",
+      "islamic": "islamic",
       "saving": "Saving",
       "retirement": "Retirement",
       "realestate": "Real Estate",
