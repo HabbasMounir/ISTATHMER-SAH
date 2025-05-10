@@ -46,7 +46,7 @@ export const articles = [
       tags: ['السوق', 'التقلب', 'إدارة المخاطر'],
       date: '2025-03-15',
       readTime: 8,
-      featured: true,
+      // featured: true,
       content: `# فهم تقلبات السوق: دليل للمبتدئين
   
   ## المقدمة

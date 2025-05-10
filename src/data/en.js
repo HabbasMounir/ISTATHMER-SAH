@@ -29,7 +29,7 @@ export const articles = [
     "id": "understanding_islamic_murabaha_scholarly_perspectives",
     "title": "Understanding Islamic Murabaha: A Comprehensive Analysis of Scholarly Perspectives",
     "excerpt": "Explore the Islamic financial concept of Murabaha through the lens of various scholarly interpretations, its mechanisms, applications, and the ongoing debates about its compliance with Sharia principles.",
-    "image": "https://lh3.googleusercontent.com/d/1P7VY4yWzHTvWVu2XzLt180J6AiOrVZqI",
+    "image": "https://lh3.googleusercontent.com/d/1Pa52ibClWgiqLPx0i3B6OUMmjrb89bHK",
     "category": "islamic",
     "tags": ["Murabaha", "Islamic Banking", "Sharia Compliance", "Islamic Scholars", "Finance Ethics"],
     "date": "2025-05-09",
@@ -47,7 +47,7 @@ export const articles = [
     tags: ['Market', 'Volatility', 'Risk Management'],
     date: '2025-03-15',
     readTime: 8,
-    featured: true,
+    // featured: true,
     content: `# Understanding Market Volatility: A Guide for Beginners
 
 ## Introduction
@@ -147,7 +147,7 @@ Evaluate your situation to decide the right amount for your emergency fund.`
     tags: ['Index Funds', 'Active Management', 'Comparison'],
     date: '2025-02-20',
     readTime: 9,
-    featured: true,
+    // featured: true,
     content: `# Index Funds vs. Actively Managed Funds: The Showdown
 
 ## Introduction
