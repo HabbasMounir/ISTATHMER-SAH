@@ -1,5 +1,29 @@
 export const articles = [
   {
+    "id": "can_islamic_finance_be_a_sustainable_alternative_to_the_conventional_financial_system",
+    "title": "Can Islamic Finance Be a Sustainable Alternative to the Conventional Financial System?",
+    "excerpt": "This article explores the potential of Islamic finance to serve as a sustainable, ethical alternative to the conventional financial system by examining its principles, strengths, challenges, and growing global relevance.",
+    "image": "https://lh3.googleusercontent.com/d/1PxXSXhgeDgZglp0GZqqq9TOJCMdoCd21",
+    "category": "islamic",
+    "tags": ["Islamic Finance", "Sustainability", "Ethical Banking"],
+    "date": "2025-05-09",
+    "readTime": 9,
+    // "featured": true,
+    "content": "## Introduction\nAs global financial crises expose the vulnerabilities of conventional banking, many experts and institutions are exploring ethical and resilient alternatives. One such model gaining traction is *Islamic finance*, which is based on Shariah principles. But can it truly offer a sustainable replacement for the traditional financial system?\n\n## Core Principles of Islamic Finance\nIslamic finance is guided by ethical and religious foundations that aim to promote justice, fairness, and social welfare. Key principles include:\n\n- *Prohibition of Riba (Interest):* Islam forbids interest-based lending, promoting risk-sharing instead.\n- *Profit and Loss Sharing (PLS):* Contracts like Mudarabah and Musharakah ensure that risk and reward are fairly distributed.\n- *Asset-Backed Transactions:* All financial deals must be backed by tangible assets.\n- *Avoidance of Haram Activities:* Financing is not permitted for industries such as alcohol, gambling, or weapons.\n\n## Islamic Finance and Sustainability\nIslamic finance aligns with sustainability through its intrinsic values:\n\n- *Ethical Investing:* By screening out harmful sectors, it naturally supports ESG (Environmental, Social, Governance) principles.\n- *Financial Inclusion:* Microfinance and non-interest-based tools provide access to underbanked communities.\n- *Stability and Resilience:* By avoiding speculative instruments and emphasizing asset-backing, Islamic finance reduces systemic risk.\n\n## Comparing Islamic and Conventional Systems\n| Feature | Islamic Finance | Conventional Finance |\n|--------|----------------|----------------------|\n| Interest | Prohibited | Central mechanism |\n| Risk Sharing | Encouraged | Often minimized |\n| Asset Backing | Required | Optional |\n| Ethical Filters | Mandatory | Rarely applied |\n\nWhile the conventional system emphasizes profitability and shareholder value, Islamic finance prioritizes *balanced growth*, *social equity*, and *moral accountability*.\n\n## Challenges to Mainstream Adoption\nDespite its appeal, Islamic finance faces several barriers:\n\n- *Regulatory Divergence:* Lack of harmonized global standards.\n- *Limited Awareness:* Misconceptions and unfamiliarity outside Muslim-majority countries.\n- *Product Innovation:* Need for developing Sharia-compliant alternatives to modern financial tools.\n\n## Case Studies of Success\n- *Malaysia:* A global leader in Islamic finance infrastructure and regulation.\n- *United Kingdom:* Offers Islamic financial services despite being a secular state.\n- *Dubai and Bahrain:* Regional hubs with growing Islamic banking sectors.\n\n## Conclusion\nIslamic finance is more than a religious alternative; it presents a *sustainable*, *inclusive*, and *ethically sound* financial model. While it may not yet fully replace the conventional system, its expansion and innovation make it a strong complement—and in some cases, a preferred alternative.\n\n> “Islamic finance could lead the way in shaping a new global financial architecture that serves people and the planet.”\n\n---\n**Recommended Reading:**\n- Islamic Finance and the SDGs – UNDP & ISDB\n- AAOIFI and IFSB Guidelines\n- Principles for Responsible Banking – UNEP FI\n"
+  },
+  {
+    "id": "islamic_finance_a_comprehensive_look_at_modern_principles_and_applications",
+    "title": "Islamic Finance: A Comprehensive Look at Modern Principles and Applications",
+    "excerpt": "Explore the foundations of Islamic finance, its guiding principles, and how modern institutions apply Sharia-compliant financial instruments to serve ethical investment and inclusive economic growth globally.",
+    "image": "https://lh3.googleusercontent.com/d/1Q8E-T8HnQwA7dgA_hXdFPIjk0S_S5ll-",
+    "category": "islamic",
+    "tags": ["Islamic Finance", "Sharia Compliance", "Ethical Investing"],
+    "date": "2025-05-09",
+    "readTime": 8,
+    // "featured": true,
+    "content": "## Introduction\nIslamic finance is a financial system that operates in accordance with the principles of Islamic law (Sharia). It emphasizes ethical, interest-free, and risk-sharing practices, making it a distinctive model in the global financial landscape. This article explores its key concepts, instruments, and modern applications.\n\n## Core Principles of Islamic Finance\nIslamic finance is governed by the following foundational principles:\n\n- *Prohibition of Riba (Interest):* Any guaranteed interest on loaned money is forbidden.\n- *Risk-Sharing:* Financial transactions must involve shared risk between parties.\n- *Asset-Backed Financing:* Transactions must be backed by tangible assets or services.\n- *Avoidance of Gharar (Excessive Uncertainty):* Contracts must be clear and transparent.\n- *Ethical Investments:* Investments must avoid prohibited (haram) industries like alcohol, gambling, or weapons.\n\n## Key Financial Instruments\nIslamic financial institutions offer a range of Sharia-compliant products. These include:\n\n### 1. *Murabaha (Cost-Plus Financing)**\nA contract in which a bank buys an item and sells it to the customer at a markup, disclosing the cost and profit margin.\n\n### 2. **Ijara (Leasing)**\nThe bank buys and leases out an asset. Ownership remains with the bank while the customer uses the asset and pays rent.\n\n### 3. **Mudarabah (Profit-Sharing)**\nA partnership where one party provides capital and the other provides expertise. Profits are shared per agreement, but losses are borne by the capital provider.\n\n### 4. **Musharakah (Joint Venture)**\nBoth parties contribute capital and share profits and losses proportionally.\n\n### 5. **Sukuk (Islamic Bonds)**\nSukuk represent ownership in tangible assets or services, offering returns from underlying asset performance instead of interest.\n\n## Modern Applications and Global Reach\nIslamic finance has seen rapid growth, particularly in Southeast Asia, the Middle East, and parts of Africa. It is now also gaining traction in Western countries through:\n\n- **Islamic Banks:* Fully Sharia-compliant financial institutions.\n- *Islamic Windows:* Conventional banks offering Islamic products alongside standard ones.\n- *Takaful (Islamic Insurance):* A cooperative insurance system based on mutual assistance.\n\n## Challenges and Opportunities\n### Challenges:\n- *Regulatory Harmonization:* Lack of standardized regulations across jurisdictions.\n- *Public Awareness:* Limited understanding of Islamic financial products.\n- *Innovation vs. Authenticity:* Balancing innovation with adherence to Sharia principles.\n\n### Opportunities:\n- *Ethical Investment Appeal:* Attracting socially conscious investors.\n- *Financial Inclusion:* Serving underbanked Muslim populations.\n- *Resilience:* Lower exposure to toxic assets during financial crises.\n\n## Conclusion\nIslamic finance offers a principled alternative to conventional banking, emphasizing justice, transparency, and shared responsibility. As it continues to evolve, it holds promise not only for Muslim communities but for anyone seeking ethical financial solutions.\n\n> \"Islamic finance is not just for Muslims — it is a model of ethics, fairness, and transparency for the modern world.\"\n\n---\n**Further Reading:**\n- AAOIFI Standards\n- Islamic Financial Services Board (IFSB)\n- Reports from the Islamic Development Bank (IDB)\n"
+  },
+  {
     
       "id": "comprehensive_insight_into_islamic_banks_and_their_scholarly_discussions",
       "title": "Comprehensive Insight into Islamic Banks and Their Scholarly Discussions",
@@ -42,7 +66,7 @@ export const articles = [
     title: 'Understanding Market Volatility: A Guide for Beginners',
     excerpt:
       'Learn how market fluctuations affect your investments and strategies to navigate through volatile periods.',
-    image: 'https://placehold.co/600x400/',
+    image: 'https://lh3.googleusercontent.com/d/1Dk3kqsfZkgAybQ1NwCLj3uo_tLVeYSqP',
     category: 'investing',
     tags: ['Market', 'Volatility', 'Risk Management'],
     date: '2025-03-15',
@@ -71,7 +95,7 @@ Adapt to market volatility to make informed investment decisions.`
     title: 'Retirement Planning in Your 30s: What You Need to Know',
     excerpt:
       'Starting early is key. Discover essential strategies for building a solid retirement foundation in your thirties.',
-      image: 'https://placehold.co/600x400/',
+      image: 'https://lh3.googleusercontent.com/d/1OdpP72Npqd4un-PS33Q4dRAdJeW3a1Mx',
       category: 'retirement',
     tags: ['Retirement', 'Planning', 'Long-term'],
     date: '2025-03-10',
@@ -95,7 +119,7 @@ Early retirement planning can have a significant impact on your financial future
     title: 'Real Estate Investment Trusts: A Passive Income Strategy',
     excerpt:
       'REITs offer an accessible way to invest in real estate without directly owning property. Learn the pros and cons.',
-    image: 'https://placehold.co/600x400/',
+    image: 'https://lh3.googleusercontent.com/d/1DgbilN38YosN3XVXLDVJ47EyWKqAmxkG',
     category: 'realestate',
     tags: ['REIT', 'Passive Income', 'Real Estate'],
     date: '2025-03-05',
@@ -118,7 +142,7 @@ REITs can be a valuable part of a diversified portfolio, especially for passive 
     title: 'Emergency Funds: How Much Should You Really Save?',
     excerpt:
       'The conventional wisdom of 3-6 months of expenses might not apply to everyone. Find out what’s right for you.',
-      image: 'https://placehold.co/600x400/',
+      image: 'https://lh3.googleusercontent.com/d/1DruvJlumC9oHs4qqahTTYsKw4VFTFycH',
       category: 'saving',
     tags: ['Emergency Fund', 'Savings', 'Financial Security'],
     date: '2025-02-28',
@@ -142,7 +166,7 @@ Evaluate your situation to decide the right amount for your emergency fund.`
     title: 'Index Funds vs. Actively Managed Funds: The Showdown',
     excerpt:
       'A comprehensive comparison of passive and active investment strategies to help you make informed decisions.',
-      image: 'https://placehold.co/600x400/',
+      image: 'https://lh3.googleusercontent.com/d/1DktOasArSBoHojCfWbKyXQSzCPB3hH7o',
       category: 'investing',
     tags: ['Index Funds', 'Active Management', 'Comparison'],
     date: '2025-02-20',
@@ -165,7 +189,7 @@ Choose the fund type that best aligns with your investment goals and risk tolera
     title: 'Dividend Stocks: Building Wealth Through Regular Income',
     excerpt:
       'How to create a portfolio of dividend-paying stocks that generates consistent passive income.',
-      image: 'https://placehold.co/600x400/',
+      image: 'https://lh3.googleusercontent.com/d/1DjYii3Cc-YAIO2EPlbcmv1KZ_PIvB7R6',
       category: 'stocks',
     tags: ['Dividends', 'Income Investing', 'Stocks'],
     date: '2025-02-15',
