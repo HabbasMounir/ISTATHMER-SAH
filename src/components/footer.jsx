@@ -16,6 +16,7 @@ import {
   FaGithub
 } from 'react-icons/fa';
 import {  FaRegEnvelope, FaRocketchat } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 // function Footer() {
 //   const { t, i18n } = useTranslation();
@@ -387,11 +388,11 @@ function Footer() {
               {t('footer.quick_links')}
             </h3>
             <ul className="space-y-2">
-              {['home', 'articles', 'courses', 'about'].map((item) => (
+              {['home', 'articles', 'courses', 'about','qr'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  <Link to={`/${item}`} className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
                     {t(`navbar.${item}`)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

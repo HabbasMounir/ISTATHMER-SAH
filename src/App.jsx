@@ -20,6 +20,7 @@ import TransactionsPage from "./pages/IslamicConsulting";
 import ShuraMaliDetails from "./pages/IslamicConsultingDetails";
 import ExpertPage from "./pages/expert";
 import ExpertsPage from "./pages/expertsPage";
+import QRCodePage from "./pages/qrcode";
 
 // import { FaChevronDown, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
 // function Navbar({ isToolsOpen, setIsToolsOpen, isLanguageOpen, setIsLanguageOpen, language, setLanguage }) {
@@ -120,6 +121,7 @@ useEffect(()=>{
           <Route path="/islamicconsulting/:id" element={<ShuraMaliDetails />} />
           <Route path="/experts" element={<ExpertsPage />} />
           <Route path="/expert/:expertId" element={<ExpertPage />} />
+          <Route path="qr" element={<QRCodePage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
